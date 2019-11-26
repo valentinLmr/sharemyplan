@@ -5,6 +5,5 @@ class ServicesController < ApplicationController
     # @service = Service.where(:categroy => @services)
     @options = Service.all.order(category: :asc)
     @user_choice = params[:user_choice]
-    # @user_choice = "subscription"
   end
 end

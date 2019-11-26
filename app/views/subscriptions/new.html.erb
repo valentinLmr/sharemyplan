@@ -1,2 +1,8 @@
-<h1>Subscriptions#new</h1>
-<p>Find me in app/views/subscriptions/new.html.erb</p>
+<div class="container">
+  <%= simple_form_for [@service, @subscription] do |f| %>
+    <%= f.input :available_places %>
+    <%= f.input :password %>
+    <%= f.input :identifiant %>
+    <%= f.submit %>
+  <% end %>
+</div>

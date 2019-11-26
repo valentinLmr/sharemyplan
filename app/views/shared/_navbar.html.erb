@@ -24,7 +24,9 @@
         </li>
       <% elsif user_signed_in? %>
         <li class="nav-item dropdown mx-2">
-          <%= link_to "Partager un abo", root_path, class: "nav-item btn btn-primary btn-hp px-3"%>
+
+          <%= link_to "Partager un abonnement", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary"%>
+
         </li>
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" />
@@ -41,7 +43,7 @@
           <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link navbar-wagon-link" %>
       </li>
       <li class="nav-item dropdown mx-2">
-        <%= link_to "Partager un abo", services_path(user_choice: "subscription"), class: "nav-item btn btn-primary btn-hp px-3"%>
+        <%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
       </li>
       <% end %>
     </ul>

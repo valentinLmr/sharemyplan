@@ -6,3 +6,29 @@
 // .active {
 //   display: block;
 // }
+
+.container {
+  width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+    margin: 20px auto;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 19px;
+}
+
+#selection  {
+  display: flex;
+}
+.option {
+  display: flex;
+}
+
+.option p{
+  margin-right: 3px;
+}
