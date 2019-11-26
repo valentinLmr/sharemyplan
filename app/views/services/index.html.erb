@@ -1,0 +1,22 @@
+
+<% @services.each do |service| %>
+  <ul>
+    <li class="category" data-category="<%= service.category %>"><%= service.category %></li>
+  </ul>
+
+  <div id="option" class="d-none " data-categoryList="<%= service.category %>">
+
+    <% options_selected = @options.select { |option| option.category == service.category } %>
+
+    <% options_selected.each do |option| %>
+      <div class="options <%= option.category %>">
+        <li data-option="<%= option.name %>"><%= option.name %></li>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+
+
+
+
