@@ -1,3 +1,9 @@
+<% if @user_choice == "cotisation" %>
+  <p>Déniches ici l'abonnement de tes rêves</p>
+<% else %>
+  <p>Sélectionne l'abonnement à partager</p>
+<% end %>
+
 
 <% @services.each do |service| %>
   <ul>
