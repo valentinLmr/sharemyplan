@@ -1,14 +1,21 @@
 class SubscriptionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
+    @subscriptions = policy_scope(Subscriptions)
     @subscriptions = Subscription.all
   end
 
   def new
     @subscription = Subscription.new
+    authorize(@subscription)
   end
 
   def create
     @subscription = Subscription.new(subscription_params)
+
+    authorize(@subscription)
+
     if @subscription.save
       redirect_to services_path
     else
