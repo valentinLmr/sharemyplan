@@ -12,14 +12,37 @@
 
 
 
+
+
+
+
+
+
+const displayQuestion = (id) => {
+  const formulaire = document.getElementById('form')
+  const selectionService = document.getElementById('selection')
+  formulaire.classList.remove('d-none')
+  selectionService.classList.add('d-none')
+
+
+  const form = document.getElementById('new_subscription')
+  form.action = `/services/${id}/subscriptions`
+}
+
 const displayServices = (category) => {
-  console.log(category);
   const categoryList = document.querySelector(`[data-categoryList='${category}']`);
   // console.log(categoryList)
-  const option = document.querySelectorAll('option');
-  option.classList.toggle('d-none');
+  categoryList.classList.toggle('d-none');
 
   };
+
+
+  const options = document.querySelectorAll(".service")
+  options.forEach((option) =>{
+    option.addEventListener("click", (event) => {
+      displayQuestion(event.currentTarget.dataset.id)
+    })
+  });
 
 const categoryClicker = () => {
   const services = document.querySelectorAll(".category");

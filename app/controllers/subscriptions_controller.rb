@@ -4,13 +4,21 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
+    # @services = Service.select("category").group(:category)
+    # @service = Service.where(:categroy => @services)
+    # @options = Service.all.order(category: :asc)
+    @service = Service.find(params[:service_id])
     @subscription = Subscription.new
   end
 
   def create
-    @subscription = Subscription.new(subscription_params)
+    @subscription             = Subscription.new(subscription_params)
+    @service                  = Service.find(params[:service_id])
+    @subscription.user        = current_user
+    @subscription.service     = @service
     if @subscription.save
-      redirect_to services_path
+      # redirect_to subscriptions_path(@subscription)
+      redirect_to root_path
     else
       render :new
     end
