@@ -1,0 +1,16 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), asset-url('banner_hp.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.banner_container {
+  display: flex;
+  height: 50vh;
+}
+
+.banner_container h1 {
+  color: white;
+  margin-top: 25vh;
+}
