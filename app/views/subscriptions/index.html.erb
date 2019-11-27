@@ -1,2 +1,37 @@
-<h1>Subscriptions#index</h1>
-<p>Find me in app/views/subscriptions/index.html.erb</p>
+<div class="container">
+<!-- les lignes ci-dessous permettent de gérer l'affichage dynamique du titre -->
+  <% max_places = [] %>
+  <% @subscriptions.each do |subscription| %>
+    <% max_places << subscription.available_places %>
+  <% end %>
+  <% max_places_dispo = max_places.max %>
+
+    <% if max_places_dispo < @service.number_of_places %>
+      <h1 style="text-align: center; ">Voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h1>
+    <% else %>
+      <h3 style="text-align: center;">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
+      <div style="text-align: center; margin: 20px; color: white;"><%= link_to 'Chercher un autre abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp' %></div>
+    <% end %>
+
+<!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
+  <% @subscriptions.each do |subscription| %>
+    <% if subscription.available_places < @service.number_of_places %>
+      <div class="d-flex align-items-center mb-2" style="border: 1px solid black;">
+        <div class="mx-3 my-2">
+          <% if subscription.user.photo? %>
+            <img style="width: 50px; height: 50px; border-radius: 50%;" src="<%= subscription.user.photo %>">
+          <% else %>
+            <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+          <% end %>
+        </div>
+        <div class="mx-3 my-2"><%= subscription.user.first_name %></div>
+        <div> <%= @service.photo %></div>
+        <div class="mx-3 my-2"><img src="" alt=""></div>
+        <div class="mx-3 my-2"><%= subscription.available_places %>/<%= @service.number_of_places %> places</div>
+        <div class="mx-3 my-2"><%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois</div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+

@@ -4,6 +4,7 @@ class SubscriptionsController < ApplicationController
   def index
     @subscriptions = policy_scope(Subscriptions)
     @subscriptions = Subscription.all
+    @service = Service.find(params[:service_id])
   end
 
   def new
