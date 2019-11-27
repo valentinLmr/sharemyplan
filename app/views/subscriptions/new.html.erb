@@ -1,8 +1,49 @@
-<div class="container">
-  <%= simple_form_for [@service, @subscription] do |f| %>
-    <%= f.input :available_places %>
-    <%= f.input :password %>
-    <%= f.input :identifiant %>
-    <%= f.submit %>
-  <% end %>
+<div class="container_subscription">
+
+  <div class="form_subscription" >
+    <div class="top d-flex justify-content-between">
+
+
+      <div class="avatar-user">
+        <% if @user.photo? %>
+          <img src="<%= @user.photo %>" %>">
+        <% else %>
+          <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+        <% end %>
+      </div>
+
+      <div class="border-50"></div>
+
+      <div class="image-service">
+        <%= image_tag(@service.photo) %>
+      </div>
+      <h2 > <strong>Un super service de <%= @service.category.upcase %></strong> </h2>
+    </div>
+
+    <div class="central d-flex justify-content-between">
+
+      <div class="central">
+        <p>Votre prix par mois</p>
+        <h2> <strong> <%= @service.total_price %>€ </strong> </h2>
+      </div>
+
+      <div class="center">
+        <p> le prix de vos co-abonnés</p>
+        <h2 > <strong> <%= @service.total_price.fdiv(@service.number_of_places)%>€ </strong> </h2>
+      </div>
+
+      <div class="form">
+        <%= simple_form_for [@service, @subscription] do |f| %>
+          <%= f.input :available_places %>
+      </div>
+    </div>
+
+    <div class="bottom_subscription" style="background-color: white">
+      <%= f.input :password %>
+      <%= f.input :identifiant %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
