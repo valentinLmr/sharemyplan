@@ -42,12 +42,12 @@ puts "finished"
 
 puts "Creating services"
 
-Service.create!(name: 'Netflix Premium',  number_of_places: '4', total_price: '14', category: 'VOSD')
-Service.create!(name: 'Netflix Standard', number_of_places: '2', total_price: '10', category: 'VOSD')
-Service.create!(name: 'OCS',              number_of_places: '4', total_price: '12', category: 'VOSD')
-Service.create!(name: 'Spotify family',   number_of_places: '6', total_price: '14', category: 'Music')
-Service.create!(name: 'Deezer Premium',   number_of_places: '6', total_price: '14', category: 'Music')
-Service.create!(name: 'Apple TV Premium', number_of_places: '4', total_price: '12', category: 'VOSD')
+Service.create!(name: 'Netflix Premium',  number_of_places: '4', total_price: '14', category: 'VOSD', photo: 'netflix.png')
+Service.create!(name: 'Netflix Standard', number_of_places: '2', total_price: '10', category: 'VOSD', photo: 'netflix.png')
+Service.create!(name: 'OCS',              number_of_places: '4', total_price: '12', category: 'VOSD', photo: 'ocs.png')
+Service.create!(name: 'Spotify family',   number_of_places: '6', total_price: '14', category: 'Music', photo: 'spotify.png')
+Service.create!(name: 'Deezer Premium',   number_of_places: '6', total_price: '14', category: 'Music', photo: 'deezer.png')
+Service.create!(name: 'Apple TV Premium', number_of_places: '4', total_price: '12', category: 'VOSD', photo: 'appletv.png')
 
 
 puts "finished"

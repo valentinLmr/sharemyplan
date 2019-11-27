@@ -6,3 +6,49 @@
 // .active {
 //   display: block;
 // }
+
+
+
+.container {
+  max-width: 1144px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+    margin: 20px auto;
+}
+
+h1 {
+  color: white;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 19px;
+}
+
+// #selection  {
+//   display: flex;
+// }
+#selection {
+     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.option p{
+  margin-right: 3px;
+}
+
+.options a {
+  margin-right: 5px;
+
+}
+
+img {
+  border-radius: 10px;
+  margin-right: 40px;
+}
+
+

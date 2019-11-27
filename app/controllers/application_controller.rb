@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  # ci dessous grise mis en comment suite pb merge
+  # before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
   # Pundit: white-list approach.
@@ -18,7 +20,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :photo])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :phone_number])
+
+    # PB MERGE grise cidessous a suivre...
+    # devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :phone_number])
   end
 
   private
