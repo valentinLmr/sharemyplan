@@ -15,7 +15,7 @@
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
   <% @subscriptions.each do |subscription| %>
-    <% if subscription.available_places < @service.number_of_places %>
+    <% # if subscription.available_places < @service.number_of_places %>
       <div class="subcard d-flex align-items-center">
         <div class="subcard-left">
           <div class="subcard-avatar mx-3 my-2">
@@ -39,7 +39,7 @@
         </div>
 
       </div>
-    <% end %>
+    <% # end %>
   <% end %>
 </div>
 

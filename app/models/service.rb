@@ -9,8 +9,8 @@ class Service < ApplicationRecord
     "presse" => "fas fa-book",
     "logiciel" => "fab fa-chrome"
   }
-  
-  has_many :subscriptions
+
+  has_many :subscriptions, dependent: :destroy
   validates :name, presence: true
   validates :description, presence: true
   validates :number_of_places, presence: true
