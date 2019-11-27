@@ -16,6 +16,10 @@ class SubscriptionsController < ApplicationController
     @user = current_user
     @service = Service.find(params[:service_id])
     @subscription = Subscription.new
+
+    # TEST
+    authorize(@subscription)
+
   end
 
   def create
@@ -24,6 +28,9 @@ class SubscriptionsController < ApplicationController
     @service                  = Service.find(params[:service_id])
     @subscription.user        = current_user
     @subscription.service     = @service
+
+    # TEST
+    authorize(@subscription)
 
     if @subscription.save
       # redirect_to subscriptions_path(@subscription)
@@ -35,6 +42,9 @@ class SubscriptionsController < ApplicationController
 
   def edit
     @subscription = Subscription.find(params[:id])
+
+    # TEST
+    authorize(@subscription)
   end
 
   def update
