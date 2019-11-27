@@ -13,7 +13,7 @@ def get_random_user(user_array) (user_array)
   user_array[rand(1..nb_user-1).round]
 end
 
-Subscription.destroy_all
+# Subscription.destroy_all
 
 puts "begining of seed"
 
