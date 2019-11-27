@@ -2,7 +2,9 @@ class SubscriptionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @subscriptions = policy_scope(Subscription)
+    # @subscriptions = policy_scope(Subscription)
+    # policy scope pas necessaire ici car pas de filtre par type de user
+
     @subscriptions = Subscription.all
     @service = Service.find(params[:service_id])
   end
@@ -11,15 +13,13 @@ class SubscriptionsController < ApplicationController
     # @services = Service.select("category").group(:category)
     # @service = Service.where(:categroy => @services)
     # @options = Service.all.order(category: :asc)
+    @user = current_user
     @service = Service.find(params[:service_id])
     @subscription = Subscription.new
-    authorize(@subscription)
   end
 
   def create
     @subscriptions            = Subscription.new(subscription_params)
-
-    authorize(@subscription)
 
     @service                  = Service.find(params[:service_id])
     @subscription.user        = current_user
@@ -39,6 +39,9 @@ class SubscriptionsController < ApplicationController
 
   def update
     @subscription = Subscription.find(params[:id])
+
+    authorize(@subscription)
+
     if @subscription.update(Subscription_params)
       redirect_to subscription_path
     else
@@ -48,6 +51,9 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @subscription = Subscription.find(params[:di])
+
+    authorize(@subscription)
+
     @subscription.delete
 
     redirect_to dashboard_path
