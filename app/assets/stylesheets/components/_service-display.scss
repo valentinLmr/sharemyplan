@@ -9,7 +9,7 @@
 
 
 
-.container {
+.container-index {
   max-width: 1144px;
     height: auto;
     border-radius: 10px;
@@ -17,14 +17,18 @@
     margin: 20px auto;
 }
 
-h1 {
-  color: white;
+.container-index h1 {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .filters {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 19px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 // #selection  {
@@ -49,6 +53,7 @@ h1 {
 .service img {
   border-radius: 10px;
   margin-right: 40px;
+  border: 1px solid #e3e4e5
 }
 
 
