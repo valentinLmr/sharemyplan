@@ -1,5 +1,8 @@
 class SubscriptionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
+    @subscriptions = policy_scope(Subscriptions)
     @subscriptions = Subscription.all
     @service = Service.find(params[:service_id])
   end
@@ -10,13 +13,18 @@ class SubscriptionsController < ApplicationController
     # @options = Service.all.order(category: :asc)
     @service = Service.find(params[:service_id])
     @subscription = Subscription.new
+    authorize(@subscription)
   end
 
   def create
-    @subscription             = Subscription.new(subscription_params)
+    @subscriptions            = Subscription.new(subscription_params)
+
+    authorize(@subscription)
+
     @service                  = Service.find(params[:service_id])
     @subscription.user        = current_user
     @subscription.service     = @service
+
     if @subscription.save
       # redirect_to subscriptions_path(@subscription)
       redirect_to root_path
