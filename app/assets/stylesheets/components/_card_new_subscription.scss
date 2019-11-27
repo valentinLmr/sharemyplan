@@ -3,6 +3,10 @@
   padding: 0px;
   max-width: 1144px;
   margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+
+
 }
 
 .top {
@@ -13,8 +17,9 @@
   background-color: white;
   padding: 30px 100px;
   justify-content: space-between;
-  margin:0px 0px 5px 0px;
-  height: 200px;
+  margin:0px 5px 5px 0px;
+  height: 150px;
+  border-top-left-radius: 10px;
 }
 .avatar-user img {
   width: 100px;
@@ -31,46 +36,68 @@
 
 .image-service{
   background-color: white;
-  padding: 30px 100px;
+  padding: 15px 100px;
   margin:0px 5px 5px 0px;
-  height: 200px;
+  height: 150px;
 
 }
 .top h2 {
   background-color: white;
-  padding: 30px 100px;
+  padding: 30px 30px;
   margin:0px 0px 5px 0px;
   font-family: nunito;
   color: #4281A4;
   text-align: center;
-  height: 200px;
+  height: 150px;
+  border-top-right-radius: 10px;
 }
 .central {
   background-color: white;
-  padding: 0px 60px;
+
+
+  .central-left{
+  padding: 10px 60px;
   margin: 0px 0px 5px 0px;
   text-align: center;
   font-family: nunito;
   height: 100px;
+  }
 
-  .central p {
+  .central-left p {
     width: 144px;
     margin:0px;
     color: #4281A4;
   }
-  .central h2 {
+  .central-left h2 {
   color:#48A9A6
   }
 
   .center {
     background-color: white;
-    padding: 0px 60px;
+    padding: 10px 40px;
     margin: 0px 0px 5px 0px;
     text-align: center;
     font-family: nunito;
     height: 100px;
+    width:300px;
   }
 
+  .place {
+  padding: 10px 25px;
+  margin: 0px 0px 5px 0px;
+  text-align: center;
+  font-family: nunito;
+  height: 100px;
+  }
+  .place p {
+    width: 207px;
+    margin:0px;
+    color: #4281A4;
+  }
+
+  .place h2 {
+  color:#48A9A6
+  }
   .center p {
     width: 198px;
     margin:0px;
@@ -83,23 +110,40 @@
 
   .form {
     background-color: white;
-    padding: 0px 60px;
+    padding: 10px 60px;
     margin:0px 0px 5px 0px;
     color: #4281A4;
     height: 100px;
+    text-align:center;
   }
 }
 
 .bottom_subscription {
   background-color: white;
   color: #4281A4;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-bottom-radius: 10px;
+  text-align:center;
+
   .form-group {
     margin: 0 auto;
     width: 500px;
-    text-align: center
+    text-align: center;
   }
-  input{
-    margin: 0 auto;
+  .button-submit-card-subscription{
+    border-radius: 10px;
+    margin: 0px auto;
+    background-color: #4281A4;
+    margin: 10px;
+    color: white;
+  }
 
-  }
 }
+.form-group input {
+  border-radius: 50px;
+
+}
+
+
+
