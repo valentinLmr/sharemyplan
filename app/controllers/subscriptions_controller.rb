@@ -5,8 +5,8 @@ class SubscriptionsController < ApplicationController
     # @subscriptions = policy_scope(Subscription)
     # policy scope pas necessaire ici car pas de filtre par type de user
 
-    @subscriptions = Subscription.all
-    @service = Service.find(params[:service_id])
+    @service       = Service.find(params[:service_id])
+    @subscriptions = Subscription.where(service: @service)
   end
 
   def new
