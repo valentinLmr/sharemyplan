@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @subscriptions = policy_scope(Subscriptions)
+    @subscriptions = policy_scope(Subscription)
     @subscriptions = Subscription.all
     @service = Service.find(params[:service_id])
   end
