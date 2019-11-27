@@ -11,6 +11,7 @@ class SubscriptionsController < ApplicationController
     # @services = Service.select("category").group(:category)
     # @service = Service.where(:categroy => @services)
     # @options = Service.all.order(category: :asc)
+    @user = current_user
     @service = Service.find(params[:service_id])
     @subscription = Subscription.new
     authorize(@subscription)
