@@ -42,6 +42,7 @@ puts "finished"
 
 puts "Creating services"
 
+
 Service.create!(name: 'Netflix Premium',  number_of_places: '4',    total_price: '14',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'netflix.png')
 Service.create!(name: 'Netflix Standard', number_of_places: '2',    total_price: '10',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'netflix.png')
 Service.create!(name: 'OCS',              number_of_places: '4',    total_price: '12',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'ocs.png')
@@ -77,6 +78,7 @@ Service.create!(name: 'Le Figaro',        number_of_places: '5',    total_price:
 Service.create!(name: 'Liberation',       number_of_places: '2',    total_price: '8',     category: 'presse',      description: 'Le journal en version numérique',               photo: 'liberation.png')
 Service.create!(name: 'L Express',        number_of_places: '2',    total_price: '8',     category: 'presse',      description: 'Le journal en version numérique',               photo: 'lexpress.png')
 Service.create!(name: 'Izneo',            number_of_places: '6',    total_price: '13',    category: 'presse',      description: 'Lisez comme vous le voulez ',                   photo: 'izneo.png')
+
 
 puts "finished"
 

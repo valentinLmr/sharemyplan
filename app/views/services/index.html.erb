@@ -1,47 +1,26 @@
-
-
-
-<div class="container">
-
+<div class="container container-index">
   <% if @user_choice == "cotisation" %>
     <h1>Déniches ici l'abonnement de tes rêves</h1>
   <% else %>
     <h1>Sélectionne l'abonnement à partager</h1>
   <% end %>
 
-  <div class="filters ">
-    <% Service::CATEGORIES.each do |category| %>
-      <h2 class="category" data-category="<%= category %>"><%= category %></h2>
+  <div class="filters">
+    <% Service::CATEGORIES.each do |category, icon| %>
+      <h2 class="category" style="cursor: pointer;" data-category="<%= category %>">
+        <i class='<%= icon %>'></i>
+      </h2>
     <% end %>
   </div>
 
   <div id="selection">
     <% @services.each do |service| %>
-      <!-- <div class="option d-none " data-categoryList="<%= service.category %>">
- -->
-        <% options_selected = @options.select { |option| option.category == service.category } %>
-
-
-        <% options_selected.each do |option| %>
-          <%#= link_to new_service_subscription_path(option) do %>
-          <% path = @user_choice == "cotisations" ? "/services/#{option.id}/subscriptions" : "/services/#{option.id}/subscriptions/new" %>
-          <%= link_to path do %>
-            <div class="options <%= option.category %> d-none" data-categoryList="<%= service.category %>">
-              <p class="service" data-id="<%= option.id %>"><%= image_tag(option.photo, height: '100', width: '200')%></p>
-            </div>
-          <% end %>
-        <% end %>
-      <!-- </div> -->
+      <% path = @user_choice == "cotisations" ? "/services/#{service.id}/subscriptions" : "/services/#{service.id}/subscriptions/new" %>
+      <%= link_to path do %>
+        <div class="options <%= service.category %> d-none" data-categoryList="<%= service.category %>">
+          <p class="service" data-id="<%= service.id %>"><%= image_tag(service.photo, height: '100', width: '200')%></p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-

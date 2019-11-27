@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
   CATEGORIES = {
+
     "musique" => "fas fa-music",
     "vosd" => "far fa-play-circle",
     "ecommerce" => "fas fa-shopping-cart",
@@ -8,6 +9,7 @@ class Service < ApplicationRecord
     "presse" => "fas fa-book",
     "logiciel" => "fab fa-chrome"
   }
+  
   has_many :subscriptions
   validates :name, presence: true
   validates :description, presence: true
