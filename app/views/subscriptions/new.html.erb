@@ -22,7 +22,7 @@
 
     <div class="central d-flex justify-content-between">
 
-      <div class="central">
+      <div class="central-left">
         <p>Votre prix par mois</p>
         <h2> <strong> <%= @service.total_price %>€ </strong> </h2>
       </div>
@@ -32,16 +32,21 @@
         <h2 > <strong> <%= @service.total_price.fdiv(@service.number_of_places)%>€ </strong> </h2>
       </div>
 
+      <div class="place">
+        <p> Nombre de place de ce service</p>
+        <h2><strong><%= @service.number_of_places %></strong></h2>
+      </div>
+
       <div class="form">
         <%= simple_form_for [@service, @subscription] do |f| %>
-          <%= f.input :available_places %>
+          <%= f.input :available_places, required: true %>
       </div>
     </div>
 
     <div class="bottom_subscription" style="background-color: white">
-      <%= f.input :password %>
-      <%= f.input :identifiant %>
-      <%= f.submit %>
+      <%= f.input :password, required: true %>
+      <%= f.input :identifiant, required: true %>
+      <%= f.submit :class => 'button-submit-card-subscription'%>
       <% end %>
     </div>
   </div>

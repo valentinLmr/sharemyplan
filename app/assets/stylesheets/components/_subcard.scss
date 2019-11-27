@@ -19,7 +19,7 @@
 }
 
 .subcard-name {
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 
 .subcard-places {
@@ -38,13 +38,19 @@
 }
 
 .subcard-left {
-  width: 34%;
+  width: 22%;
+  display: flex;
+  align-items: center;
+}
+
+.subcard-left-logo {
+  width: 15%;
   display: flex;
   align-items: center;
 }
 
 .subcard-middle {
-  width: 33%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
