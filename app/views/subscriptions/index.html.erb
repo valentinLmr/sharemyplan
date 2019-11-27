@@ -6,7 +6,7 @@
   <% end %>
   <% max_places_dispo = max_places.max %>
 
-    <% if max_places_dispo < @service.number_of_places %>
+    <% if max_places_dispo != nil && max_places_dispo < @service.number_of_places %>
       <h1 style="text-align: center; ">Voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h1>
     <% else %>
       <h3 style="text-align: center;">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
