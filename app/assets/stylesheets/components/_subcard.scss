@@ -1,0 +1,58 @@
+.subcard {
+  height: 110px;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 1px 1px 1px 1px #e8e8e8;
+}
+
+.subcard-logo img {
+  height: 60px;
+  border-radius: 30px;
+  border: 1px solid #e3e4e5;
+}
+
+.subcard-avatar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.subcard-name {
+  font-size: 1.6em;
+}
+
+.subcard-places {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.subcard-price {
+  color: #48A9A6;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.fa-plus-circle {
+  font-size: 1.5em;
+}
+
+.subcard-left {
+  width: 34%;
+  display: flex;
+  align-items: center;
+}
+
+.subcard-middle {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subcard-right {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
