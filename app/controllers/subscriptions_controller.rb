@@ -23,7 +23,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    @subscriptions            = Subscription.new(subscription_params)
+    @subscription             = Subscription.new(subscription_params)
 
     @service                  = Service.find(params[:service_id])
     @subscription.user        = current_user
