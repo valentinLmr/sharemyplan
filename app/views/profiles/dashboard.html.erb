@@ -3,13 +3,13 @@
 
 <div class="dashboard-co-abonne py-3 mt-4">
   <div class=" top-div d-flex justify-content-between py-2">
-    <h3>Vos abonnements en tant que co-abonnés</h3>
-    <div><%= link_to 'Ajouter un abonnement', new_abonnement_path, class: 'btn btn-primary' %></div>
+    <h3>Vous paragez actuellement ces abonnement</h3>
+    <div><%= link_to 'Ajouter un abonnement', new_service_subscription_path(current_user), class: 'btn btn-primary' %></div>
   </div>
-  <% if current_user.abonnements.last != nil %>
-    <div class="list-abonnement-proprio mt-3">
-      <% @current_user.abonnements.each do |abonnement| %>
-        <%= render '/shared/card-proprio', abonnement: abonnement %>
+  <% if current_user.subscriptions.last != nil %>
+    <div class="list-subscription-proprio mt-3">
+      <% @subscriptions.each do |subscription| %>
+        <%= subscription.name %>
       <% end %>
     </div>
   <% else %>
@@ -19,17 +19,17 @@
 
 <div class="dashboard-locataire py-3 mt-4">
   <div class="top-div d-flex justify-content-between py-2">
-    <h3>Vos abonnements en tant que locataire</h3>
-    <div><%= link_to 'Réserver un nouveau abonnement', abonnements_path(@abonnements), class: 'btn btn-primary' %></div>
+    <h3>Vous êtes actuellement co abonné sur ces abonnements</h3>
+    <div><%= link_to 'Réserver un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-primary' %></div>
   </div>
-  <% if current_user.rentals.last != nil %>
-    <div class="list-abonnement-proprio mt-3">
-      <% @current_user.rentals.each do |rental| %>
-        <%= render '/shared/card-locataire', rental: rental %>
+  <% if @cotisations != nil %>
+    <div class="list-subscription-proprio mt-3">
+      <% @cotisations.each do |cotisation| %>
+        <%= cotisation.name %>
       <% end %>
     </div>
   <% else %>
-    <p>Vous ne louez aucun abonnements !</p>
+    <p>Vous ne louez aucun abonnement !</p>
   <% end %>
 </div>
 
