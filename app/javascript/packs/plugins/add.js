@@ -30,10 +30,11 @@ const displayQuestion = (id) => {
 }
 
 const displayServices = (category) => {
-  const categoryList = document.querySelector(`[data-categoryList='${category}']`);
+  const categoryLists = document.querySelectorAll(`[data-categoryList='${category}']`);
   // console.log(categoryList)
+  categoryLists.forEach((categoryList)=> {
   categoryList.classList.toggle('d-none');
-
+  });
   };
 
 
