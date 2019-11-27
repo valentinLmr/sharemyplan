@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  # je degrise car on arrive sur la connexion du user
-  # get '/dashboard', to: 'profiles#dashboard'
+  get '/dashboard', to: 'profiles#dashboard'
 
   resources :services, only:[:index, :show] do
     resources :subscriptions, only:[:index, :new, :create]
@@ -18,7 +17,4 @@ Rails.application.routes.draw do
   resources :cotisations, only:[:destroy, :show] do
     resources :reviews, only:[:index, :new, :create, :update]
   end
-
-
-
 end
