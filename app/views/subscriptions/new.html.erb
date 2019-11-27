@@ -39,13 +39,13 @@
 
       <div class="form">
         <%= simple_form_for [@service, @subscription] do |f| %>
-          <%= f.input :available_places %>
+          <%= f.input :available_places, required: true %>
       </div>
     </div>
 
     <div class="bottom_subscription" style="background-color: white">
-      <%= f.input :password %>
-      <%= f.input :identifiant %>
+      <%= f.input :password, required: true %>
+      <%= f.input :identifiant, required: true %>
       <%= f.submit :class => 'button-submit-card-subscription'%>
       <% end %>
     </div>
