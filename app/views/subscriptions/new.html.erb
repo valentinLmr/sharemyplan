@@ -1,14 +1,9 @@
-
-
 <div class="container_subscription">
-
-
   <div class="container mt-3">
-
     <div class="new-subcard">
       <br>
-      <div class="new-subcard-header">
 
+      <div class="new-subcard-header">
         <div class="subcard-header-left">
           <div class="subcard-avatar mx-3 my-1">
             <% if current_user.photo? %>
@@ -18,68 +13,51 @@
             <% end %>
           </div>
         </div>
-
         <div class="subcard-header-middle">
           <div class="subcard-logo mx-3 my-2"><%= image_tag(@service.photo) %> </div>
         </div>
-
         <div class="subcard-header-right">
           <div><%= @service.description %></div>
         </div>
-
       </div>
 
       <div class="new-sub-body">
+        <div class="central d-flex justify-content-between">
+          <div class="central-left">
+            <p><strong>Votre prix par mois</strong></p>
+            <br>
+            <h2> <strong> <%= @service.total_price %>€ </strong> </h2>
+          </div>
 
+          <div class="center">
+            <p><strong>Prix / co-abonnés / mois</strong></p>
+            <br>
+            <h2 > <strong> <%= @service.total_price.fdiv(@service.number_of_places).round(2)%>€ </strong> </h2>
+          </div>
 
-       <div class="central d-flex justify-content-between">
+          <div class="place">
+            <p style="font-weight: bold;">Places totales</p>
+            <br>
+            <h2 id="max" style="font-weight: bold;"><%= @service.number_of_places %></h2>
+          </div>
 
-        <div class="central-left">
-          <p><strong>Votre prix par mois</strong></p>
-          <br>
-          <h2> <strong> <%= @service.total_price %>€ </strong> </h2>
-        </div>
-
-        <div class="center">
-          <p><strong>Prix / co-abonnés / mois</strong></p>
-          <br>
-          <h2 > <strong> <%= @service.total_price.fdiv(@service.number_of_places).round(2)%>€ </strong> </h2>
-        </div>
-
-        <div class="place">
-          <p style="font-weight: bold;">Places totales</p>
-          <br>
-          <h2 id="max" style="font-weight: bold;"><%= @service.number_of_places %></h2>
-        </div>
-
-        <div class="form d-flex">
-          <div class="less_place"><i class="fas fa-angle-left"></i></div>
+          <div class="form d-flex">
+            <span class="less_place"><i class="fas fa-angle-left"></i></span>
+            <span class="add_place"> <i class="fas fa-angle-right"></i> </span>
             <%= simple_form_for [@service, @subscription] do |f| %>
               <%= f.input :available_places, label: 'Places dispos ?', input_html: { value: '1'} %>
-
-          <div class="add_place"> <i class="fas fa-angle-right"></i> </div>
+          </div>
+        </div>
       </div>
 
-      </div>
-
-    </div>
-
-    <div class="sub-footer">
-
-      <div class="bottom_subscription" style="background-color: white">
-        <%= f.input :identifiant, required: true %>
-        <%= f.input :password, required: true, label: 'Mot de passe' %>
-        <%= f.submit :class => 'button-submit-card-subscription btn-hp py-1 px-3 mt-3', value: 'Terminé !'%>
-        <% end %>
+      <div class="sub-footer">
+        <div class="bottom_subscription" style="background-color: white">
+          <%= f.input :identifiant, required: true %>
+          <%= f.input :password, required: true, label: 'Mot de passe' %>
+          <%= f.submit :class => 'button-submit-card-subscription btn-hp py-1 px-3 mt-3', value: 'Terminé !'%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-
-
-
-
-  </div>
-
-
 </div>
-
