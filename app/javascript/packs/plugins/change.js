@@ -19,16 +19,21 @@ const changePlace = () => {
 
     const less = document.querySelector('.less_place');
 
-    less.addEventListener("click", (event) => {
-       // console.log(event.currentTarget);
-        lessPlace(event.currentTarget);
-    });
+    if (less) {
+      less.addEventListener("click", (event) => {
+         // console.log(event.currentTarget);
+          lessPlace(event.currentTarget);
+      });
+    }
+
 
     const add = document.querySelector('.add_place');
 
-    add.addEventListener("click", (event) => {
-     // console.log(event.currentTarget);
-      addPlace(event.currentTarget);
-    });
+    if (add) {
+      add.addEventListener("click", (event) => {
+       // console.log(event.currentTarget);
+        addPlace(event.currentTarget);
+      });
+    }
 };
 export { changePlace }

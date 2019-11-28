@@ -1,9 +1,9 @@
  <div class="container container-index">
 
   <% if @user_choice == "cotisations" %>
-    <h1>Déniches ici l'abonnement de tes rêves</h1>
+    <h1 style="color: #48A9A6;">Déniches ici l'abonnement de tes rêves</h1>
   <% else %>
-    <h1>Sélectionne l'abonnement à partager</h1>
+    <h1 style="color: #48A9A6;">Sélectionne l'abonnement à partager</h1>
   <% end %>
 
     <div class="filters">
@@ -23,7 +23,7 @@
     <% @services.each do |service| %>
       <% path = @user_choice == "cotisations" ? "/services/#{service.id}/subscriptions" : "/services/#{service.id}/subscriptions/new" %>
       <%= link_to path do %>
-        <div class="options <%= service.category %> d-none" data-categoryList="<%= service.category %>">
+        <div class="options <%= service.category %>" data-categoryList="<%= service.category %>">
           <p class="service" data-id="<%= service.id %>"><%= image_tag(service.photo, height: '100', width: '200')%></p>
         </div>
       <% end %>
@@ -31,8 +31,6 @@
   </div>
 </div>
 
+<div id="first-click" data-click="false"></div>
 
 
-<script>
-  document.getElementById("modifier_class").className = "class2";
-</script>
