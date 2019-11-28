@@ -1,17 +1,23 @@
-<div class="container container-index">
+ <div class="container container-index">
+
   <% if @user_choice == "cotisations" %>
     <h1>Déniches ici l'abonnement de tes rêves</h1>
   <% else %>
     <h1>Sélectionne l'abonnement à partager</h1>
   <% end %>
 
-  <div class="filters">
+    <div class="filters">
     <% Service::CATEGORIES.each do |category, icon| %>
       <h2 class="category" style="cursor: pointer;" data-category="<%= category %>">
         <i class='<%= icon %>'></i>
       </h2>
     <% end %>
   </div>
+
+
+</div>
+
+<div class="container container-index">
 
   <div id="selection">
     <% @services.each do |service| %>
@@ -24,3 +30,9 @@
     <% end %>
   </div>
 </div>
+
+
+
+<script>
+  document.getElementById("modifier_class").className = "class2";
+</script>

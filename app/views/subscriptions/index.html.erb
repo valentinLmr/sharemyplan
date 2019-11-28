@@ -14,7 +14,7 @@
       <% end %>
     <% else %>
       <h3 class="index-sub-title mt-3 mb-3" style="text-align: center;">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
-      <div style="text-align: center; margin: 20px; color: white;"><%= link_to 'Chercher un autre abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp' %></div>
+      <div style="text-align: center; margin: 20px;"><%= link_to 'Chercher un autre abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp btn-return' %></div>
     <% end %>
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->

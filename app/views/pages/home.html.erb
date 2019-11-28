@@ -2,7 +2,14 @@
 
 <div class="banner">
   <div class="banner-content text-center">
-    <h1>Pay less, Enjoy more</h1>
+
+    <h1 class="mb-3">Pay less, Enjoy
+        <span
+           class="txt-rotate"
+           data-period="2000"
+           data-rotate='[ " more", " much more !" ]'></span>
+      </h1>
+
     <p>We make services cheaper</p>
     <%= link_to "Trouver un abonnement", services_path(user_choice: "cotisations"), class: "btn btn-lg btn-primary btn-hp"  %>
 

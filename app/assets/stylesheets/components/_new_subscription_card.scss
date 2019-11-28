@@ -1,0 +1,66 @@
+.new-subcard {
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+
+}
+
+.new-subcard-header {
+  border-bottom: 3px solid #eaeced;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.subcard-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 33%;
+}
+
+.subcard-header-middle {
+  width: 33%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  text-align: align;
+}
+
+.subcard-header-right {
+  width: 34%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #4281A4;
+  font-size: 1.2em;
+}
+
+
+.new-sub-body {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #eaeced;
+}
+
+.central-left, .center, .place {
+  border-right: 2px solid #eaeced;
+}
+
+.subcard-logo img {
+  width: 160px;
+  height: 80px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+
+}
