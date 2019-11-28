@@ -10,14 +10,6 @@
 // export { listenSteps }
 
 
-
-
-
-
-
-
-
-
 const displayQuestion = (id) => {
   const formulaire = document.getElementById('form')
   const selectionService = document.getElementById('selection')
@@ -35,7 +27,7 @@ const displayServices = (category) => {
   categoryLists.forEach((categoryList)=> {
   categoryList.classList.toggle('d-none');
   });
-  };
+};
 
 
   const options = document.querySelectorAll(".service")
