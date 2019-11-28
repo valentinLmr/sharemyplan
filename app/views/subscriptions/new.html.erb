@@ -29,7 +29,7 @@
 
       <div class="center">
         <p> le prix de vos co-abonnés</p>
-        <h2 > <strong> <%= @service.total_price.fdiv(@service.number_of_places)%>€ </strong> </h2>
+        <h2 > <strong> <%= @service.total_price.fdiv(@service.number_of_places).round(2)%>€ </strong> </h2>
       </div>
 
       <div class="place">
@@ -37,13 +37,17 @@
         <h2><strong><%= @service.number_of_places %></strong></h2>
       </div>
 
-      <div class="form">
-        <%= simple_form_for [@service, @subscription] do |f| %>
-          <%= f.input :available_places, required: true %>
+      <div class="form d-flex ">
+          <div class="less_place"><i class="fas fa-angle-left"></i></div>
+            <%= simple_form_for [@service, @subscription] do |f| %>
+              <%= f.input :available_places, input_html: { value: '5'} %>
+              <% end %>
+          <div class="add_place"> <i class="fas fa-angle-right"></i></i> </div>
       </div>
     </div>
 
     <div class="bottom_subscription" style="background-color: white">
+      <%= simple_form_for [@service, @subscription] do |f| %>
       <%= f.input :password, required: true %>
       <%= f.input :identifiant, required: true %>
       <%= f.submit :class => 'button-submit-card-subscription'%>
