@@ -1,0 +1,25 @@
+.add-card {
+  width: 250px;
+  height: 300px;
+  border-width: 2px;
+  border-color: black;
+  background-color: white;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+  display: flex;
+  // margin-top: 8px;
+  // margin-left: 8px;
+}
+
+.add-card-plus {
+  font-size: 48px;
+  color: #6A6C6E;
+  opacity: 0.5;
+  margin: auto;
+  text-decoration: none;
+}
+
+.add-card-plus {
+  color: black;
+  text-decoration: none;
+}

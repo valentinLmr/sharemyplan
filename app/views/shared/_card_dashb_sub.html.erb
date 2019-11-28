@@ -1,4 +1,4 @@
-<div class="co-abo-card m-2">
+<div class="co-abo-card m-auto">
   <%= image_tag(subscription.service.photo, class: "co-abo-card-photo") %>
   <div class="service-same"><%= subscription.name %></div>
   <div class="co-abo-price"><%= subscription.service.total_price.fdiv(subscription.service.number_of_places).round(0) %>€ / mois</div>
