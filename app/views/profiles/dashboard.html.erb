@@ -54,7 +54,7 @@
   <% if @cotisations.count > 0 %>
     <div class="list-subscription-proprio mt-3">
       <% @cotisations.each do |cotisation| %>
-        <%= cotisation.name %>
+        <%= cotisation.subscription.service.name %>
       <% end %>
     </div>
   <% else %>
