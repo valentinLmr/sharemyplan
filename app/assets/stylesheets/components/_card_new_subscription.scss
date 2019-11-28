@@ -45,7 +45,7 @@
   background-color: white;
   padding: 30px 30px;
   margin:0px 0px 5px 0px;
-  font-family: nunito;
+  font-family: Raleway;
   color: #4281A4;
   text-align: center;
   height: 150px;
@@ -59,8 +59,9 @@
   padding: 10px 60px;
   margin: 0px 0px 5px 0px;
   text-align: center;
-  font-family: nunito;
+  font-family: Raleway;
   height: 100px;
+  width: 25%;
   }
 
   .central-left p {
@@ -77,16 +78,17 @@
     padding: 10px 40px;
     margin: 0px 0px 5px 0px;
     text-align: center;
-    font-family: nunito;
+    font-family: Raleway;
     height: 100px;
     width:300px;
+    width: 25%;
   }
 
   .place {
   padding: 10px 25px;
   margin: 0px 0px 5px 0px;
   text-align: center;
-  font-family: nunito;
+  font-family: Raleway;
   height: 100px;
   }
   .place p {
@@ -115,6 +117,18 @@
     color: #4281A4;
     height: 100px;
     text-align:center;
+    input{
+    border: 0px;
+    text-align: center;
+    font-size: 31px;
+    padding: 0px;
+    height: auto;
+    width: 133px;
+    }
+  }
+  .form i {
+    margin-top: 40px;
+
   }
 }
 

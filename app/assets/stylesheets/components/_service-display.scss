@@ -7,6 +7,9 @@
 //   display: block;
 // }
 
+.active{
+  color: orange;
+}
 
 
 .container-index {
@@ -27,6 +30,7 @@
   margin-top: 20px;
   padding-top: 20px;
   padding-bottom: 10px;
+  color: #929393;
 }
 
 .filters {
@@ -34,6 +38,8 @@
   justify-content: space-evenly;
   padding-top: 15px;
   padding-bottom: 15px;
+  color: #4281A4;
+  margin-bottom: 20px;
 }
 
 // #selection  {
@@ -56,9 +62,13 @@
 }
 
 .service img {
-  border-radius: 10px;
+  border-radius: 30px;
   margin-right: 40px;
-  border: 1px solid #e3e4e5;
+  margin-top: 20px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
+.active {
+  color: #48A9A6;
+}
 

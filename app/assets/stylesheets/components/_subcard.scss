@@ -3,7 +3,7 @@
   background-color: white;
   border-radius: 20px;
   margin-bottom: 25px;
-  box-shadow: 1px 1px 1px 1px #e8e8e8;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
 .subcard-logo img {
@@ -61,4 +61,17 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.index-sub-title {
+  color: #929393;
+}
+
+.btn-return {
+  color: white;
+}
+
+.btn-return:hover {
+  color: white;
+  background-color: #34667f;
 }

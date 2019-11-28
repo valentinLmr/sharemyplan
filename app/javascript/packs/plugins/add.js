@@ -12,12 +12,6 @@
 
 
 
-
-
-
-
-
-
 const displayQuestion = (id) => {
   const formulaire = document.getElementById('form')
   const selectionService = document.getElementById('selection')
@@ -35,7 +29,7 @@ const displayServices = (category) => {
   categoryLists.forEach((categoryList)=> {
   categoryList.classList.toggle('d-none');
   });
-  };
+};
 
 
   const options = document.querySelectorAll(".service")
@@ -50,6 +44,7 @@ const categoryClicker = () => {
 
   services.forEach((service) => {
     service.addEventListener("click", (event) => {
+      service.classList.toggle('active')
       displayServices(event.currentTarget.dataset.category);
     });
   });
