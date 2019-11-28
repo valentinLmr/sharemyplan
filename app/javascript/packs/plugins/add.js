@@ -9,6 +9,7 @@
 
 // export { listenSteps }
 
+const firstTry = document.getElementById('first-click');
 
 
 
@@ -25,9 +26,8 @@ const displayQuestion = (id) => {
 
 const displayServices = (category) => {
   const categoryLists = document.querySelectorAll(`[data-categoryList='${category}']`);
-  // console.log(categoryList)
   categoryLists.forEach((categoryList)=> {
-  categoryList.classList.toggle('d-none');
+    categoryList.classList.toggle('d-none');
   });
 };
 
@@ -41,13 +41,28 @@ const displayServices = (category) => {
 
 const categoryClicker = () => {
   const services = document.querySelectorAll(".category");
+  const categoryAll = document.querySelectorAll(".options");
+
 
   services.forEach((service) => {
     service.addEventListener("click", (event) => {
-      service.classList.toggle('active')
+      service.classList.toggle('active');
+
+      if (firstTry.dataset.click == 'false') {
+        hideAllServices();
+        firstTry.dataset.click = 'true';
+      }
+
       displayServices(event.currentTarget.dataset.category);
     });
   });
 };
+
+const hideAllServices = () => {
+  const allCategoryLists = document.querySelectorAll(`[data-categoryList]`);
+  allCategoryLists.forEach((element) => {
+    element.classList.add('d-none');
+  })
+}
 
 export { categoryClicker }
