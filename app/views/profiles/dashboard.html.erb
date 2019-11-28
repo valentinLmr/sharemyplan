@@ -27,12 +27,16 @@
 
           <div class="co-abo-card-photo"><%= image_tag(subscription.service.photo) %> </div>
 
+          <br>
 
-          <p><%= subscription.name %></p>
-          <br>
-          <p><%= subscription.service.total_price.fdiv(subscription.service.number_of_places)%>€ / mois</p>
-          <br>
-          <p>+0,30 € de frais de service par mois</p>
+          <div class="service-same"><%= subscription.name %></div>
+
+
+          <p class="service-same"><%= subscription.name %></p>
+
+          <p class="co-abo-price"><%= subscription.service.total_price.fdiv(subscription.service.number_of_places)%>€ / mois</p>
+
+          <p class="commission-service">+0,30 € de frais de service par mois</p>
         </div>
 
 
