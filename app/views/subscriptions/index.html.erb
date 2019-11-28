@@ -18,37 +18,47 @@
     <% end %>
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
-  <% @subscriptions.each do |subscription| %>
-    <% if subscription.available_places < @service.number_of_places %>
-      <div class="subcard d-flex align-items-center">
-        <div class="subcard-left">
-          <div class="subcard-avatar mx-3 my-2">
-            <% if subscription.user.photo? %>
-              <img src="<%= subscription.user.photo %>">
-            <% else %>
-              <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
-            <% end %>
-          </div>
-          <div class="subcard-name mx-3 my-2"><%= subscription.user.first_name %></div>
-        </div>
-        <div class="subcard-left-logo">
-          <div class="subcard-logo mx-3 my-2"><%= image_tag(@service.photo) %> </div>
-        </div>
 
-        <div class="subcard-middle">
-          <div class="subcard-places mx-3 my-2"><%= subscription.available_places %>/<%= @service.number_of_places %> places disponibles</div>
-          <div class="buy">
-            <%= link_to 'Souscrire', subscription_cotisations_path(subscription), method: :post %>
+  <div id="accordion">
+    <% @subscriptions.each do |subscription| %>
+      <% if subscription.available_places < @service.number_of_places %>
+        <div class="subcard d-flex align-items-center">
+          <div class="subcard-left">
+            <div class="subcard-avatar mx-3 my-2">
+              <% if subscription.user.photo? %>
+                <img src="<%= subscription.user.photo %>">
+              <% else %>
+                <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+              <% end %>
+            </div>
+            <div class="subcard-name mx-3 my-2"><%= subscription.user.first_name %></div>
+          </div>
+          <div class="subcard-left-logo">
+            <div class="subcard-logo mx-3 my-2"><%= image_tag(@service.photo) %> </div>
+          </div>
+
+          <div class="subcard-middle">
+            <div class="subcard-places mx-3 my-2 d-flex justify-content-center"><%= subscription.available_places %>/<%= @service.number_of_places %> places disponibles</div>
+          </div>
+
+          <div class="subcard-right">
+            <div class="subcard-price mx-3 my-2"><%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois</div>
+            <div class="subcard-plus mx-3 my-2" id="heading<%= subscription.id %>" data-toggle="collapse" data-target="#collapse<%= subscription.id %>" aria-expanded="false" aria-controls="collapse<%= subscription.id %>"><i class="fas fa-plus-circle"></i></div>
           </div>
         </div>
+        <div id="collapse<%= subscription.id %>" class="collapse" aria-labelledby="heading<%= subscription.id %>" data-parent="#accordion">
 
-        <div class="subcard-right">
-          <div class="subcard-price mx-3 my-2"><%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois</div>
-          <div class="subcard-plus mx-3 my-2"><i class="fas fa-plus-circle"></i></div>
+          <%= render "shared/collapse_card", subscription: subscription %>
+
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
+
+
+
+
+
 
 

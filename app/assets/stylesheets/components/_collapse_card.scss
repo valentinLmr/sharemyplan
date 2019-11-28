@@ -1,0 +1,44 @@
+#cardclass{
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 30px;
+}
+
+.show-subcard {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.show-left-sub, .show-middle-sub {
+  margin-top-top: 10px;
+  margin-bottom: 10px;
+}
+
+.show-left-sub {
+  text-align: center;
+  width: 35%;
+}
+
+.show-middle-sub {
+  border-right: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  width: 35%;
+  text-align: center;
+}
+
+.show-right-sub {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: 30%;
+}
+
+.btn-hp {
+  color: white;
+}
+
+.btn-hp:hover {
+  color: white;
+}
