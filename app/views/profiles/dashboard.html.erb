@@ -24,17 +24,10 @@
 
   <% if current_user.subscriptions.count > 0 %>
 
-    <div class="mt-3">
+    <div class="mt-3 d-flex flex-wrap">
       <% @subscriptions.each do |subscription| %>
 
-        <div class="co-abo-card">
-          <%= image_tag(subscription.service.photo, class: "co-abo-card-photo") %>
-          <div class="service-same"><%= subscription.name %></div>
-          <div class="co-abo-price"><%= subscription.service.total_price.fdiv(subscription.service.number_of_places)%>€ / mois</div>
-          <div class="commission-service">+0,30 € de frais de service par mois></div>
-          <%= link_to "Modifier", services_path(user_choice: "cotisations"), class: "btn btn-lg btn-primary btn-dasb"  %>
-        </div>
-
+        <%= render 'shared/card_dashb_sub',  subscription: subscription %>
 
       <% end %>
     </div>
