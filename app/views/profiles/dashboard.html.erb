@@ -1,28 +1,56 @@
 <div class="container dashboard-container mt-3 mb-3">
-<h2>Bienvenue dans votre dashboard <%= current_user.first_name %></h2>
 
-<div class="dashboard-co-abonne py-3 mt-4">
-  <div class=" top-div d-flex justify-content-between py-2">
-    <h3>Vous paragez actuellement ces abonnement</h3>
+  <div class="d-flex">
+    <% if current_user.photo? %>
+      <img style="width: 50px; height: 50px; border-radius: 50%;" src="<%= current_user.photo %>">
+    <% else %>
+      <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+    <% end %>
+    <br>
+    <h2>Bonjour <%= current_user.first_name %></h2>
+  </div>
+
+  <h3>Gestion de tes abonnements et informations personnelles</h3>
+
+  <div class="dashboard-co-abonne py-3 mt-4">
+    <div class=" top-div d-flex justify-content-between py-2">
+      <h4>Mes abonnements en tant que co-abonné</h4>
     <div><%= link_to 'Ajouter un abonnement', new_service_subscription_path(current_user), class: 'btn btn-primary' %></div>
   </div>
-  <% if current_user.subscriptions.last != nil %>
+
+  <% if current_user.subscriptions.count > 0 %>
+
     <div class="list-subscription-proprio mt-3">
       <% @subscriptions.each do |subscription| %>
-        <%= subscription.name %>
+
+        <div class="co-abo-card">
+
+          <div class="co-abo-card-photo"><%= image_tag(subscription.service.photo) %> </div>
+
+
+          <p><%= subscription.name %></p>
+          <br>
+          <p><%= subscription.service.total_price.fdiv(subscription.service.number_of_places)%>€ / mois</p>
+          <br>
+          <p>+0,30 € de frais de service par mois</p>
+        </div>
+
+
       <% end %>
     </div>
   <% else %>
     <p>Vous ne proposez aucun abonnement à la location</p>
   <% end %>
+
 </div>
+
 
 <div class="dashboard-locataire py-3 mt-4">
   <div class="top-div d-flex justify-content-between py-2">
-    <h3>Vous êtes actuellement co abonné sur ces abonnements</h3>
+    <h4>Mes abonnements en tant que shareur</h4>
     <div><%= link_to 'Réserver un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-primary' %></div>
   </div>
-  <% if @cotisations != nil %>
+  <% if @cotisations.count > 0 %>
     <div class="list-subscription-proprio mt-3">
       <% @cotisations.each do |cotisation| %>
         <%= cotisation.name %>
@@ -31,6 +59,7 @@
   <% else %>
     <p>Vous ne louez aucun abonnement !</p>
   <% end %>
+
 </div>
 
 </div>

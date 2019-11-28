@@ -68,16 +68,6 @@ class SubscriptionsController < ApplicationController
     redirect_to dashboard_path
   end
 
-  def dashboard
-    @subscriptions = current_user.subscriptions
-    authorize(@subscription)
-
-    # @cotisations = Cotisations.where({ id: user_id = current_user })
-
-    # authorize(@subscriptions)
-  end
-
-
   private
 
   def subscription_params
