@@ -7,9 +7,13 @@ const changePlace = () => {
   };
 
   const addPlace =(currentTarget) => {
+    const maxPlace = document.getElementById('max')
     const placeElement = document.getElementById('subscription_available_places');
+    console.log(maxPlace.innerHTML)
 
-    placeElement.value = parseInt(placeElement.value) + 1;
+    if (parseInt(placeElement.value) < parseInt(maxPlace.innerHTML) - 1) {
+      placeElement.value = parseInt(placeElement.value) + 1;
+    }
   };
 
 
