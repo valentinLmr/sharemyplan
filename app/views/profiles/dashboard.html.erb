@@ -49,13 +49,19 @@
 <div class="dashboard-locataire py-3 mt-4">
   <div class="top-div d-flex justify-content-between py-2">
     <h4>Mes abonnements en tant que shareur</h4>
+
     <div><%= link_to 'Réserver un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-primary' %></div>
   </div>
   <% if @cotisations.count > 0 %>
-    <div class="list-subscription-proprio mt-3">
+    <div class="group-card-sub">
       <% @cotisations.each do |cotisation| %>
-        <%= cotisation.subscription.service.name %>
+
+        <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
+
       <% end %>
+
+      <%= render 'shared/card_add' %>
+
     </div>
   <% else %>
     <p>Vous ne louez actuellement aucun abonnement !</p>
