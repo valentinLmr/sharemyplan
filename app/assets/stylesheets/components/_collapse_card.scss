@@ -5,28 +5,40 @@
     padding-bottom: 30px;
 }
 
-.imgcard{
-  height:30px;
-  width:30px;
-}
-
-
-.collapse_card{
+.show-subcard {
+  background-color: white;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 
-
-.collapse-name {
-  font-size: 1.4em;
+.show-left-sub, .show-middle-sub {
+  margin-top-top: 10px;
+  margin-bottom: 10px;
 }
 
-.collapse-price {
-  color: #48A9A6;
-  font-size: 1.5em;
-  font-weight: bold;
+.show-left-sub {
+  text-align: center;
+  width: 35%;
 }
 
-.collapse-of {
-  font-size: 1em;
+.show-middle-sub {
+  border-right: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  width: 35%;
+  text-align: center;
+}
+
+.show-right-sub {
+  display: flex;
+  align-items:center;
   justify-content: center;
+  width: 30%;
+}
+
+.btn-hp {
+  color: white;
+}
+
+.btn-hp:hover {
+  color: white;
 }

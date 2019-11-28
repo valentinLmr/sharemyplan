@@ -1,25 +1,19 @@
-<div class="card" >
-  <div class="row" id="collapse_card">
-    <div class="col 4" style="">
-      <div class="collapse-name mx-3 my-2" >Tarification Share My Plan</div>
-      <div class="collapse-price mx-5 my-2" > <%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois </div>
-      <div class="collapse-of mx-5 my-2" >Au lieu de</div>
-      <div class="collapse-price mx-5 my-7" ><%=  @service.total_price %> € / mois </div>
-
+<div class="show-subcard mt-1" >
+  <div class="row d-flex mt-1">
+    <div class="show-left-sub">
+      <div class="mx-3 pt-3 pb-1" style="color: #4281A4; font-weight: bold;"><h4>Tarification</h4></div>
+      <div class="mx-5 my-2" ><p style="font-size: 1.3em; color: #48A9A6; font-weight: bold;"><%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois</p></div>
+      <div class="mx-5 my-2" >Au lieu de <%=  @service.total_price %> € / mois </div>
     </div>
 
-    <div class="col 4" style="">
-      <div class="subcard-name mx-3 my-2" > Les Avantages Share My Plan </div>
-        <ul><img src="https://img.icons8.com/ios/24/000000/euro-pound-exchange.png">   4€ + 0,30€ de frais de service </ul>
-        <ul><img src="https://img.icons8.com/material-outlined/24/000000/unlock.png">   Sans engagement de durée</ul>
-        <ul><img src="https://img.icons8.com/windows/24/000000/rocket.png">   Accès immédiat au service </ul>
+    <div class="show-middle-sub mt-1">
+      <div class="mx-3 pt-3 pb-3" style="color: #4281A4; font-weight: bold;"><h4>Vos avantages</h4></div>
+        <ul><i class="fas fa-unlock-alt"></i> Sans engagement de durée</ul>
+        <ul><i class="fas fa-rocket"></i> Accès immédiat au service </ul>
     </div>
 
-    <div class="col 4" >
-      <div class="btn btn-primary"  <%= link_to 'Souscrire', subscription_cotisations_path(subscription), method: :post %> </div>
+    <div class="show-right-sub">
+      <div>  <%= link_to 'Rejoindre', subscription_cotisations_path(subscription), class: 'btn btn-hp', method: :post %> </div>
     </div>
   </div>
- <!--  ceci est un test <%= subscription.id %> -->
-
-
 </div>

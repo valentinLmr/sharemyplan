@@ -19,6 +19,11 @@ class CotisationPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def dashboard?
+    true
+  end
+
   # def destroy?
   #   record.user == user
   # end
