@@ -8,12 +8,12 @@
 
     <% if max_places_dispo != nil && max_places_dispo < @service.number_of_places %>
       <% if user_signed_in? %>
-        <h2 class="mt-3 mb-3" style="text-align: center; "> <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
+        <h2 class="index-sub-title mt-3 mb-3" style="text-align: center; "> <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
       <% else %>
-        <h2 class="mt-3 mb-3" style="text-align: center; ">Voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
+        <h2 class="index-sub-title mt-3 mb-3" style="text-align: center; ">Voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
       <% end %>
     <% else %>
-      <h3 class="mt-3 mb-3" style="text-align: center;">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
+      <h3 class="index-sub-title mt-3 mb-3" style="text-align: center;">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
       <div style="text-align: center; margin: 20px; color: white;"><%= link_to 'Chercher un autre abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp' %></div>
     <% end %>
 
