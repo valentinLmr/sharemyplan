@@ -50,6 +50,7 @@ const categoryClicker = () => {
 
   services.forEach((service) => {
     service.addEventListener("click", (event) => {
+      service.classList.toggle('active')
       displayServices(event.currentTarget.dataset.category);
     });
   });
