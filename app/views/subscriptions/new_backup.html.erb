@@ -50,7 +50,6 @@
             <h2 id="max" style="font-weight: bold;"><%= @service.number_of_places %></h2>
           </div>
 
-          <form action="/services/<%= @service.id %>/subscriptions" method="post">
           <div class="form d-flex">
             <span class="less_place"><i class="fas fa-angle-left"></i></span>
             <%= simple_form_for [@service, @subscription] do |f| %>
@@ -69,10 +68,10 @@
           <%= f.input :password, required: true, label: 'Mot de passe' %>
           <%= f.submit :class => 'button-submit-card-subscription btn-hp py-1 px-3 mt-3', value: 'Terminé !'%>
           <% end %>
-          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
