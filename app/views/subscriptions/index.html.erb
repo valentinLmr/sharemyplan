@@ -42,8 +42,15 @@
           </div>
 
           <div class="subcard-right">
-            <div class="subcard-price mx-3 my-2"><%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois</div>
-            <div class="subcard-plus mx-3 my-2" id="heading<%= subscription.id %>" data-toggle="collapse" data-target="#collapse<%= subscription.id %>" aria-expanded="false" aria-controls="collapse<%= subscription.id %>"><i class="fas fa-plus-circle"></i></div>
+
+            <div class="subcard-price mx-3 my-2">
+              <%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois
+            </div>
+
+            <div class="subcard-plus mx-3 my-2" id="heading<%= subscription.id %>" data-toggle="collapse" data-target="#collapse<%= subscription.id %>" aria-expanded="false" aria-controls="collapse<%= subscription.id %>">
+              <i class="fas fa-plus-circle"></i>
+            </div>
+
           </div>
         </div>
         <div id="collapse<%= subscription.id %>" class="collapse" aria-labelledby="heading<%= subscription.id %>" data-parent="#accordion">
