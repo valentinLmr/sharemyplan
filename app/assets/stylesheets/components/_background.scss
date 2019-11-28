@@ -1,0 +1,16 @@
+
+.header__bg {
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#499EAA, #499EAA);
+  transform: skewY(-25deg);
+  transform-origin: top left;
+}
+

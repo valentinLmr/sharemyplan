@@ -1,3 +1,5 @@
+
+
 <div class="container_subscription">
 
   <div class="form_subscription" >
@@ -34,13 +36,13 @@
 
       <div class="place">
         <p> Nombre de place de ce service</p>
-        <h2 id ="max"><%= @service.number_of_places %></h2>
+        <h2 id="max"> <%= @service.number_of_places %> </h2>
       </div>
 
       <div class="form d-flex ">
           <div class="less_place"><i class="fas fa-angle-left"></i></div>
             <%= simple_form_for [@service, @subscription] do |f| %>
-              <%= f.input :available_places, input_html: { value: '5'} %>
+              <%= f.input :available_places, input_html: { value: '1'} %>
               <% end %>
           <div class="add_place"> <i class="fas fa-angle-right"></i></i> </div>
       </div>
