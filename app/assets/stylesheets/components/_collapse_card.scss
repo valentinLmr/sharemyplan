@@ -1,0 +1,32 @@
+#cardclass{
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 30px;
+}
+
+.imgcard{
+  height:30px;
+  width:30px;
+}
+
+
+.collapse_card{
+  border-radius: 20px;
+}
+
+
+.collapse-name {
+  font-size: 1.4em;
+}
+
+.collapse-price {
+  color: #48A9A6;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.collapse-of {
+  font-size: 1em;
+  justify-content: center;
+}
