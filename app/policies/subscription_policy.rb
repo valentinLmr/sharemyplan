@@ -1,7 +1,8 @@
 class SubscriptionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      # scope.all
+      scope.where(user: user)
     end
   end
 
@@ -27,5 +28,9 @@ class SubscriptionPolicy < ApplicationPolicy
 
   def update?
     record.user == user
+  end
+
+  def dashboard?
+    true
   end
 end
