@@ -33,7 +33,7 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.save
       # redirect_to subscriptions_path(@subscription)
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end

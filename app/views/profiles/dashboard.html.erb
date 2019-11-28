@@ -1,22 +1,21 @@
 <div class="container dashboard-container mt-3 mb-3">
 
-  <div class="d-flex">
+  <div class="d-flex justify-content-center align-items-center">
     <% if current_user.photo? %>
       <img style="width: 50px; height: 50px; border-radius: 50%;" src="<%= current_user.photo %>">
     <% else %>
       <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
     <% end %>
     <br>
-    <h2>Bonjour <%= current_user.first_name %></h2>
+    <h2 class="ml-3" style="text-align: center; color: white;">Bonjour <%= current_user.first_name %></h2>
   </div>
 
-  <h3>Gestion de tes abonnements et de tes informations personnelles</h3>
+  <h4 style="text-align: center; color: white;">Retrouve ici tes abonnements et de tes informations personnelles</h4>
 
-  <div class="dashboard-co-abonne py-3 mt-4">
-    <div class="d-flex justify-content-between py-2">
-      <h4>Mes abonnements en tant que co-abonné</h4>
+  <div class="dashboard-shareur py-3 mt-4">
+    <div class="d-flex justify-content-center py-2">
+      <h4 style="text-align: center;">Mes abonnements en tant que Shareur</h4>
     <div>
-      <%= link_to "Partager un abonnement", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
     </div>
 
   </div>
@@ -48,9 +47,9 @@
 
 <div class="dashboard-locataire py-3 mt-4">
   <div class="top-div d-flex justify-content-between py-2">
-    <h4>Mes abonnements en tant que shareur</h4>
+    <h4>Mes abonnements en tant que co-abonné</h4>
+    <div><%= link_to 'Souscrire un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-hp' %></div>
 
-    <div><%= link_to 'Réserver un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-primary' %></div>
   </div>
   <% if @cotisations.count > 0 %>
     <div class="group-card-sub">
