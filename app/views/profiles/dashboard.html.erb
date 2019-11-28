@@ -24,13 +24,21 @@
 
   <% if current_user.subscriptions.count > 0 %>
 
-    <div class="mt-3 d-flex flex-wrap">
+    <div class="group-card-sub">
       <% @subscriptions.each do |subscription| %>
 
         <%= render 'shared/card_dashb_sub',  subscription: subscription %>
 
       <% end %>
+
+      <%= render 'shared/card_add' %>
+
     </div>
+
+
+
+
+
   <% else %>
     <p>Vous ne proposez actuellement aucun abonnement à la location</p>
   <% end %>

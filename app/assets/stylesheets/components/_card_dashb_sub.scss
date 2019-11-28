@@ -1,6 +1,24 @@
+.group-card-sub {
+  // max-width: 950px;
+  // margin-right: 50px;
+  margin-top:            10px;
+  display:               grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:              16px;
+
+  // display: flex;
+  // flex-wrap: wrap;
+}
+
+// .group-card-sub>* {
+  // flex: 1 1 160px;
+//   margin: 30px;
+// }
+
 .co-abo-card {
   width: 250px;
   height: 300px;
+  margin-right: 40px;
   border-width: 2px;
   border-color: black;
   background-color: #4281A4;
@@ -8,8 +26,11 @@
   color: white;
   text-align: center;
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
-  margin-right: 10px;
 }
+
+
+  // margin:0 -15px;
+  // padding:0 15px;
 
 .co-abo-card-photo {
   // width: 372px;
@@ -19,13 +40,13 @@
 
 
 .service-same {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: bold;
   margin-top: 15px;
 }
 
 .co-abo-price {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin-top: 12px;
 }
@@ -54,3 +75,7 @@
   color: white;
 }
 
+.btn-dasb:hover a {
+  color: black;
+  text-decoration: none;
+}
