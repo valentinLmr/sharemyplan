@@ -19,7 +19,6 @@ class SubscriptionsController < ApplicationController
 
     # TEST
     authorize(@subscription)
-
   end
 
   def create
