@@ -1,0 +1,25 @@
+<div class="card" >
+  <div class="row" id="collapse_card">
+    <div class="col 4" style="">
+      <div class="collapse-name mx-3 my-2" >Tarification Share My Plan</div>
+      <div class="collapse-price mx-5 my-2" > <%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois </div>
+      <div class="collapse-of mx-5 my-2" >Au lieu de</div>
+      <div class="collapse-price mx-5 my-7" ><%=  @service.total_price %> € / mois </div>
+
+    </div>
+
+    <div class="col 4" style="">
+      <div class="subcard-name mx-3 my-2" > Les Avantages Share My Plan </div>
+        <ul><img src="https://img.icons8.com/ios/24/000000/euro-pound-exchange.png">   4€ + 0,30€ de frais de service </ul>
+        <ul><img src="https://img.icons8.com/material-outlined/24/000000/unlock.png">   Sans engagement de durée</ul>
+        <ul><img src="https://img.icons8.com/windows/24/000000/rocket.png">   Accès immédiat au service </ul>
+    </div>
+
+    <div class="col 4" >
+      <div class="btn btn-primary"  <%= link_to 'Souscrire', subscription_cotisations_path(subscription), method: :post %> </div>
+    </div>
+  </div>
+ <!--  ceci est un test <%= subscription.id %> -->
+
+
+</div>
