@@ -34,12 +34,7 @@
         </div>
       </div>
       <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
-        <div class="button-left mr-2">
-          <a class="btn btn-contact" href="mailto:<%= @subscription.user.email %>">Tes coordonnés <%= @subscription.user.first_name %></a><br><br>
-        </div>
-        <div class="buton-rigth">
           <%= link_to "retirer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
-        </div>
 
       </div>
     </div>
