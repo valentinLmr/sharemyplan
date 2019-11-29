@@ -36,10 +36,6 @@
 
       </div>
 
-
-
-
-
     <% else %>
       <p>Vous ne proposez actuellement aucun abonnement à la location</p>
     <% end %>
@@ -48,11 +44,12 @@
 
 
   <div class="dashboard-locataire py-3 mt-4">
-    <div class="top-div d-flex justify-content-between py-2">
-      <h4>Mes abonnements en tant que co-abonné</h4>
-      <div><%= link_to 'Souscrire un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-hp' %></div>
-
+    <h4 style="text-align: center; margin-top:10px;">Mes abonnements en tant que co-abonné</h4>
+    <div class="top-div py-2 div-locataire">
+        <%= link_to 'Choisir un nouvel abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp' %>
     </div>
+
+
     <% if @cotisations.count > 0 %>
       <div class="group-card-sub">
         <% @cotisations.each do |cotisation| %>
