@@ -1,6 +1,8 @@
 .items-explain {
   text-align: center;
   margin-top: 20px;
+    flex-wrap: wrap;
+
 }
 
 .items-explain .fas {
@@ -18,7 +20,7 @@
 }
 
 .item {
-  width: 25%;
+  width: 260px;
 }
 
 .item .fas {

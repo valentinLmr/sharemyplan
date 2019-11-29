@@ -1,5 +1,5 @@
 <div class="show-subcard mt-1" >
-  <div class="row d-flex mt-1">
+  <div class="d-flex flex-wrap mt-1">
     <div class="show-left-sub">
       <div class="mx-3 pt-3 pb-1" style="color: #4281A4; font-weight: bold;"><h4>Tarification</h4></div>
       <div class="mx-5 my-2" ><p style="font-size: 1.3em; color: #48A9A6; font-weight: bold;"><%= @service.total_price.fdiv(@service.number_of_places).round(2)+ 0.30 %>€/mois</p></div>
