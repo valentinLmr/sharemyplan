@@ -1,23 +1,25 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all
-  end
+  # def index
+  #   @reviews = Review.all
+  # end
 
-  def show
-    @review = Review.find(params[:id])
-  end
+  # def show
+  #   @review = Review.find(params[:id])
+  # end
 
   def new
-    @gcotisation = Cotisation.find(params[:cotisation_id])
+    @cotisation = Cotisation.find(params[:cotisation_id])
     @review = Review.new
+    @review.cotisation = @cotisation
+    authorize @review
   end
 
   def create
     @review = Review.new(params_review)
     @cotisation = Cotisation.find(params[:cotisation_id])
-    @review.user = current_user
     @review.cotisation = @cotisation
-    if @cotisation.save
+    authorize @review
+    if @review.save
       redirect_to cotisation_path(@cotisation)
     else
       render :new
@@ -34,6 +36,6 @@ class ReviewsController < ApplicationController
   private
 
   def params_review
-    params.require(:cotisation).permit(:content, :rating)
+    params.require(:review).permit(:content, :rating)
   end
 end

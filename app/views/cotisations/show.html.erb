@@ -30,7 +30,8 @@
         </div>
         <div class="buton-rigth">
           <%= link_to 'Me retirer de ce share', cotisation_path(@cotisation), method: :delete, class: 'btn btn-destroy' %> <br> <br>
-          <a class="btn btn-avis" href="#">Laisser un avis</a>
+          <%= link_to 'Laisser un avis', new_cotisation_review_path(@cotisation), class: 'btn btn-avis' %>
+
         </div>
 
       </div>
