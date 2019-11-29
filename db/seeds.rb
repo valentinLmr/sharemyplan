@@ -19,6 +19,8 @@ end
 
 puts "begining of seed"
 
+puts "Deleting Cotisations"
+Cotisation.destroy_all
 puts "subscriptions destroyed"
 Subscription.destroy_all
 puts "Services destroyed"
