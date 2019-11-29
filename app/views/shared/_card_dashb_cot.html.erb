@@ -2,6 +2,6 @@
   <%= image_tag(cotisation.subscription.service.photo, class: "co-abo-card-photo") %>
   <div class="service-same"><%= cotisation.subscription.name %></div>
   <div class="co-abo-price"><%= cotisation.subscription.service.total_price.fdiv(cotisation.subscription.service.number_of_places).round(0) %>€ / mois</div>
-  <div class="commission-service">+0,30 € de frais de service par mois></div>
-  <%= link_to "Gérer", services_path(user_choice: "cotisations"), class: "btn btn-lg btn-dasb"  %>
+  <div class="commission-service">+0,30 € de frais de service par mois</div>
+  <%= link_to "Gérer", cotisation_path(cotisation), class: "btn btn-lg btn-dasb"  %>
 </div>

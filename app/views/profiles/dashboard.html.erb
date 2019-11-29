@@ -10,8 +10,6 @@
     <h2 class="ml-3" style="text-align: center; color: white;">Bonjour <%= current_user.first_name %></h2>
   </div>
 
-  <h4 style="text-align: center; color: white;">Retrouve ici tes abonnements et de tes informations personnelles</h4>
-
   <div class="dashboard-shareur py-3 mt-4">
     <div class="d-flex justify-content-center py-2">
       <h4 style="text-align: center;">Mes abonnements en tant que Shareur</h4>
@@ -24,7 +22,7 @@
     <% if current_user.subscriptions.count > 0 %>
 
       <div class="group-card-sub">
-        <% @subscriptions.each do |subscription| %>
+        <% current_user.subscriptions.each do |subscription| %>
 
           <%= render 'shared/card_dashb_sub',  subscription: subscription %>
 
@@ -37,7 +35,10 @@
       </div>
 
     <% else %>
-      <p>Vous ne proposez actuellement aucun abonnement à la location</p>
+      <div class="d-flex justify-content-between mt-3">
+        <p>Vous ne proposez actuellement aucun abonnement à la location</p>
+        <%= link_to 'Partager', services_path(user_choice: "subscriptions"), class: 'btn btn-dashboard' %>
+      </div>
     <% end %>
 
   </div>
@@ -45,14 +46,11 @@
 
   <div class="dashboard-locataire py-3 mt-4">
     <h4 style="text-align: center; margin-top:10px;">Mes abonnements en tant que co-abonné</h4>
-    <div class="top-div py-2 div-locataire">
-        <%= link_to 'Choisir un nouvel abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp' %>
-    </div>
 
 
-    <% if @cotisations.count > 0 %>
+    <% if current_user.cotisations.count > 0 %>
       <div class="group-card-sub">
-        <% @cotisations.each do |cotisation| %>
+        <% current_user.cotisations.each do |cotisation| %>
 
           <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
 
@@ -64,7 +62,10 @@
 
       </div>
     <% else %>
-      <p>Vous ne louez actuellement aucun abonnement !</p>
+      <div class="d-flex justify-content-between mt-3">
+        <p>Vous ne louez actuellement aucun abonnement !</p>
+          <%= link_to 'Souscrire', services_path(user_choice: "cotisations"), class: 'btn btn-dashboard' %>
+      </div>
     <% end %>
 
   </div>
