@@ -30,6 +30,7 @@ class CotisationsController < ApplicationController
     @cotisation = Cotisation.find(params[:id])
     @cotisation.destroy
     redirect_to dashboard_path
+    authorize @cotisation
   end
 
   def cotisation_price_per_month(cotisation)
