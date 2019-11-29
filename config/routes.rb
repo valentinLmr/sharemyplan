@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   resources :cotisations, only:[:destroy, :show] do
-    resources :reviews, only:[:index, :new, :create, :update]
+    resources :reviews, only:[:new, :create]
   end
+
+  resources :reviews, only: :destroy
 end
