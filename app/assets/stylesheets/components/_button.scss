@@ -15,3 +15,42 @@
   color: white;
   background-color: #45a09d;
 }
+
+.btn-contact {
+  color: white;
+  background-color: #4281A4;
+  width: 180px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.btn-destroy {
+  color: white;
+  background-color: #C1666B;
+  width: 180px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.btn-abus {
+  color: white;
+  background-color: #D4B483;
+  width: 180px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.btn-avis {
+  color: white;
+  background-color: #48A9A6;
+  width: 180px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.btn-avis:hover, .btn-abus:hover, .btn-destroy:hover, .btn-contact:hover {
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
