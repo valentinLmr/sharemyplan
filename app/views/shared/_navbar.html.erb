@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
 
       <% if user_signed_in? && current_user.photo? %>
-        <li class="nav-item dropdown mx-2">
+        <li class="nav-item dropdown mr-2">
           <%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
         </li>
         <li class="nav-item dropdown">
@@ -23,7 +23,7 @@
           </div>
         </li>
       <% elsif user_signed_in? %>
-        <li class="nav-item dropdown mx-2">
+        <li class="nav-item dropdown mr-2">
           <%= link_to "Partager un abonnement", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
         </li>
         <li class="nav-item dropdown">
@@ -40,7 +40,7 @@
         <li class="nav-item">
           <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link navbar-wagon-link" %>
       </li>
-      <li class="nav-item dropdown mx-2">
+      <li class="nav-item dropdown mr-2">
         <%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
       </li>
       <% end %>

@@ -1,5 +1,5 @@
 .subcard {
-  height: 110px;
+  min-height: 110px;
   background-color: white;
   border-radius: 20px;
   margin-top: 25px;
@@ -38,26 +38,26 @@
 }
 
 .subcard-left {
-  width: 22%;
+  min-width: 22%;
   display: flex;
   align-items: center;
 }
 
 .subcard-left-logo {
-  width: 15%;
+  min-width: 15%;
   display: flex;
   align-items: center;
 }
 
 .subcard-middle {
-  width: 30%;
+  min-width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .subcard-right {
-  width: 33%;
+  min-width: 30%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
