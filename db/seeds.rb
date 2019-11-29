@@ -19,6 +19,8 @@ end
 
 puts "begining of seed"
 
+puts "Deleting Cotisations"
+Cotisation.destroy_all
 puts "subscriptions destroyed"
 Subscription.destroy_all
 puts "Services destroyed"
@@ -33,11 +35,15 @@ User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Ré
 User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
 User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Remi', last_name: 'Lemaire', phone_number: '067711977')
 User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388977')
-User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'bouba', last_name: 'pfrt', phone_number: '0677889977')
-User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Delphine', last_name: 'Dubois', phone_number: '0677889977')
-User.create!(email: 'Henripfr@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'derujh', phone_number: '067788227')
-User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'bouba', last_name: 'arlou', phone_number: '0677889977')
-User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Daju', last_name: 'Massoni', phone_number: '0611189977')
+User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977')
+User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Antoine', last_name: 'Dubois', phone_number: '0677889977')
+User.create!(email: 'Henripfr@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'derujh', phone_number: '067788227')
+User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'Anne', last_name: 'arlou', phone_number: '0677889977')
+User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189977')
+User.create!(email: 'Sandrine@gmail.com', password: 'azerty', first_name: 'Sandrine', last_name: 'Massoni', phone_number: '0611189977')
+User.create!(email: 'Marie@gmail.com', password: 'azerty', first_name: 'Marie', last_name: 'go', phone_number: '0611189977')
+User.create!(email: 'Helene@gmail.com', password: 'azerty', first_name: 'Helene', last_name: 'Massoni', phone_number: '0611189977')
+
 
 puts "finished"
 
@@ -88,44 +94,58 @@ puts "Creating subscriptions"
 
 user_array = User.all
 
-Subscription.create!(available_places: '1', identifiant: 'martinderr', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'jupatu', password: 'azertyu', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'juduq', password: 'azertyui', user: get_random_user(user_array), service: deezer_premium)
-Subscription.create!(available_places: '1', identifiant: 'remico', password: 'azertyuio', user: get_random_user(user_array), service: spotify_family)
-Subscription.create!(available_places: '1', identifiant: 'alaindelong', password: 'azertyuiop', user: get_random_user(user_array), service: netflix_standard)
-Subscription.create!(available_places: '1', identifiant: 'alicedelice', password: 'qsdf', user: get_random_user(user_array), service: netflix_standard)
-Subscription.create!(available_places: '1', identifiant: 'jakiecadillac', password: 'qsdfg', user: get_random_user(user_array), service: netflix_standard)
-Subscription.create!(available_places: '1', identifiant: 'patrick', password: 'qsdfgh', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'jeanjean', password: 'qsdfghj', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'coco', password: 'qsdfghjk', user: get_random_user(user_array), service: deezer_premium)
-Subscription.create!(available_places: '1', identifiant: 'mika', password: 'qsdfghjkl', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'julien', password: 'qsdfghjklm', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'louise', password: 'wxcv', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'gabriel', password: 'wxcvb', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'patricia', password: 'wxcvbn', user: get_random_user(user_array), service: spotify_family)
-Subscription.create!(available_places: '1', identifiant: 'daniel', password: 'wxcvbnn', user: get_random_user(user_array), service: deezer_premium)
-Subscription.create!(available_places: '1', identifiant: 'josephine', password: 'poiuy', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'mikadu62', password: 'poiuyt', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'valentinou', password: 'poiuytr', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'nicolas', password: 'poiuytre', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'maya', password: 'poiuytrez', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'zoe', password: 'poiuytreza', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'marin', password: 'mlk', user: get_random_user(user_array), service: spotify_family)
-Subscription.create!(available_places: '1', identifiant: 'axel', password: 'mlkj', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'arnaud', password: 'mlkjh', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'hugo', password: 'mlkjhg', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'justine', password: 'mlkjhgf', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'christine', password: 'mlkjhgfd', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'mohammed', password: 'mlkjhgfds', user: get_random_user(user_array), service: amazon_prime_video)
-Subscription.create!(available_places: '1', identifiant: 'pauline', password: 'mlkjhgfdsq', user: get_random_user(user_array), service: amazon_prime_video)
-Subscription.create!(available_places: '1', identifiant: 'olivier', password: 'tre', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'killian', password: 'trez', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'zidane', password: 'treza', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'aline', password: 'trezap', user: get_random_user(user_array), service: netflix_premium)
-Subscription.create!(available_places: '1', identifiant: 'claudie', password: 'trezapo', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '3', identifiant: 'martinderr', password: 'azerty', user: User.first, service: ocs)
+Subscription.create!(available_places: '2', identifiant: 'jupatu', password: 'azertyu', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '3', identifiant: 'juduq', password: 'azerty', user: get_random_user(user_array), service: deezer_premium)
+Subscription.create!(available_places: '2', identifiant: 'remico', password: 'azerty', user: get_random_user(user_array), service: spotify_family)
+Subscription.create!(available_places: '1', identifiant: 'alaindelong', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
+Subscription.create!(available_places: '1', identifiant: 'alicedelice', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
+Subscription.create!(available_places: '1', identifiant: 'jakiecadillac', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
+Subscription.create!(available_places: '1', identifiant: 'patrick', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '3', identifiant: 'jeanjean', password: 'azerty', user: get_random_user(user_array), service: apple_tv_premium)
+Subscription.create!(available_places: '2', identifiant: 'coco', password: 'azerty', user: get_random_user(user_array), service: deezer_premium)
+Subscription.create!(available_places: '2', identifiant: 'mika', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'julien', password: 'azerty', user: get_random_user(user_array), service: ocs)
+Subscription.create!(available_places: '1', identifiant: 'louise', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'gabriel', password: 'azerty', user: get_random_user(user_array), service: ocs)
+Subscription.create!(available_places: '2', identifiant: 'patricia', password: 'azerty', user: User.first, service: spotify_family)
+Subscription.create!(available_places: '2', identifiant: 'daniel', password: 'azerty', user: get_random_user(user_array), service: deezer_premium)
+Subscription.create!(available_places: '3', identifiant: 'josephine', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '3', identifiant: 'mikadu62', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'valentinou', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'nicolas', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '2', identifiant: 'maya', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '3', identifiant: 'zoe', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'marin', password: 'azerty', user: get_random_user(user_array), service: spotify_family)
+Subscription.create!(available_places: '1', identifiant: 'axel', password: 'azerty', user: get_random_user(user_array), service: ocs)
+Subscription.create!(available_places: '1', identifiant: 'arnaud', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'hugo', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'justine', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'christine', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'mohammed', password: 'azerty', user: get_random_user(user_array), service: amazon_prime_video)
+Subscription.create!(available_places: '1', identifiant: 'pauline', password: 'azerty', user: get_random_user(user_array), service: amazon_prime_video)
+Subscription.create!(available_places: '1', identifiant: 'olivier', password: 'azerty', user: get_random_user(user_array), service: ocs)
+Subscription.create!(available_places: '1', identifiant: 'killian', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'zidane', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'aline', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+Subscription.create!(available_places: '1', identifiant: 'claudie', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
 
 puts "finished"
 
+
+
+puts "Creating cotisations"
+
+user_array = User.all
+
+Cotisation.create!(start_date: Date.today, user: User.first, subscription_id: 9)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 9)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 9)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 1)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 1)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 1)
+
+puts "end"
 
 
 

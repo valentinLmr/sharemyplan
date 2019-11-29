@@ -31,6 +31,7 @@ class CotisationsController < ApplicationController
     authorize @cotisation
    @cotisation.destroy
     redirect_to dashboard_path
+    authorize @cotisation
   end
 
   private
