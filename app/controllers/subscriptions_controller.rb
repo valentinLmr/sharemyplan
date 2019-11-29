@@ -64,11 +64,9 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    @subscription = Subscription.find(params[:di])
-
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
     authorize(@subscription)
-
-    @subscription.delete
 
     redirect_to dashboard_path
   end
