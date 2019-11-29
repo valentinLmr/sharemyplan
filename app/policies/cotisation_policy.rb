@@ -24,9 +24,9 @@ class CotisationPolicy < ApplicationPolicy
     true
   end
 
-  # def destroy?
-  #   record.user == user
-  # end
+  def destroy?
+    (record.subscription.user == user) || (record.user == user)
+  end
 
   # def edit?
   #   update?

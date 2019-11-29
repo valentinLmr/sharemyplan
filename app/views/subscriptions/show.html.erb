@@ -7,7 +7,7 @@
         <a href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i></a>
       </div>
       <div class="cotisation-title" style="width: 95%; text-align: center;">
-        <h3>Détail de ton abonnement <%= @subscription.name %> (co-abonné)</h3>
+        <h3>Détail de ton abonnement <%= @subscription.name %></h3>
       </div>
     </div>
 
@@ -17,20 +17,28 @@
       </div>
       <div class="cotisation-infos py-3 pl-3">
         <div>
-          <p><i class="fas fa-user"></i> <b>Ton shareur</b> : <%= @subscription.user.first_name %></p>
+          <p><i class="fas fa-user"></i> <%= @subscription.user.first_name %></p>
           <p><i class="fas fa-tv"></i> <b>Abo :</b><%= @subscription.service.name %></p>
-          <p><i class="fas fa-at"></i> <b>Identifiant : </b> <%= @subscription.identifiant %></p>
-          <p><i class="fas fa-fingerprint"></i> <b>Mot de passe :</b> <%= @subscription.password %></p>
+          <div class="password-subscription">
+            <p><i class="fas fa-at"></i> <b>Identifiant : </b></p>
+             <%= simple_form_for @subscription do |f|%>
+                <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
+              <% end %>
+          </div>
+          <div class="password-subscription">
+            <p><i class="fas fa-fingerprint d-flex"></i><b>Mot de passe :</b></p>
+            <%= simple_form_for @subscription do |f|%>
+                <%= f.input :password, label: false, input_html: {value: @subscription.password, type: "text", class: "input_password"} %>
+              <% end %>
+          </div>
         </div>
       </div>
       <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
         <div class="button-left mr-2">
-          <a class="btn btn-contact" href="mailto:<%= @subscription.user.email %>">Contacter <%= @subscription.user.first_name %></a><br><br>
-          <a class="btn btn-abus" href="mailto:contact@sharemyplan.site %>">Signaler un abus</a>
+          <a class="btn btn-contact" href="mailto:<%= @subscription.user.email %>">Tes coordonnés <%= @subscription.user.first_name %></a><br><br>
         </div>
         <div class="buton-rigth">
-          <%= link_to 'Me retirer de ce share', subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
-          <a class="btn btn-avis" href="#">Laisser un avis</a>
+          <%= link_to "retirer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
         </div>
 
       </div>
@@ -41,15 +49,25 @@
 
       <div class="card-co-abo d-flex align-items-center justify-content-around mx-4">
 
+
           <% @subscription.cotisations.each do |cotisation| %>
+
+
+
             <div class="co-abos-card mb-3" style="text-align: center;">
               <% if cotisation.user.photo?  %>
                 <%= image_tag(cotisation.user.photo) %>
+
+
               <% else %>
                 <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
               <% end %>
               <br>
-              <i><%= cotisation.user.first_name %></i>
+              <i><%= cotisation.user.first_name %>
+                <%= link_to cotisation_path(cotisation), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+                <% end %>
+               </i>
             </div>
           <% end %>
         </div>

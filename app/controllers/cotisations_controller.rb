@@ -28,7 +28,8 @@ class CotisationsController < ApplicationController
 
   def destroy
     @cotisation = Cotisation.find(params[:id])
-    @cotisation.destroy
+    authorize @cotisation
+   @cotisation.destroy
     redirect_to dashboard_path
   end
 

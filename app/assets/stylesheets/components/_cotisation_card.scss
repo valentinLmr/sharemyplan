@@ -10,7 +10,8 @@
   color: grey;
 }
 
-.fa-long-arrow-alt-left {
+.fa-long-arrow-alt-left
+{
   color: grey;
   font-size: 1.7em;
   margin-right: 20px;
@@ -52,4 +53,25 @@
 .cotisation-card-footer h4 {
   text-align: center;
   color: grey;
+}
+
+.input_password{
+  border: none;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  padding: none;
+  width: auto;
+
+}
+
+.password-subscription {
+  display: flex;
+}
+
+.password-subscription p {
+  display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }

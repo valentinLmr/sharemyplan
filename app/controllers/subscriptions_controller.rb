@@ -40,7 +40,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
-    @subscription = @subscription = Subscription.find(params[:id])
+    @subscription = Subscription.find(params[:id])
+    authorize(@subscription)
   end
 
   def edit
@@ -55,7 +56,7 @@ class SubscriptionsController < ApplicationController
 
     authorize(@subscription)
 
-    if @subscription.update(Subscription_params)
+    if @subscription.update(subscription_params)
       redirect_to subscription_path
     else
       render :edit

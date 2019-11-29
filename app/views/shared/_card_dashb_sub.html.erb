@@ -3,5 +3,5 @@
   <div class="service-same"><%= subscription.name %></div>
   <div class="co-abo-price"><%= subscription.service.total_price.fdiv(subscription.service.number_of_places).round(0) %>€ / mois</div>
   <div class="commission-service">+0,30 € de frais de service par mois</div>
-  <%= link_to "Gérer", services_path(user_choice: "subscription"), class: "btn btn-lg btn-dasb mt-4"  %>
+  <%= link_to "Gérer", subscription_path(subscription), class: "btn btn-lg btn-dasb mt-4"  %>
 </div>
