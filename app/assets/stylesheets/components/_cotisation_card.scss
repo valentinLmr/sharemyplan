@@ -1,0 +1,55 @@
+.cotisation-card {
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 50px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+
+}
+
+.cotisation-title h3 {
+  color: grey;
+}
+
+.fa-long-arrow-alt-left {
+  color: grey;
+  font-size: 1.7em;
+  margin-right: 20px;
+}
+
+.fa-long-arrow-alt-left:hover {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.cotisation-card-body {
+  justify-content: space-around;
+}
+
+.cotisation-logo, .cotisation-infos {
+  min-width: 25%;
+}
+
+.cotisation-buttons {
+  min-width: 35%;
+  align-items: center;
+}
+
+.cotisation-logo img {
+  border-radius: 20px;
+  border: 1px solid #d1d2d3;
+}
+
+.cotisation-info {
+  display: flex;
+  align-items: center;
+}
+
+
+.cotisation-card-footer {
+  min-height: 150px;
+}
+
+.cotisation-card-footer h4 {
+  text-align: center;
+  color: grey;
+}
