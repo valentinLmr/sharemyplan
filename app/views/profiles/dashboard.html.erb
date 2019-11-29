@@ -10,8 +10,6 @@
     <h2 class="ml-3" style="text-align: center; color: white;">Bonjour <%= current_user.first_name %></h2>
   </div>
 
-  <h4 style="text-align: center; color: white;">Retrouve ici tes abonnements et de tes informations personnelles</h4>
-
   <div class="dashboard-shareur py-3 mt-4">
     <div class="d-flex justify-content-center py-2">
       <h4 style="text-align: center;">Mes abonnements en tant que Shareur</h4>
@@ -21,51 +19,55 @@
   </div>
 
 
-  <% if current_user.subscriptions.count > 0 %>
+    <% if current_user.subscriptions.count > 0 %>
 
-    <div class="group-card-sub">
-      <% @subscriptions.each do |subscription| %>
+      <div class="group-card-sub">
+        <% current_user.subscriptions.each do |subscription| %>
 
-        <%= render 'shared/card_dashb_sub',  subscription: subscription %>
+          <%= render 'shared/card_dashb_sub',  subscription: subscription %>
 
-      <% end %>
+        <% end %>
 
-      <%= render 'shared/card_add' %>
+        <div class="add-card m-auto">
+          <%= link_to "", services_path(user_choice: "subscriptions"), class: "fas fa-plus-circle add-card-plus" %>
+        </div>
 
-    </div>
+      </div>
 
-
-
-
-
-  <% else %>
-    <p>Vous ne proposez actuellement aucun abonnement à la location</p>
-  <% end %>
-
-</div>
-
-
-<div class="dashboard-locataire py-3 mt-4">
-  <div class="top-div d-flex justify-content-between py-2">
-    <h4>Mes abonnements en tant que co-abonné</h4>
-    <div><%= link_to 'Souscrire un nouvel abonnement', new_subscription_cotisation_path(current_user), class: 'btn btn-hp' %></div>
+    <% else %>
+      <div class="d-flex justify-content-between mt-3">
+        <p>Vous ne proposez actuellement aucun abonnement à la location</p>
+        <%= link_to 'Partager', services_path(user_choice: "subscriptions"), class: 'btn btn-dashboard' %>
+      </div>
+    <% end %>
 
   </div>
-  <% if @cotisations.count > 0 %>
-    <div class="group-card-sub">
-      <% @cotisations.each do |cotisation| %>
 
-        <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
 
-      <% end %>
+  <div class="dashboard-locataire py-3 mt-4">
+    <h4 style="text-align: center; margin-top:10px;">Mes abonnements en tant que co-abonné</h4>
 
-      <%= render 'shared/card_add' %>
 
-    </div>
-  <% else %>
-    <p>Vous ne louez actuellement aucun abonnement !</p>
-  <% end %>
+    <% if current_user.cotisations.count > 0 %>
+      <div class="group-card-sub">
+        <% current_user.cotisations.each do |cotisation| %>
 
-</div>
+          <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
+
+        <% end %>
+
+        <div class="add-card m-auto">
+          <%= link_to "", services_path(user_choice: "cotisations"), class: "fas fa-plus-circle add-card-plus" %>
+        </div>
+
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-between mt-3">
+        <p>Vous ne louez actuellement aucun abonnement !</p>
+          <%= link_to 'Souscrire', services_path(user_choice: "cotisations"), class: 'btn btn-dashboard' %>
+      </div>
+    <% end %>
+
+  </div>
 
 </div>
