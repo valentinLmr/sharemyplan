@@ -5,6 +5,7 @@ class Subscription < ApplicationRecord
   validates :available_places, presence: true
   validates :identifiant, presence: true
   validates :password, presence: true
+  monetize :price_cents
 
   def name
     self.service.name

@@ -17,30 +17,21 @@
       <h4 style="text-align: center;">Mes abonnements en tant que Shareur</h4>
     <div>
     </div>
-
   </div>
-
-
     <% if current_user.subscriptions.count > 0 %>
-
       <div class="group-card-sub">
         <% @subscriptions.each do |subscription| %>
-
           <%= render 'shared/card_dashb_sub',  subscription: subscription %>
-
         <% end %>
-
         <div class="add-card m-auto">
           <%= link_to "", services_path(user_choice: "subscriptions"), class: "fas fa-plus-circle add-card-plus" %>
         </div>
-
       </div>
-
     <% else %>
       <p>Vous ne proposez actuellement aucun abonnement à la location</p>
     <% end %>
-
   </div>
+
 
 
   <div class="dashboard-locataire py-3 mt-4">
@@ -48,25 +39,17 @@
     <div class="top-div py-2 div-locataire">
         <%= link_to 'Choisir un nouvel abonnement', services_path(user_choice: "cotisations"), class: 'btn btn-hp' %>
     </div>
-
-
     <% if @cotisations.count > 0 %>
       <div class="group-card-sub">
         <% @cotisations.each do |cotisation| %>
-
           <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
-
         <% end %>
-
         <div class="add-card m-auto">
           <%= link_to "", services_path(user_choice: "cotisations"), class: "fas fa-plus-circle add-card-plus" %>
         </div>
-
       </div>
     <% else %>
       <p>Vous ne louez actuellement aucun abonnement !</p>
     <% end %>
-
   </div>
-
 </div>
