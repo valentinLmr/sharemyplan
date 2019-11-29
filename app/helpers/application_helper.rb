@@ -3,10 +3,12 @@ module ApplicationHelper
     services.select { |service| service.category == category }
   end
 
-  def average(cotisation)
+  def average(subscription)
     all_rating = []
-    cotisation.reviews.each do |review|
-      all_rating << review.stars
+    subscription.cotisations.each do |cotisation|
+      cotisation.reviews.each do |review|
+        all_rating << review.rating
+      end
     end
     sum = all_rating.sum
     all_rating.count == 0 ? 0 : (sum / all_rating.count).round
