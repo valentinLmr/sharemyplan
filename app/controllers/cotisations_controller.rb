@@ -32,6 +32,10 @@ class CotisationsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def cotisation_price_per_month(cotisation)
+    cotisation.subscription.service.total_price.fdiv(cotisation.subscription.service.number_of_places).round(0)
+  end
+
   private
 
   def params_cotisation
