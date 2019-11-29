@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'profiles#dashboard'
 
   resources :services, only:[:index, :show] do
-    resources :subscriptions, only:[:index, :new, :create]
+    resources :subscriptions, only:[:index, :new, :create, :show]
   end
 
   resources :subscriptions, except:[:new, :create] do
