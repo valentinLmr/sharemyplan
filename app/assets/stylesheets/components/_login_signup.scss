@@ -1,1 +1,11 @@
-_login_signup.scss
+@media screen and (max-width: 940px) {
+  .left-signup {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .left-signin {
+    display: none;
+  }
+}
