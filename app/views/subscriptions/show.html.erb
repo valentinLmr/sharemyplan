@@ -64,9 +64,7 @@
 
               <div class="co-abos-card mb-3" style="text-align: center;">
                 <% if cotisation.user.photo?  %>
-                  <%= image_tag(cotisation.user.photo) %>
-
-
+                  <img class="avatar" src="<%= cotisation.user.photo %>" alt="">
                 <% else %>
                   <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                 <% end %>
