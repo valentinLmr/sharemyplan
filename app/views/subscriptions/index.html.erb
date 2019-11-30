@@ -25,14 +25,14 @@
         <div class="subcard d-flex flex-wrap align-items-center">
 
           <div class="d-flex flex-wrap subcard-left">
-            <div class="subcard-avatar mx-3 my-2">
+            <div class="subcard-avatar ml-3 mr-2 my-2">
               <% if subscription.user.photo? %>
                 <img src="<%= subscription.user.photo %>">
               <% else %>
                 <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
               <% end %>
             </div>
-            <div class="subcard-name mx-3 my-2"><%= subscription.user.first_name %></div>
+            <div class="subcard-name ml-1 my-2"><%= subscription.user.first_name %></div>
           </div>
 
           <div class="note">
@@ -44,7 +44,13 @@
           </div>
 
           <div class="subcard-middle">
-            <div class="subcard-places mx-3 my-2 d-flex justify-content-center"><%= subscription.available_places %>/<%= @service.number_of_places %> places disponibles</div>
+            <div class="subcard-places mx-3 my-2 d-flex justify-content-center">
+              <% if subscription.available_places > 1 %>
+                <%= subscription.available_places %> places disponibles
+              <% else %>
+                Plus qu'1 place dispo
+              <% end %>
+            </div>
           </div>
 
           <div class="subcard-right">
@@ -67,6 +73,7 @@
       <% end %>
     <% end %>
   </div>
+
 </div>
 
 
