@@ -33,7 +33,7 @@ puts "creating new users"
 
 User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942')
 User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
-User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Remi', last_name: 'Lemaire', phone_number: '067711977')
+User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977')
 User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388977')
 User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977')
 User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Antoine', last_name: 'Dubois', phone_number: '0677889977')
@@ -42,7 +42,15 @@ User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'Anne', l
 User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189977')
 User.create!(email: 'Sandrine@gmail.com', password: 'azerty', first_name: 'Sandrine', last_name: 'Massoni', phone_number: '0611189977')
 User.create!(email: 'Marie@gmail.com', password: 'azerty', first_name: 'Marie', last_name: 'go', phone_number: '0611189977')
-User.create!(email: 'Helene@gmail.com', password: 'azerty', first_name: 'Helene', last_name: 'Massoni', phone_number: '0611189977')
+User.create!(email: 'Helene@gmail.com', password: 'azerty', first_name: 'Hélène', last_name: 'Massoni', phone_number: '0611189977')
+User.create!(email: 'remi.cordo2@gmail.com', password: 'azerty', first_name: 'Louis', last_name: 'Cordonnier', phone_number: '0688977942')
+User.create!(email: 'remi.cordo3@gmail.com', password: 'azerty', first_name: 'Marion', last_name: 'Cordonnier', phone_number: '0688977942')
+User.create!(email: 'remi.cordo4@gmail.com', password: 'azerty', first_name: 'Julie', last_name: 'Cordonnier', phone_number: '0688977942')
+User.create!(email: 'remi.cordo5@gmail.com', password: 'azerty', first_name: 'Sarah', last_name: 'Cordonnier', phone_number: '0688977942')
+User.create!(email: 'remi.cordo8@gmail.com', password: 'azerty', first_name: 'Alex', last_name: 'Cordonnier', phone_number: '0688977942')
+User.create!(email: 'remi.cordo7@gmail.com', password: 'azerty', first_name: 'John', last_name: 'Cordonnier', phone_number: '0688977942')
+User.create!(email: 'remi.cordo9@gmail.com', password: 'azerty', first_name: 'David', last_name: 'Cordonnier', phone_number: '0688977942')
+
 
 
 puts "finished"
@@ -51,20 +59,20 @@ puts "Creating services"
 
 service_array = Service.all
 
-netflix_premium = Service.create!(name: 'Netflix Premium',  number_of_places: '4',    total_price: '14',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'netflix.png')
-netflix_standard = Service.create!(name: 'Netflix Standard', number_of_places: '2',    total_price: '10',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'netflix.png')
+netflix_premium = Service.create!(name: 'Netflix Premium',  number_of_places: '4',    total_price: '15,99',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'netflix-premium.png')
+netflix_standard = Service.create!(name: 'Netflix Standard', number_of_places: '2',    total_price: '10',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'netflix-standard.png')
 ocs = Service.create!(name: 'OCS',              number_of_places: '4',    total_price: '12',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'ocs.png')
 spotify_family = Service.create!(name: 'Spotify family',   number_of_places: '6',    total_price: '14',    category: 'musique',     description: 'Des millions de titres à ecouter',              photo: 'spotify.png')
 deezer_premium = Service.create!(name: 'Deezer Premium',   number_of_places: '6',    total_price: '14',    category: 'musique',     description: 'Des millions de titres à ecouter',              photo: 'deezer.png')
 apple_tv_premium = Service.create!(name: 'Apple TV Premium', number_of_places: '4',    total_price: '12',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'appletv.png')
-amazon_prime_video = Service.create!(name: 'Amazon Prime Video',     number_of_places: '6',    total_price: '15',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'Amazon.png')
+amazon_prime_video = Service.create!(name: 'Amazon Prime Video',     number_of_places: '6',    total_price: '15',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'amazon-prime-video.png')
 youtube_premium = Service.create!(name: 'Youtube Premium',  number_of_places: '6',    total_price: '18',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'youtube.png')
 canal_series = Service.create!(name: 'Canal+ Serie',     number_of_places: '2',    total_price: '10',    category: 'vosd',        description: 'Service de vosd en ligne',                      photo: 'canal.png')
 apple_music = Service.create!(name: 'Apple music',      number_of_places: '6',    total_price: '15',    category: 'musique',     description: 'Des millions de titres à ecouter',              photo: 'apple.png')
-amazon_music = Service.create!(name: 'Amazon Music',     number_of_places: '6',    total_price: '15',    category: 'musique',     description: 'Des millions de titres à ecouter',              photo: 'Amazon.png')
-amazon_prime = Service.create!(name: 'Amazon Prime',     number_of_places: '2',    total_price: '4',     category: 'ecommerce',  description: 'Livraison express et gratuite',                 photo: 'Amazon.png')
+amazon_music = Service.create!(name: 'Amazon Music',     number_of_places: '6',    total_price: '15',    category: 'musique',     description: 'Des millions de titres à ecouter',              photo: 'amazon-music.png')
+amazon_prime = Service.create!(name: 'Amazon Prime',     number_of_places: '2',    total_price: '4',     category: 'ecommerce',  description: 'Livraison express et gratuite',                 photo: 'amazon-prime.png')
 cdiscount = Service.create!(name: 'Cdiscount',        number_of_places: '2',    total_price: '2,50',  category: 'ecommerce',  description: 'Livraison express et gratuite',                 photo: 'cdiscount.png')
-pack_office = Service.create!(name: 'Pack Office',      number_of_places: '6',    total_price: '8,25',  category: 'logiciel',    description: 'Pack office complet ',                          photo: 'office.png')
+pack_office = Service.create!(name: 'Pack Office',      number_of_places: '6',    total_price: '8,25',  category: 'logiciel',    description: 'Pack office complet ',                          photo: 'office-365.png')
 norton_premium = Service.create!(name: 'Norton Premium',   number_of_places: '10',   total_price: '8,5',   category: 'logiciel',    description: 'Service VPN',                                   photo: 'norton.png')
 cyperghost = Service.create!(name: 'CyperGhost',       number_of_places: '6',    total_price: '12',    category: 'logiciel',    description: 'Cryptez vos activités en ligne',                photo: 'cyberghost.png')
 zenmate = Service.create!(name: 'ZenMate',          number_of_places: '5',    total_price: '10',    category: 'logiciel',    description: 'Service VPN',                                   photo: 'zenmate.png')

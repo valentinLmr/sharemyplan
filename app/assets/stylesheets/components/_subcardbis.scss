@@ -1,4 +1,4 @@
-.subcard {
+.subcardbis {
   min-height: 110px;
   background-color: white;
   border-radius: 20px;
@@ -34,32 +34,27 @@
 }
 
 .subcard-left {
-  min-width: 20%;
   display: flex;
   align-items: center;
 
 }
 
 .note{
-    min-width: 12%;
     align-items: center;
 }
 
 .subcard-left-logo {
-  min-width: 22%;
   display: flex;
   align-items: center;
 }
 
 .subcard-middle {
-  min-width: 26%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .subcard-right {
-  min-width: 18%;
   display: flex;
   align-items: center;
   justify-content: flex-end;

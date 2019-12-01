@@ -17,24 +17,36 @@
       </div>
       <div class="cotisation-infos py-3 pl-3">
         <div>
-          <p><i class="fas fa-user"></i> <%= @subscription.user.first_name %></p>
           <p><i class="fas fa-tv"></i> <b>Abo :</b><%= @subscription.service.name %></p>
           <div class="password-subscription">
-            <p><i class="fas fa-at"></i> <b>Identifiant : </b></p>
+            <p><i class="fas fa-at"></i> <b> Identifiant : </b></p>
              <%= simple_form_for @subscription do |f|%>
                 <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
               <% end %>
           </div>
           <div class="password-subscription">
-            <p><i class="fas fa-fingerprint d-flex"></i><b>Mot de passe :</b></p>
+            <p><i class="fas fa-fingerprint d-flex"></i><b> Mot de passe :</b></p>
             <%= simple_form_for @subscription do |f|%>
                 <%= f.input :password, label: false, input_html: {value: @subscription.password, type: "text", class: "input_password"} %>
               <% end %>
           </div>
+          <div class="password-subscription">
+            <p><i class="fas fa-at"></i> <b> Nombre de place dispo :</b></p>
+             <%= simple_form_for @subscription do |f|%>
+                <%= f.input :available_places, label: false, input_html: {value: @subscription.available_places, type: "text", class: "input_password"} %>
+              <% end %>
+          </div>
+<!--           <div class="form d-flex">
+            <span class="less_place"><i class="fas fa-angle-left"></i></span>
+            <span class="add_place"> <i class="fas fa-angle-right"></i> </span>
+            <%= simple_form_for [@service, @subscription] do |f| %>
+              <%= f.input :available_places, label: false, input_html: { value: @subscription.available_places, type: "text", class: "input_password"} %>
+              <% end %>
+          </div> -->
         </div>
       </div>
       <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
-          <%= link_to "retirer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
+          <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
 
       </div>
     </div>
@@ -42,31 +54,30 @@
     <div class="cotisation-card-footer mt-4">
       <h4 class="mb-4">Tes co-abonnés</h4>
 
-      <div class="card-co-abo d-flex align-items-center justify-content-around mx-4">
+        <div class="card-co-abo d-flex align-items-center justify-content-around mx-4">
 
+          <% if @subscription.cotisations.count < 1 %>
+            <p><i>Tu n'as pas de co-abonné(e) pour le moment</i></p>
+          <% else %>
 
           <% @subscription.cotisations.each do |cotisation| %>
 
-
-
-            <div class="co-abos-card mb-3" style="text-align: center;">
-              <% if cotisation.user.photo?  %>
-                <%= image_tag(cotisation.user.photo) %>
-
-
-              <% else %>
-                <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
-              <% end %>
-              <br>
-              <i><%= cotisation.user.first_name %>
-                <%= link_to cotisation_path(cotisation), method: :delete do %>
-                <i class="far fa-trash-alt"></i>
+              <div class="co-abos-card mb-3" style="text-align: center;">
+                <% if cotisation.user.photo?  %>
+                  <img class="avatar" src="<%= cotisation.user.photo %>" alt="">
+                <% else %>
+                  <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                 <% end %>
-               </i>
-            </div>
-          <% end %>
-        </div>
-
+                <br>
+                <i><%= cotisation.user.first_name %>
+                  <%= link_to cotisation_path(cotisation), method: :delete do %>
+                  <i class="far fa-trash-alt"></i>
+                  <% end %>
+                 </i>
+              </div>
+            <% end %>
+            <% end %>
+          </div>
       </div>
     </div>
 
