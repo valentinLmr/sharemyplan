@@ -13,4 +13,15 @@ module ApplicationHelper
     sum = all_rating.sum
     all_rating.count == 0 ? 0 : (sum / all_rating.count).round
   end
+
+  def reviews_display (subscription)
+    all_reviews = []
+    subscription.cotisations.each do |cotisation|
+      cotisation.reviews.each do |review|
+        all_reviews << review.content
+      end
+    end
+    first_review = all_reviews.sample(1)
+    second_review = all_reviews.sample(1)
+  end
 end
