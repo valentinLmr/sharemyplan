@@ -11,9 +11,15 @@
   color: white;
 }
 
-.btn-bleu:hover {
+.btn-rejoindre {
+  background-color: #48A9A6;
   color: white;
-  background-color: #45a09d;
+  border-radius: 10px;
+}
+
+.btn-bleu:hover, .btn-rejoindre:hover {
+  color: white;
+  background-color: #3e918e;
 }
 
 .btn-contact {

@@ -7,7 +7,6 @@
 }
 
 .subcard-logo img {
-  height: 60px;
   border-radius: 30px;
   border: 1px solid #e3e4e5;
 }
@@ -49,6 +48,7 @@
   min-width: 22%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .subcard-middle {
@@ -93,4 +93,8 @@
   margin-bottom: 35px;
   text-align: center;
   color: white;
+}
+
+.fa-star {
+  color: #D4B483;
 }
