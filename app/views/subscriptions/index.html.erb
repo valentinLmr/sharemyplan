@@ -45,11 +45,9 @@
 
           <div class="subcard-middle">
             <div class="subcard-places mx-3 my-2 d-flex justify-content-center">
-              <% if subscription.available_places > 1 %>
-                <span style="color: #606060;"><%= subscription.available_places %> places disponibles</span>
-              <% else %>
-                <span style="color: #606060;">Plus qu'1 place dispo</span>
-              <% end %>
+
+              <p> <%= subscription.available_places %> / <%= subscription.service.number_of_places %> places </p>
+
             </div>
           </div>
 
