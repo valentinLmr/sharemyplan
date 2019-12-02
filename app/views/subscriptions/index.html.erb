@@ -9,7 +9,7 @@
   <% else %>
   <div class="container" style="text-align: center;">
     <h2 class="index-sub-title">Il n'y aucun partage <%= @service.name %> disponible</h2>
-    <%= link_to 'Chercher autre chose', services_path, class: 'btn btn-abus' %>
+    <%= link_to 'Chercher autre chose', services_path(user_choice: "cotisations"), class: 'btn btn-abus' %>
   </div>
   <% end %>
 
