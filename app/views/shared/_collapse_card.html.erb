@@ -7,7 +7,7 @@
     </div>
 
     <div class="show-middle-sub mt-1">
-      <div class="mx-3 pt-3 pb-3 d-flex" style="color: #4281A4; font-weight: bold;"><h4>Commentaires</h4></div>
+      <div class="mx-3 pt-2 pb-1 d-flex justify-content-center" style="color: #4281A4; font-weight: bold;"><h4>Commentaires</h4></div>
 
 
 
@@ -15,7 +15,9 @@
     <% subscription.cotisations.each do |cotisation| %>
       <% cotisation.reviews.each do |review|%>
       <% sleep(2) %>
-        <ul> "<%= review.cotisation.user.photo %><%= review.content %>"</ul>
+        <i><%= review.cotisation.user.first_name %></i>
+        <%= render 'shared/stars', note: average(subscription) %>
+        <%= review.cotisation.user.photo %><%= review.content %>
       <% end%>
     <% end %>
     </div>
