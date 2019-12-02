@@ -107,7 +107,7 @@ Subscription.create!(available_places: '2', identifiant: 'remico', password: 'az
 Subscription.create!(available_places: '1', identifiant: 'alaindelong', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
 Subscription.create!(available_places: '1', identifiant: 'alicedelice', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
 Subscription.create!(available_places: '1', identifiant: 'jakiecadillac', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
-Subscription.create!(available_places: '1', identifiant: 'patrick', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+subscription_patrick = Subscription.create!(available_places: '1', identifiant: 'patrick', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
 Subscription.create!(available_places: '3', identifiant: 'jeanjean', password: 'azerty', user: get_random_user(user_array), service: apple_tv_premium)
 Subscription.create!(available_places: '2', identifiant: 'coco', password: 'azerty', user: get_random_user(user_array), service: deezer_premium)
 Subscription.create!(available_places: '2', identifiant: 'mika', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
@@ -144,12 +144,12 @@ puts "Creating cotisations"
 
 user_array = User.all
 
-Cotisation.create!(start_date: Date.today, user: User.first, subscription_id: 9)
-Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 9)
-Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 9)
-Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 1)
-Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 1)
-Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription_id: 1)
+Cotisation.create!(start_date: Date.today, user: User.first, subscription: subscription_patrick)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription: subscription_patrick)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription: subscription_patrick)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription: Subscription.first)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription: Subscription.first)
+Cotisation.create!(start_date: Date.today, user: get_random_user(user_array), subscription: Subscription.first)
 
 puts "end"
 

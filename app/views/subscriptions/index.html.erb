@@ -1,38 +1,23 @@
 <div class="container">
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique du titre -->
-  <% max_places = [] %>
-  <% @subscriptions.each do |subscription| %>
-    <% max_places << subscription.available_places %>
+  <% if @subscriptions.size > 0 && @subscriptions.size - @full_subscriptions.size > 0 %>
+      <h2 class="index-sub-title">
+        <%= current_user.first_name.capitalize %>, voici les
+        <%= @subscriptions.size - @full_subscriptions.size %> partages
+        <%= @service.name %> disponibles
+      </h2>
+  <% else %>
+  <div class="container" style="text-align: center;">
+    <h2 class="index-sub-title">Il n'y aucun partage <%= @service.name %> disponible</h2>
+    <%= link_to 'Chercher autre chose', services_path(user_choice: "cotisations"), class: 'btn btn-abus' %>
+  </div>
   <% end %>
-  <% max_places_dispo = max_places.max %>
-
-
-    <% if max_places_dispo != nil && max_places_dispo < @service.number_of_places %>
-
-      <% if user_signed_in? %>
-
-        <h2 class="index-sub-title"> <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
-
-      <% else %>
-        <h2 class="index-sub-title">Voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
-      <% end %>
-
-
-    <% else %>
-
-      <h3 class="index-sub-title">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
-      <div style="text-align: center; margin: 20px;"><%= link_to 'Chercher autre chose', services_path(user_choice: "cotisations"), class: 'btn btn-avis' %></div>
-
-    <% end %>
-
-
-
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
 
   <div id="accordion">
     <% @subscriptions.each do |subscription| %>
-      <% if subscription.available_places < @service.number_of_places && subscription.available_places > 0 %>
+      <% if subscription.available_places > 0 %> <!-- <  @service.number_of_places && subscription.available_places -->
         <div class="subcard d-flex flex-wrap align-items-center">
 
           <div class="d-flex flex-wrap subcard-left">
@@ -56,9 +41,11 @@
 
           <div class="subcard-middle">
             <div class="subcard-places mx-3 my-2 d-flex justify-content-center align-items-center">
-
-              <%= subscription.available_places %> / <%= subscription.service.number_of_places %> places
-
+              <% if subscription.available_places > 1 %>
+                <%= subscription.available_places %> places restantes
+              <% else %>
+                <%= subscription.available_places %> place restante
+              <% end %>
             </div>
           </div>
 
