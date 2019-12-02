@@ -45,8 +45,8 @@ class CotisationsController < ApplicationController
       @subscription.available_places -= 1
       @subscription.save
       @subscription.user.save
-      redirect_to new_cotisation_payment_path(@cotisation)
 
+      redirect_to new_cotisation_payment_path(@cotisation)
     else
       render :new
     end
