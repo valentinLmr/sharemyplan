@@ -1,31 +1,15 @@
 <div class="container">
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique du titre -->
-  <% max_places = [] %>
-  <% @subscriptions.each do |subscription| %>
-    <% max_places << subscription.available_places %>
+
+  <% if @subscriptions.size > 0 %>
+      <h2 class="index-sub-title">
+        <%= current_user.first_name.capitalize %>, voici les
+        <%= @subscriptions.size - @full_subscriptions.size %>partages
+        <%= @service.name %> disponibles
+      </h2>
+  <% else %>
+    <h2>no subscription</h2>
   <% end %>
-  <% max_places_dispo = max_places.max %>
-
-    <% if max_places_dispo != nil && max_places_dispo < @service.number_of_places %>
-
-      <% if user_signed_in? %>
-
-        <h2 class="index-sub-title"> <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
-
-      <% else %>
-        <h2 class="index-sub-title">Voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
-      <% end %>
-
-
-    <% else %>
-
-      <h3 class="index-sub-title">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
-      <div style="text-align: center; margin: 20px;"><%= link_to 'Chercher autre chose', services_path(user_choice: "cotisations"), class: 'btn btn-avis' %></div>
-
-    <% end %>
-
-
-
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
 
