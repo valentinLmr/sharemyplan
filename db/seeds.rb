@@ -19,6 +19,8 @@ end
 
 puts "begining of seed"
 
+puts "Deleting Notifications"
+Notification.destroy_all
 puts "Deleting Cotisations"
 Cotisation.destroy_all
 puts "subscriptions destroyed"
@@ -36,7 +38,7 @@ User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delph
 User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977')
 User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388977')
 User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977')
-User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Antoine', last_name: 'Dubois', phone_number: '0677889977')
+patrick = User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Patrick', last_name: 'Dubois', phone_number: '0677889977')
 User.create!(email: 'Henripfr@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'derujh', phone_number: '067788227')
 User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'Anne', last_name: 'arlou', phone_number: '0677889977')
 User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189977')
@@ -109,7 +111,7 @@ Subscription.create!(available_places: '2', identifiant: 'remico', password: 'az
 Subscription.create!(available_places: '1', identifiant: 'alaindelong', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
 Subscription.create!(available_places: '1', identifiant: 'alicedelice', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
 Subscription.create!(available_places: '1', identifiant: 'jakiecadillac', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
-subscription_patrick = Subscription.create!(available_places: '1', identifiant: 'patrick', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
+subscription_patrick = Subscription.create!(available_places: '3', identifiant: 'patrick', password: 'azerty', user: patrick, service: netflix_premium)
 Subscription.create!(available_places: '3', identifiant: 'jeanjean', password: 'azerty', user: get_random_user(user_array), service: apple_tv_premium)
 Subscription.create!(available_places: '2', identifiant: 'coco', password: 'azerty', user: get_random_user(user_array), service: deezer_premium)
 Subscription.create!(available_places: '2', identifiant: 'mika', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
