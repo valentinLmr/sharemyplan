@@ -41,11 +41,11 @@
 
           <div class="subcard-middle">
             <div class="subcard-places mx-3 my-2 d-flex justify-content-center align-items-center">
-
-
-              <%= subscription.service.number_of_places - subscription.available_places %> / <%= subscription.service.number_of_places %> places
-
-
+              <% if subscription.available_places > 1 %>
+                <%= subscription.available_places %> places restantes
+              <% else %>
+                <%= subscription.available_places %> place restante
+              <% end %>
             </div>
           </div>
 
