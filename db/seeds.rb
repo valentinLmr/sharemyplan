@@ -31,27 +31,25 @@ User.destroy_all
 
 puts "creating new users"
 
-User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
-User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977')
-User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388977')
-User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977')
-User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Antoine', last_name: 'Dubois', phone_number: '0677889977')
-User.create!(email: 'Henripfr@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'derujh', phone_number: '067788227')
-User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'Anne', last_name: 'arlou', phone_number: '0677889977')
-User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189977')
-User.create!(email: 'Sandrine@gmail.com', password: 'azerty', first_name: 'Sandrine', last_name: 'Massoni', phone_number: '0611189977')
-User.create!(email: 'Marie@gmail.com', password: 'azerty', first_name: 'Marie', last_name: 'go', phone_number: '0611189977')
-User.create!(email: 'Helene@gmail.com', password: 'azerty', first_name: 'Hélène', last_name: 'Massoni', phone_number: '0611189977')
-User.create!(email: 'remi.cordo2@gmail.com', password: 'azerty', first_name: 'Louis', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo3@gmail.com', password: 'azerty', first_name: 'Marion', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo4@gmail.com', password: 'azerty', first_name: 'Julie', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo5@gmail.com', password: 'azerty', first_name: 'Sarah', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo8@gmail.com', password: 'azerty', first_name: 'Alex', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo7@gmail.com', password: 'azerty', first_name: 'John', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo9@gmail.com', password: 'azerty', first_name: 'David', last_name: 'Cordonnier', phone_number: '0688977942')
-
-
+User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'remi.png')
+User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977', photo: 'delphine.png')
+User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977', photo: 'arthur.png')
+User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388977', photo: 'martin.png')
+User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977', photo: 'bouba.png')
+User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Antoine', last_name: 'Dubois', phone_number: '0677889977', photo: 'antoine.png')
+User.create!(email: 'Henripfr@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'derujh', phone_number: '067788227', photo: 'joseph.png')
+User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'Anne', last_name: 'arlou', phone_number: '0677889977', photo: 'anne.png')
+User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189977', photo: 'perine.png')
+User.create!(email: 'Sandrine@gmail.com', password: 'azerty', first_name: 'Sandrine', last_name: 'Massoni', phone_number: '0611189977', photo: 'sandrine.png')
+User.create!(email: 'Marie@gmail.com', password: 'azerty', first_name: 'Marie', last_name: 'go', phone_number: '0611189977', photo: 'marie.png')
+User.create!(email: 'Helene@gmail.com', password: 'azerty', first_name: 'Hélène', last_name: 'Massoni', phone_number: '0611189977', photo: 'helene.png')
+User.create!(email: 'remi.cordo2@gmail.com', password: 'azerty', first_name: 'Louis', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'louis.png')
+User.create!(email: 'remi.cordo3@gmail.com', password: 'azerty', first_name: 'Marion', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'marion.png')
+User.create!(email: 'remi.cordo4@gmail.com', password: 'azerty', first_name: 'Julie', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'julie.png')
+User.create!(email: 'remi.cordo5@gmail.com', password: 'azerty', first_name: 'Sarah', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'sarah.png')
+User.create!(email: 'remi.cordo8@gmail.com', password: 'azerty', first_name: 'Alex', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'alex.png')
+User.create!(email: 'remi.cordo7@gmail.com', password: 'azerty', first_name: 'John', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'john.png')
+User.create!(email: 'remi.cordo9@gmail.com', password: 'azerty', first_name: 'David', last_name: 'Cordonnier', phone_number: '0688977942', photo: 'david.png')
 
 puts "finished"
 
