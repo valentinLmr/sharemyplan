@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row py-4 d-flex">
+    <div class="col-md-3"><%= image_tag(@cotisation.subscription.service.photo, width: '500', height: '100%') %></div>
+
+    <div class="col" style=" margin-left: 269px;">
+      <h1>Détails de votre abonnement</h1>
+      <p>
+        <i class="fas fa-cube"></i> <%= @cotisation.subscription.service.name %> m2
+      </p>
+      <p>
+        <i class="fas fa-user-check"></i> <%= @cotisation.user.first_name %>
+      </p>
+      <p>
+        <i class="fas fa-phone"></i> <%= @cotisation.user.phone_number %>
+      </p>
+
+      <p>
+        <i class="fas fa-euro-sign"></i> Montant total à payer : <strong><%= @cotisation.price_cents %>€</strong>
+      </p>
+
+      <button id="pay" class="btn btn-primary">Payer</button> <%= link_to 'Annuler', dashboard_path, class: 'btn btn-danger' %>
+
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @cotisation.checkout_session_id %>'
+          });
+        });
+      </script>
+
+
+    </div>
+  </div>
+</div>

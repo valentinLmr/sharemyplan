@@ -33,7 +33,7 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.save
       # redirect_to subscriptions_path(@subscription)
-      redirect_to dashboard_path
+      # redirect_to dashboard_path
     else
       render :new
     end
@@ -74,6 +74,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:price, :available_places, :identifiant, :password)
+    params.require(:subscription).permit(:available_places, :identifiant, :password)
   end
 end

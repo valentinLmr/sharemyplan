@@ -15,51 +15,36 @@
       <h4>Mes abonnements en tant que Shareur</h4>
     <div>
     </div>
-
   </div>
-
-
     <% if current_user.subscriptions.count > 0 %>
-
       <div class="group-card-sub">
         <% current_user.subscriptions.each do |subscription| %>
-
           <%= render 'shared/card_dashb_sub',  subscription: subscription %>
-
         <% end %>
-
         <div class="add-card m-auto">
           <%= link_to "", services_path(user_choice: "subscriptions"), class: "fas fa-plus-circle add-card-plus" %>
         </div>
-
       </div>
-
     <% else %>
       <div class="d-flex justify-content-between mt-3">
         <p>Vous ne proposez actuellement aucun abonnement à la location</p>
         <%= link_to 'Partager', services_path(user_choice: "subscriptions"), class: 'btn btn-dashboard' %>
       </div>
     <% end %>
-
   </div>
 
-
   <div class="dashboard-locataire py-3 mt-4">
-    <h4>Mes abonnements en tant que co-abonné</h4>
 
+    <h4>Mes abonnements en tant que co-abonné</h4>
 
     <% if current_user.cotisations.count > 0 %>
       <div class="group-card-sub">
         <% current_user.cotisations.each do |cotisation| %>
-
           <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
-
         <% end %>
-
         <div class="add-card m-auto">
           <%= link_to "", services_path(user_choice: "cotisations"), class: "fas fa-plus-circle add-card-plus" %>
         </div>
-
       </div>
     <% else %>
       <div class="d-flex justify-content-between mt-3">
@@ -67,8 +52,8 @@
           <%= link_to 'Souscrire', services_path(user_choice: "cotisations"), class: 'btn btn-dashboard' %>
       </div>
     <% end %>
-
   </div>
+
 
   <div class="info-perso py-3 mt-4">
     <div class="row info-perso-header d-flex align-items-center">
@@ -97,4 +82,5 @@
       </div>
       </div>
   </div>
+
 </div>
