@@ -51,36 +51,75 @@
       </div>
     </div>
 
-    <div class="cotisation-card-footer mt-4">
-      <h4 class="mb-4">Tes co-abonnés</h4>
+    <div class="cotisation-card-footer mt-4 ">
+        <div class="abonne_reviews d-flex">
+          <div class="card-co-abo align-items-center justify-content-around mx-4" style="width: 50%; text-align:center;">
+            <h4 class="mb-4">Tes co-abonnés</h4>
+            <% if @subscription.cotisations.count < 1 %>
+              <p><i>Tu n'as pas de co-abonné(e) pour le moment</i></p>
+            <% else %>
 
-        <div class="card-co-abo d-flex align-items-center justify-content-around mx-4">
+            <% @subscription.cotisations.each do |cotisation| %>
 
-          <% if @subscription.cotisations.count < 1 %>
-            <p><i>Tu n'as pas de co-abonné(e) pour le moment</i></p>
-          <% else %>
-
-          <% @subscription.cotisations.each do |cotisation| %>
-
-              <div class="co-abos-card mb-3" style="text-align: center;">
-                <% if cotisation.user.photo?  %>
-                  <img class="avatar" src="<%= cotisation.user.photo %>" alt="">
-                <% else %>
-                  <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
-                <% end %>
-                <br>
-                <i><%= cotisation.user.first_name %>
-                  <%= link_to cotisation_path(cotisation), method: :delete do %>
-                  <i class="far fa-trash-alt"></i>
+                <div class="co-abos-card mb-3 d-flex" style="text-align: center;">
+                  <% if cotisation.user.photo?  %>
+                    <img class="avatar" src="<%= cotisation.user.photo %>" alt="">
+                  <% else %>
+                    <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                   <% end %>
-                 </i>
-              </div>
-            <% end %>
-            <% end %>
+                  <br>
+                  <i><%= cotisation.user.first_name %>
+                    <%= link_to cotisation_path(cotisation), method: :delete do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
+                   </i>
+                </div>
+              <% end %>
+              <% end %>
+            </div>
+
+            <div class="review" style="width: 50%; text-align:center">
+
+              <% if @subscription.reviews.any? %>
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
+                  <div class="carousel-inner">
+                    <% subscription.reviews.each_with_index do |review, index| %>
+                      <div class="carousel-item <%= 'active' if index == 0 %>">
+                        <% if review.cotisation.user.photo?  %>
+                          <div class="review_display">
+                            <div class="content_review">
+                             <img class="avatar" src="<%= review.cotisation.user.photo %>"/>
+                              <%= render "shared/stars", note: average(subscription)%>
+                              <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>                    </div>
+                          </div>
+                        <% else %>
+                          <div class="review_display">
+                            <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+                            <div class="content_review">
+                              <%= render "shared/stars", note: average(subscription)%>
+                               <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>
+                            </div>
+                          </div>
+                        <% end  %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% else  %>
+
+                <div>
+                  <div class="mx-3 pb-1" style="color: #4281A4; font-weight: bold;">
+                    <h4>Avis</h4>
+                  </div>
+                  <div class="mx-5 my-2" >
+                    <p><i style="font-weight: normal;">Aucun avis pour le moment...</i></p>
+                  </div>
+                </div>
+              <% end %>
+             </div>
+            </div>
           </div>
-      </div>
+        </div>
     </div>
-
   </div>
-
 </div>

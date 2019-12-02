@@ -18,6 +18,8 @@ end
 
 
 puts "begining of seed"
+puts "Deleting Review"
+Review.destroy_all
 
 puts "Deleting Notifications"
 Notification.destroy_all
@@ -33,27 +35,81 @@ User.destroy_all
 
 puts "creating new users"
 
-User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
-User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977')
-User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388977')
-User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977')
-patrick = User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Patrick', last_name: 'Dubois', phone_number: '0677889977')
-User.create!(email: 'Henripfr@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'derujh', phone_number: '067788227')
-User.create!(email: 'Bouba@gmail.com', password: 'azerty', first_name: 'Anne', last_name: 'arlou', phone_number: '0677889977')
-User.create!(email: 'Sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189977')
-User.create!(email: 'Sandrine@gmail.com', password: 'azerty', first_name: 'Sandrine', last_name: 'Massoni', phone_number: '0611189977')
-User.create!(email: 'Marie@gmail.com', password: 'azerty', first_name: 'Marie', last_name: 'go', phone_number: '0611189977')
-User.create!(email: 'Helene@gmail.com', password: 'azerty', first_name: 'Hélène', last_name: 'Massoni', phone_number: '0611189977')
-User.create!(email: 'remi.cordo2@gmail.com', password: 'azerty', first_name: 'Louis', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo3@gmail.com', password: 'azerty', first_name: 'Marion', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo4@gmail.com', password: 'azerty', first_name: 'Julie', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo5@gmail.com', password: 'azerty', first_name: 'Sarah', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo8@gmail.com', password: 'azerty', first_name: 'Alex', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo7@gmail.com', password: 'azerty', first_name: 'John', last_name: 'Cordonnier', phone_number: '0688977942')
-User.create!(email: 'remi.cordo9@gmail.com', password: 'azerty', first_name: 'David', last_name: 'Cordonnier', phone_number: '0688977942')
+remi = User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942')
+remi.remote_photo_url = "https://avatars3.githubusercontent.com/u/51714799?v=4"
+remi.save!
 
+sandrine = User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
+sandrine.remote_photo_url = "https://avatars3.githubusercontent.com/u/52571009?v=4"
+sandrine.save!
 
+antoine = User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977')
+antoine.remote_photo_url = "https://avatars1.githubusercontent.com/u/54395152?v=4"
+antoine.save!
+
+martin = User.create!(email: 'martin@hotmail.com', password: 'azerty', first_name: 'Martin', last_name: 'Dutilleul', phone_number: '06723388 977')
+martin.remote_photo_url = "https://avatars0.githubusercontent.com/u/55383792?v=4"
+martin.save!
+
+bouba = User.create!(email: 'alex56@gmail.com', password: 'azerty', first_name: 'Bouba', last_name: 'pfrt', phone_number: '0677889977')
+bouba.remote_photo_url = "https://avatars2.githubusercontent.com/u/54802639?v=4"
+bouba.save!
+
+antoine = User.create!(email: 'duroyon@gmail.fr', password: 'azerty', first_name: 'Antoine', last_name: 'Dubois', phone_number: '06778899 77')
+antoine.remote_photo_url = "https://avatars1.githubusercontent.com/u/54395152?v=4"
+antoine.save!
+
+joseph = User.create!(email: 'henripfr@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'derujh', phone_number: '067788227')
+joseph.remote_photo_url = "https://avatars1.githubusercontent.com/u/55735711?v=4"
+joseph.save!
+
+anne = User.create!(email: 'bouba@gmail.com', password: 'azerty', first_name: 'Anne', last_name: 'arlou', phone_number: '0677889977')
+anne.remote_photo_url = "https://avatars2.githubusercontent.com/u/54837216?v=4"
+anne.save!
+
+perinne = User.create!(email: 'sadju@gmail.com', password: 'azerty', first_name: 'Perrine', last_name: 'Massoni', phone_number: '0611189 977')
+perinne.remote_photo_url = "https://avatars1.githubusercontent.com/u/54813497?v=4"
+perinne.save!
+
+sandrine = User.create!(email: 'sandrine@gmail.com', password: 'azerty', first_name: 'Sandrine', last_name: 'Massoni', phone_number: '06111899 77')
+sandrine.remote_photo_url = "https://avatars0.githubusercontent.com/u/7688029?v=4"
+sandrine.save!
+
+marie = User.create!(email: 'marie@gmail.com', password: 'azerty', first_name: 'Marie', last_name: 'go', phone_number: '0611189977')
+marie.remote_photo_url = "https://avatars1.githubusercontent.com/u/30141649?v=4"
+marie.save!
+
+helene = User.create!(email: 'helene@gmail.com', password: 'azerty', first_name: 'Hélène', last_name: 'Massoni', phone_number: '06111 89977')
+helene.remote_photo_url = "https://avatars3.githubusercontent.com/u/54664044?v=4"
+helene.save!
+
+louis = User.create!(email: 'remi.cordo2@gmail.com', password: 'azerty', first_name: 'Louis', last_name: 'Cordonnier', phone_number: '06889 77942')
+louis.remote_photo_url = "https://avatars0.githubusercontent.com/u/17082201?v=4"
+louis.save!
+
+marion = User.create!(email: 'remi.cordo3@gmail.com', password: 'azerty', first_name: 'Marion', last_name: 'Cordonnier', phone_number: '0688977942' )
+marion.remote_photo_url = "https://avatars1.githubusercontent.com/u/16647400?v=4"
+marion.save!
+
+julie = User.create!(email: 'remi.cordo4@gmail.com', password: 'azerty', first_name: 'Julie', last_name: 'Cordonnier', phone_number: '0688977942')
+julie.remote_photo_url = "https://avatars2.githubusercontent.com/u/55282448?v=4"
+julie.save!
+
+sarah = User.create!(email: 'remi.cordo5@gmail.com', password: 'azerty', first_name: 'Sarah', last_name: 'Cordonnier', phone_number: '0688977942')
+sarah.remote_photo_url = "https://avatars3.githubusercontent.com/u/37838192?v=4"
+sarah.save!
+
+alex = User.create!(email: 'remi.cordo8@gmail.com', password: 'azerty', first_name: 'Alex', last_name: 'Cordonnier', phone_number: '0688977942')
+alex.remote_photo_url = "https://avatars0.githubusercontent.com/u/32016201?v=4"
+alex.save!
+
+john = User.create!(email: 'remi.cordo7@gmail.com', password: 'azerty', first_name: 'John', last_name: 'Cordonnier', phone_number: '0688977942')
+john.remote_photo_url = "https://avatars3.githubusercontent.com/u/35258797?v=4"
+john.save!
+
+david = User.create!(email: 'remi.cordo9@gmail.com', password: 'azerty', first_name: 'David', last_name: 'Cordonnier', phone_number: '0688977942')
+david.remote_photo_url = "https://avatars1.githubusercontent.com/u/55805973?v=4"
+david.save!
 
 puts "finished"
 
@@ -111,7 +167,7 @@ Subscription.create!(available_places: '2', identifiant: 'remico', password: 'az
 Subscription.create!(available_places: '1', identifiant: 'alaindelong', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
 Subscription.create!(available_places: '1', identifiant: 'alicedelice', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
 Subscription.create!(available_places: '1', identifiant: 'jakiecadillac', password: 'azerty', user: get_random_user(user_array), service: netflix_standard)
-subscription_patrick = Subscription.create!(available_places: '3', identifiant: 'patrick', password: 'azerty', user: patrick, service: netflix_premium)
+subscription_patrick = Subscription.create!(available_places: '3', identifiant: 'patrick', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
 Subscription.create!(available_places: '3', identifiant: 'jeanjean', password: 'azerty', user: get_random_user(user_array), service: apple_tv_premium)
 Subscription.create!(available_places: '2', identifiant: 'coco', password: 'azerty', user: get_random_user(user_array), service: deezer_premium)
 Subscription.create!(available_places: '2', identifiant: 'mika', password: 'azerty', user: get_random_user(user_array), service: netflix_premium)
