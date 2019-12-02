@@ -18,7 +18,7 @@ class CotisationsController < ApplicationController
     @cotisation.start_date   = Date.today
     @cotisation.subscription = @subscription
     @cotisation.state        = "pending"
-    @cotisation.price_cents  = cotisation_price_per_month(@cotisation)
+    @cotisation.price_cents  = cotisation_price_per_month(@subscription.service)
 
     authorize @cotisation
 
@@ -32,7 +32,7 @@ class CotisationsController < ApplicationController
           # images: [@cotisation.service.photo_url],
           # images: [@cotisation.service.photo_url],
           # amount: 50,
-          amount: @cotisation.price_cents * 100 ,
+          amount: @cotisation.price_cents,
           currency: 'eur',
           quantity: 1
         }],
@@ -62,9 +62,13 @@ class CotisationsController < ApplicationController
     redirect_to dashboard_path
   end
 
-  def cotisation_price_per_month(cotisation)
-    cotisation.subscription.service.total_price.fdiv(cotisation.subscription.service.number_of_places).round(0)
+  def cotisation_price_per_month(service)
+    (service.total_price * 100 / service.number_of_places) + 30
   end
+
+  # def cotisation_price_per_month(cotisation)
+  #   (cotisation.subscription.service.total_price * 100 / cotisation.subscription.service.number_of_places) + 30
+  # end
 
   private
 
