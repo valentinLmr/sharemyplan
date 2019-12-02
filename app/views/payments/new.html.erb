@@ -42,7 +42,7 @@
             <div>
               <div style="text-align: center;">
               <% if @cotisation.subscription.user.photo? %>
-                  <img class="avatar" src="<%= cotisation.user.photo %>" >
+                  <%= cl_image_tag @cotisation.subscription.user.photo, class: "avatar" %>
                 <% else %>
                   <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                 <% end %>
