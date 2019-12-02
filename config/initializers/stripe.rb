@@ -13,4 +13,5 @@ StripeEvent.signing_secret = Rails.configuration.stripe[:signing_secret]
 
 StripeEvent.configure do |events|
   events.subscribe 'checkout.session.completed', StripeCheckoutSessionService.new
+  events.subscribe 'payout.failed', StripeCheckoutSessionService.new
 end
