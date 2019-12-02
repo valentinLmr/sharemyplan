@@ -3,11 +3,14 @@
   <% if @subscriptions.size > 0 %>
       <h2 class="index-sub-title">
         <%= current_user.first_name.capitalize %>, voici les
-        <%= @subscriptions.size - @full_subscriptions.size %>partages
+        <%= @subscriptions.size - @full_subscriptions.size %> partages
         <%= @service.name %> disponibles
       </h2>
   <% else %>
-    <h2>no subscription</h2>
+    <div class="container" style="text-align: center;">
+      <h2 class="index-sub-title">Désolé, il n'y a pas de shareur <%= @service.name %> disponible</h2>
+      <%= link_to 'Chercher un autre abo', services_path, class: 'btn btn-abus' %>
+    </div>
   <% end %>
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
@@ -39,7 +42,7 @@
           <div class="subcard-middle">
             <div class="subcard-places mx-3 my-2 d-flex justify-content-center align-items-center">
 
-              <%= subscription.available_places %> / <%= subscription.service.number_of_places %> places
+              <%= subscription.available_places %> / <%= subscription.service.number_of_places %> places disponibles
 
             </div>
           </div>
