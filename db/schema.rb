@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_101834) do
+ActiveRecord::Schema.define(version: 2019_12_02_150701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2019_12_02_101834) do
     t.string "checkout_session_id"
     t.index ["subscription_id"], name: "index_cotisations_on_subscription_id"
     t.index ["user_id"], name: "index_cotisations_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.boolean "unviewed", default: true
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "message"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -80,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_101834) do
 
   add_foreign_key "cotisations", "subscriptions"
   add_foreign_key "cotisations", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "reviews", "cotisations"
   add_foreign_key "subscriptions", "services"
   add_foreign_key "subscriptions", "users"

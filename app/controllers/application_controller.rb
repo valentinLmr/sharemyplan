@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :notification
   # , except[:index]
   # ci dessous grise mis en comment suite pb merge
   include Pundit
@@ -24,6 +25,18 @@ class ApplicationController < ActionController::Base
 
     # PB MERGE grise cidessous a suivre...
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :phone_number])
+  end
+
+  def notification
+    if user_signed_in? && current_user.notifications.size.positive?
+      current_user.notifications.each do |notification|
+        if notification.unviewed == true
+          flash[:notice] = "Hey, tu as un nouveau co-abonné !"
+          notification.unviewed = false
+          notification.save
+        end
+      end
+    end
   end
 
   private
