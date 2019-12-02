@@ -39,9 +39,9 @@ remi = User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_nam
 remi.remote_photo_url = "https://avatars3.githubusercontent.com/u/51714799?v=4"
 remi.save!
 
-sandrine = User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
-sandrine.remote_photo_url = "https://avatars3.githubusercontent.com/u/52571009?v=4"
-sandrine.save!
+delphine = User.create!(email: 'delphine@gmail.com', password: 'azerty', first_name: 'Delphine', last_name: 'Cordonnier', phone_number: '0677333977')
+delphine.remote_photo_url = "https://avatars3.githubusercontent.com/u/52571009?v=4"
+delphine.save!
 
 antoine = User.create!(email: 'antoine@gmail.com', password: 'azerty', first_name: 'Arthur', last_name: 'Lemaire', phone_number: '067711977')
 antoine.remote_photo_url = "https://avatars1.githubusercontent.com/u/54395152?v=4"
