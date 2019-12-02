@@ -25,7 +25,7 @@
 
   <div id="accordion">
     <% @subscriptions.each do |subscription| %>
-      <% if subscription.available_places < @service.number_of_places %>
+      <% if subscription.available_places < @service.number_of_places && subscription.available_places > 0 %>
         <div class="subcard d-flex flex-wrap align-items-center">
 
           <div class="d-flex flex-wrap subcard-left">
