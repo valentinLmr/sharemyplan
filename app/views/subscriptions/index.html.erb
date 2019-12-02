@@ -7,10 +7,10 @@
         <%= @service.name %> disponibles
       </h2>
   <% else %>
-    <div class="container" style="text-align: center;">
-      <h2 class="index-sub-title">Désolé, il n'y a pas de shareur <%= @service.name %> disponible</h2>
-      <%= link_to 'Chercher un autre abo', services_path, class: 'btn btn-abus' %>
-    </div>
+  <div class="container" style="text-align: center;">
+    <h2 class="index-sub-title">Il n'y aucun partage <%= @service.name %> disponible</h2>
+    <%= link_to 'Chercher autre chose', services_path, class: 'btn btn-abus' %>
+  </div>
   <% end %>
 
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique des subscriptions dispo -->
