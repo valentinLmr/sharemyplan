@@ -42,7 +42,7 @@ class CotisationsController < ApplicationController
       @cotisation.update(checkout_session_id: session.id)
 
       @subscription.user.cagnotte += @subscription.price
-      @subscription.available_places -= 1
+      @subscription.available_places = @subscription.available_places - 1
       @subscription.save
       @subscription.user.save
 
