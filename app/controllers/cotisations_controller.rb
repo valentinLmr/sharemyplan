@@ -20,6 +20,10 @@ class CotisationsController < ApplicationController
     authorize @cotisation
 
     if @cotisation.save
+      @subscription.user.cagnotte += @subscription.price
+      @subscription.available_places -= 1
+      @subscription.save
+      @subscription.user.save
       redirect_to dashboard_path
     else
       render :new

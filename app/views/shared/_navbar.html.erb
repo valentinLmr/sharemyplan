@@ -9,7 +9,7 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto d-flex align-items-center">
 
       <% if user_signed_in? && current_user.photo? %>
         <li class="nav-item dropdown mr-2">
@@ -19,17 +19,19 @@
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.photo %>" style="" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <span class="dropdown-item"><%= link_to 'Mon dashboard', dashboard_path, class: "nav-link" %></span>
+            <span class="dropdown-item"><%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-link" %></span>
             <span class="dropdown-item"><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %></span>
           </div>
         </li>
       <% elsif user_signed_in? %>
         <li class="nav-item dropdown mr-2">
-          <%= link_to "Partager un abonnement", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
+          <span class="nav-link navbar-wagon-link pr-1" style="color:#5f6060;"><b>Ma cagnotte <span style="font-size: 1.2em;"></span> <i class="fas fa-euro-sign pr-1"></i><%= current_user.cagnotte.to_f.round(2) %></b></span>
         </li>
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <span class="dropdown-item"><%= link_to 'Mon dashboard', dashboard_path, class: "nav-link" %></span>
+            <span class="dropdown-item"><%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-link" %></span>
             <span class="dropdown-item"><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %></span>
           </div>
         </li>
@@ -39,10 +41,10 @@
         </li>
         <li class="nav-item">
           <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link navbar-wagon-link" %>
-      </li>
-      <li class="nav-item dropdown mr-2">
-        <%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
-      </li>
+        </li>
+        <li class="nav-item dropdown mr-2">
+          <%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-item btn btn-primary btn-hp px-3"%>
+        </li>
       <% end %>
     </ul>
   </div>
