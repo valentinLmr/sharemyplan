@@ -23,11 +23,21 @@
 }
 
 .cotisation-card-body {
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 
-.cotisation-logo, .cotisation-infos {
-  min-width: 25%;
+.cotisation-logo {
+margin: auto;
+}
+
+.cotisation-infos{
+    margin: 0 auto;
+  padding: 0 auto;
+
+}
+
+.center_content{
+  text-align: center;
 }
 
 .cotisation-buttons {
@@ -42,7 +52,7 @@
 
 .cotisation-info {
   display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 
@@ -62,12 +72,30 @@
   font-size: inherit;
   padding: none;
   width: auto;
+  background-image: none;
 
 }
+#subscription_password {
+  background-image: none;
+}
+#subscription_available_places{
+  background-image: none;
+}
+#subscription_identifiant{
+  background-image: none;
+}
+
 
 .password-subscription {
   display: flex;
+  text-align:center;
+
 }
+
+.review{
+  margin:auto;
+}
+
 
 .password-subscription p {
   display: flex;

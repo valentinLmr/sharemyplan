@@ -11,12 +11,11 @@
       </div>
     </div>
 
-    <div class="cotisation-card-body d-flex flex-wrap mt-3">
+    <div class="cotisation-card-body d-flex mt-3">
       <div class="cotisation-logo d-flex align-items-center justify-content-center" style="text-align: center; height: 180px;">
         <%= image_tag(@subscription.service.photo, height: '100', width: '200')%>
       </div>
-      <div class="cotisation-infos py-3 pl-3">
-        <div>
+      <div class="cotisation-infos">
           <p><i class="fas fa-tv"></i> <b>Abo :</b><%= @subscription.service.name %></p>
           <div class="password-subscription">
             <p><i class="fas fa-at"></i> <b> Identifiant : </b></p>
@@ -36,20 +35,46 @@
                 <%= f.input :available_places, label: false, input_html: {value: @subscription.available_places, type: "text", class: "input_password"} %>
               <% end %>
           </div>
-<!--           <div class="form d-flex">
-            <span class="less_place"><i class="fas fa-angle-left"></i></span>
-            <span class="add_place"> <i class="fas fa-angle-right"></i> </span>
-            <%= simple_form_for [@service, @subscription] do |f| %>
-              <%= f.input :available_places, label: false, input_html: { value: @subscription.available_places, type: "text", class: "input_password"} %>
-              <% end %>
-          </div> -->
-        </div>
       </div>
-      <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
-          <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
+      <div class="review" style="text-align:center">
+            <% if @subscription.reviews.any? %>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
+                <div class="carousel-inner">
+                  <% subscription.reviews.each_with_index do |review, index| %>
+                    <div class="carousel-item <%= 'active' if index == 0 %>">
+                      <% if review.cotisation.user.photo?  %>
+                        <div class="review_display">
+                          <div class="content_review">
+                           <img class="avatar" src="<%= review.cotisation.user.photo %>"/>
+                            <%= render "shared/stars", note: average(subscription)%>
+                            <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>                    </div>
+                        </div>
+                      <% else %>
+                        <div class="review_display">
+                          <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+                          <div class="content_review">
+                            <%= render "shared/stars", note: average(subscription)%>
+                             <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>
+                          </div>
+                        </div>
+                      <% end  %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% else  %>
 
-      </div>
-    </div>
+              <div>
+                <div class="mx-3 pb-1" style="color: #4281A4; font-weight: bold;">
+                  <h4>Avis</h4>
+                </div>
+                <div class="mx-5 my-2" >
+                  <p><i style="font-weight: normal;">Aucun avis pour le moment...</i></p>
+                </div>
+              </div>
+            <% end %>
+           </div>
+          </div>
 
     <div class="cotisation-card-footer mt-4 ">
         <div class="abonne_reviews d-flex">
@@ -77,49 +102,14 @@
               <% end %>
               <% end %>
             </div>
-
-            <div class="review" style="width: 50%; text-align:center">
-
-              <% if @subscription.reviews.any? %>
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
-                  <div class="carousel-inner">
-                    <% subscription.reviews.each_with_index do |review, index| %>
-                      <div class="carousel-item <%= 'active' if index == 0 %>">
-                        <% if review.cotisation.user.photo?  %>
-                          <div class="review_display">
-                            <div class="content_review">
-                             <img class="avatar" src="<%= review.cotisation.user.photo %>"/>
-                              <%= render "shared/stars", note: average(subscription)%>
-                              <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>                    </div>
-                          </div>
-                        <% else %>
-                          <div class="review_display">
-                            <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
-                            <div class="content_review">
-                              <%= render "shared/stars", note: average(subscription)%>
-                               <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>
-                            </div>
-                          </div>
-                        <% end  %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              <% else  %>
-
-                <div>
-                  <div class="mx-3 pb-1" style="color: #4281A4; font-weight: bold;">
-                    <h4>Avis</h4>
-                  </div>
-                  <div class="mx-5 my-2" >
-                    <p><i style="font-weight: normal;">Aucun avis pour le moment...</i></p>
-                  </div>
-                </div>
-              <% end %>
-             </div>
-            </div>
+            <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
+          <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
+      </div>
           </div>
+
         </div>
+
+    </div>
     </div>
   </div>
 </div>
