@@ -24,7 +24,6 @@
 
     <div class="show-right-sub">
 
-      <div>  <%= link_to 'Rejoindre', new_subscription_cotisation_path(subscription), class: 'btn btn-bleu', method: :post %> </div>
       <div>  <%= link_to "Rejoindre #{subscription.user.first_name}", subscription_cotisations_path(subscription), class: 'btn btn-rejoindre', method: :post %> </div>
 
     </div>

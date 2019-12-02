@@ -16,5 +16,4 @@ class Service < ApplicationRecord
   validates :number_of_places, presence: true
   validates :total_price, presence: true
   validates :category, inclusion: CATEGORIES.keys
-  monetize :price_cents
 end

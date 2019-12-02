@@ -12,19 +12,34 @@ class CotisationsController < ApplicationController
   end
 
   def create
-    @cotisation        = Cotisation.new
-    @subscription      = Subscription.find(params[:subscription_id])
-    @cotisation.user   = current_user
-    @cotisation.start_date = Date.today
+    @subscription            = Subscription.find(params[:subscription_id])
+    @cotisation              = Cotisation.new
+    @cotisation.user         = current_user
+    @cotisation.start_date   = Date.today
     @cotisation.subscription = @subscription
-
-    @order = Order.new
-    @cotisation.order = @order
+    @cotisation.state        = "pending"
+    @cotisation.price_cents  = cotisation_price_per_month(@cotisation)
 
     authorize @cotisation
 
     if @cotisation.save
-      redirect_to new_order_payment_path(@order)
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          # name: "Netflix",
+          name: @cotisation.subscription.name,
+          # images: [@cotisation.service.photo_url],
+          # images: [@cotisation.service.photo_url],
+          # amount: 50,
+          amount: @cotisation.price_cents * 100 ,
+          currency: 'eur',
+          quantity: 1
+        }],
+        success_url: cotisation_url(@cotisation),
+        cancel_url: cotisation_url(@cotisation)
+      )
+      @cotisation.update(checkout_session_id: session.id)
+      redirect_to new_cotisation_payment_path(@cotisation)
     else
       render :new
     end
