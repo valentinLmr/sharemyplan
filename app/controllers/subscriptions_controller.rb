@@ -31,8 +31,7 @@ class SubscriptionsController < ApplicationController
     authorize(@subscription)
 
     if @subscription.save
-      # redirect_to subscriptions_path(@subscription)
-      # redirect_to dashboard_path
+      redirect_to dashboard_path
     else
       render :new
     end
