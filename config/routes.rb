@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'cotisations/show'
-  get 'cotisations/new'
-  get 'cotisations/create'
-  get 'cotisations/destroy'
+  # get 'cotisations/show'
+  # get 'cotisations/new'
+  # get 'cotisations/create'
+  # get 'cotisations/destroy'
   devise_for :users
   root to: 'pages#home'
   # root to: 'profiles#dashboard'
@@ -22,12 +22,13 @@ Rails.application.routes.draw do
 
   resources :cotisations, only:[:destroy, :show] do
     resources :reviews, only:[:index, :new, :create, :update]
+    resources :payments, only: :new
   end
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
+  # mount StripeEvent::Engine, at: '/stripe-webhooks'
 
 end

@@ -17,10 +17,14 @@ class CotisationsController < ApplicationController
     @cotisation.user   = current_user
     @cotisation.start_date = Date.today
     @cotisation.subscription = @subscription
+
+    @order = Order.new
+    @cotisation.order = @order
+
     authorize @cotisation
 
     if @cotisation.save
-      redirect_to dashboard_path
+      redirect_to new_order_payment_path(@order)
     else
       render :new
     end
