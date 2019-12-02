@@ -6,6 +6,7 @@
   <% end %>
   <% max_places_dispo = max_places.max %>
 
+
     <% if max_places_dispo != nil && max_places_dispo < @service.number_of_places %>
 
       <% if user_signed_in? %>
