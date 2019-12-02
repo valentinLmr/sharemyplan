@@ -23,7 +23,6 @@ class CotisationsController < ApplicationController
     authorize @cotisation
 
     if @cotisation.save
-
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -45,6 +44,9 @@ class CotisationsController < ApplicationController
       @subscription.available_places = @subscription.available_places - 1
       @subscription.save
       @subscription.user.save
+
+      @notification = Notification.create!(user: @subscription.user)
+      notification
 
       redirect_to new_cotisation_payment_path(@cotisation)
     else
