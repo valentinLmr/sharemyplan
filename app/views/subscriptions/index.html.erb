@@ -2,8 +2,7 @@
 <!-- les lignes ci-dessous permettent de gérer l'affichage dynamique du titre -->
   <% if @subscriptions.size > 0 && @subscriptions.size - @full_subscriptions.size > 0 %>
       <h2 class="index-sub-title">
-        <%= current_user.first_name.capitalize %>, voici les
-        <%= @subscriptions.size - @full_subscriptions.size %> partages
+        <%= current_user.first_name.capitalize %>, voici les partages
         <%= @service.name %> disponibles
       </h2>
   <% else %>
