@@ -53,8 +53,10 @@ class CotisationsController < ApplicationController
   end
 
   def destroy
+    @subscription = Subscription.find(params[:subscription_id])
     @cotisation = Cotisation.find(params[:id])
     authorize @cotisation
+    @subscription.available_places += 1
    @cotisation.destroy
     redirect_to dashboard_path
     authorize @cotisation
