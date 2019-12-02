@@ -11,14 +11,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto d-flex align-items-center">
 
-      <% if user_signed_in? && current_user.photo.nil? %>
+      <% if user_signed_in? && current_user.photo.present? %>
         <li class="nav-item dropdown mr-2">
           <span class="nav-link navbar-wagon-link pr-1" style="color:#5f6060;"><b>Ma cagnotte <span style="font-size: 1.2em;"></span> <i class="fas fa-euro-sign pr-1"></i><%= current_user.cagnotte.to_f.round(2) %></b></span>
         </li>
         <li class="nav-item dropdown">
-          <!-- <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.photo %>" style="" /> -->
-          <img src="<%= image_tag current_user.photo %>" alt="">
-
+          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <span class="dropdown-item"><%= link_to 'Mon dashboard', dashboard_path, class: "nav-link" %></span>
             <span class="dropdown-item"><%= link_to "Partager un abo", services_path(user_choice: "subscriptions"), class: "nav-link" %></span>
@@ -51,3 +49,4 @@
     </ul>
   </div>
 </div>
+<%= console %>
