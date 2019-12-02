@@ -8,8 +8,6 @@
 
     <% if max_places_dispo != nil && max_places_dispo < @service.number_of_places %>
 
-
-
       <% if user_signed_in? %>
 
         <h2 class="index-sub-title"> <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.count %> partages <%= @service.name %> disponibles</h2>
@@ -20,8 +18,10 @@
 
 
     <% else %>
+
       <h3 class="index-sub-title">Désolé, il n'y a aucun shareur <%= @service.name %> disponible...</h3>
       <div style="text-align: center; margin: 20px;"><%= link_to 'Chercher autre chose', services_path(user_choice: "cotisations"), class: 'btn btn-avis' %></div>
+
     <% end %>
 
 
@@ -31,7 +31,7 @@
 
   <div id="accordion">
     <% @subscriptions.each do |subscription| %>
-      <% if subscription.available_places < @service.number_of_places %>
+      <% if subscription.available_places < @service.number_of_places && subscription.available_places > 0 %>
         <div class="subcard d-flex flex-wrap align-items-center">
 
           <div class="d-flex flex-wrap subcard-left">
@@ -83,10 +83,3 @@
   </div>
 
 </div>
-
-
-
-
-
-
-

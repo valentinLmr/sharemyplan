@@ -1,0 +1,31 @@
+.dashboard-shareur, .info-perso, .dashboard-locataire {
+  background-color: #f6f9fc;
+  padding: 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+.dashboard-locataire h4 {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  margin-top: 10px;
+  border-bottom: 2px solid #dbdbdb;
+}
+
+.shareur-title {
+    text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  margin-top: 10px;
+  border-bottom: 2px solid #dbdbdb;
+}
+
+.info-perso-header {
+  border-bottom: 2px solid #dbdbdb;
+  margin: 0 20px;
+}
+
+.fa-pen {
+  color:  #4281A4;
+}

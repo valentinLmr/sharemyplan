@@ -23,6 +23,7 @@ class CotisationsController < ApplicationController
     authorize @cotisation
 
     if @cotisation.save
+
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -39,7 +40,13 @@ class CotisationsController < ApplicationController
         cancel_url: cotisation_url(@cotisation)
       )
       @cotisation.update(checkout_session_id: session.id)
+
+      @subscription.user.cagnotte += @subscription.price
+      @subscription.available_places -= 1
+      @subscription.save
+      @subscription.user.save
       redirect_to new_cotisation_payment_path(@cotisation)
+
     else
       render :new
     end
