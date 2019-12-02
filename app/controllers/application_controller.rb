@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in? && current_user.notifications.size.positive?
       current_user.notifications.each do |notification|
         if notification.unviewed == true
-          flash[:notice] = "Hey, tu as un nouveau co-abonné !"
+          flash[:notice] = "Hey #{current_user.first_name}, tu as un nouveau co-abonné !"
           notification.unviewed = false
           notification.save
         end
