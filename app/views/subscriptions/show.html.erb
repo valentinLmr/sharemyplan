@@ -19,21 +19,25 @@
           <p><i class="fas fa-tv"></i> <b>Abo :</b><%= @subscription.service.name %></p>
           <div class="password-subscription">
             <p><i class="fas fa-at"></i> <b> Identifiant : </b></p>
-             <%= simple_form_for @subscription do |f|%>
-                <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
-              <% end %>
+             <p>
+                <%= simple_form_for @subscription do |f|%>
+                  <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
+                <% end %>
+              </p>
           </div>
           <div class="password-subscription">
             <p><i class="fas fa-fingerprint d-flex"></i><b> Mot de passe :</b></p>
-            <%= simple_form_for @subscription do |f|%>
+            <p><%= simple_form_for @subscription do |f|%>
                 <%= f.input :password, label: false, input_html: {value: @subscription.password, type: "text", class: "input_password"} %>
               <% end %>
+            </p>
           </div>
           <div class="password-subscription">
             <p><i class="fas fa-at"></i> <b> Nombre de place dispo :</b></p>
-             <%= simple_form_for @subscription do |f|%>
+             <p><%= simple_form_for @subscription do |f|%>
                 <%= f.input :available_places, label: false, input_html: {value: @subscription.available_places, type: "text", class: "input_password"} %>
               <% end %>
+            </p>
           </div>
       </div>
       <div class="review" style="text-align:center">
