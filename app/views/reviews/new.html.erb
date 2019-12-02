@@ -1,14 +1,33 @@
-<div class="container review-container mt-4" style="width: 600px; background-color: #F6F9FC; padding: 20px 20px; border-radius: 20px;   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
-">
-  <div class="form-login">
-    <div class="row"style=" text-align: center; margin: auto;">
+<div class="full-screen d-flex justify-content-around align-items-center">
+  <div>
+    <div class="card-new-review text-center">
+      <div class="col-12 col-sm-offset-4 px-4">
+        <h4>Details de l'abonnement de <%= @cotisation.subscription.user.first_name %></h4><br>
+          <div class="cotisation-logo d-flex align-items-center justify-content-center" style="height: 150px;">
+             <%= image_tag(@cotisation.subscription.service.photo, height: '100', width: '200')%>
+          </div>
+          <p>
+            <i class="fas fa-user"></i> <b>Ton shareur</b> : <%= @cotisation.subscription.user.first_name %>
+          </p>
+          <p>
+            <i class="fas fa-tv"></i> <b>Abonnement :</b><%= @cotisation.subscription.service.name %>
+          </p>
+          <p>
+            <i class="far fa-clock"></i> <b>Abonné depuis le :   <%= @cotisation.start_date %>
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card-new-review text-center">
       <div class="col-12 col-sm-offset-4 px-4">
         <h4>Votre avis sur l'abonnement de <%= @cotisation.subscription.user.first_name %></h4><br>
-           <%= simple_form_for [@cotisation, @review] do |f| %>
-                <%= f.input :content, label: 'Votre avis détaillé :' %>
-                <%= f.input :rating, label: 'Votre note sur 5 :' %>
-                <%= f.submit "Soumettre" %>
-            <% end  %>
+        <%= simple_form_for [@cotisation, @review] do |f| %>
+          <%= f.input :content, label: 'Votre avis détaillé :'%>
+          <%= f.input :rating, label: 'Votre note sur 5 :'%>
+          <%= f.submit "Soumettre", class: "text-center"  %>
+        <% end  %>
       </div>
     </div>
   </div>
