@@ -7,7 +7,6 @@
 }
 
 .subcard-logo img {
-  height: 60px;
   border-radius: 30px;
   border: 1px solid #e3e4e5;
 }
@@ -19,7 +18,7 @@
 }
 
 .subcard-name {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .subcard-places {
@@ -33,31 +32,34 @@
   font-weight: bold;
 }
 
-.fa-plus-circle {
-  font-size: 1.5em;
-}
-
 .subcard-left {
-  min-width: 22%;
+  min-width: 20%;
   display: flex;
   align-items: center;
+
+}
+
+.note{
+    min-width: 12%;
+    align-items: center;
 }
 
 .subcard-left-logo {
-  min-width: 15%;
+  min-width: 22%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .subcard-middle {
-  min-width: 30%;
+  min-width: 26%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .subcard-right {
-  min-width: 30%;
+  min-width: 18%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -75,4 +77,24 @@
 .btn-return:hover {
   color: white;
   background-color: #D4B483;
+}
+
+.subcard-plus {
+  cursor: pointer;
+}
+
+.subcard-plus i {
+  font-size: 1.5em;
+  color: #606060;
+}
+
+.index-sub-title {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  text-align: center;
+  color: white;
+}
+
+.fa-star {
+  color: #D4B483;
 }

@@ -7,13 +7,24 @@
     </div>
 
     <div class="show-middle-sub mt-1">
-      <div class="mx-3 pt-3 pb-3" style="color: #4281A4; font-weight: bold;"><h4>Vos avantages</h4></div>
-        <ul><i class="fas fa-unlock-alt"></i> Sans engagement de durée</ul>
-        <ul><i class="fas fa-rocket"></i> Accès immédiat au service </ul>
+      <div class="mx-3 pt-3 pb-3 d-flex" style="color: #4281A4; font-weight: bold;"><h4>Commentaires</h4></div>
+
+
+
+
+    <% subscription.cotisations.each do |cotisation| %>
+      <% cotisation.reviews.each do |review|%>
+      <% sleep(2) %>
+        <ul> "<%= review.cotisation.user.photo %><%= review.content %>"</ul>
+      <% end%>
+    <% end %>
     </div>
 
     <div class="show-right-sub">
+
       <div>  <%= link_to 'Rejoindre', new_subscription_cotisation_path(subscription), class: 'btn btn-bleu', method: :post %> </div>
+      <div>  <%= link_to "Rejoindre #{subscription.user.first_name}", subscription_cotisations_path(subscription), class: 'btn btn-rejoindre', method: :post %> </div>
+
     </div>
   </div>
 </div>

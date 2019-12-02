@@ -1,7 +1,7 @@
 class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :service
-  has_many :cotisations
+  has_many :cotisations, dependent: :destroy
 
   validates :available_places, presence: true
   validates :identifiant, presence: true
