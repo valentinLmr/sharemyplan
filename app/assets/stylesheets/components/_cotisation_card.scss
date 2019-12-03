@@ -5,10 +5,21 @@
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 
 }
+.cotisation-card-header{
+     background-color: goldenrod;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+
+}
+.cotisation-card-header i {
+  color: aqua;
+}
 
 .cotisation-title h3 {
-  color: grey;
+  color: white;
 }
+
 
 .fa-long-arrow-alt-left
 {
@@ -55,6 +66,10 @@ margin: auto;
   text-align: center;
 }
 
+.cotisation-info p{
+  color: #4280A3;
+}
+
 
 .cotisation-card-footer {
   min-height: 150px;
@@ -77,23 +92,37 @@ margin: auto;
 }
 #subscription_password {
   background-image: none;
+     padding: 0;
+    text-align: center;
+    width: 100px;
+    justify-content: center;
 }
 #subscription_available_places{
   background-image: none;
+     padding: 0;
+    text-align: center;
+    width: 20px;
+    justify-content: center;
 }
 #subscription_identifiant{
   background-image: none;
+      padding: 0;
+    text-align: center;
+    justify-content: center;
+    width:100px;
 }
 
 
 .password-subscription {
   display: flex;
   text-align:center;
+  justify-content: center;
+  color: #4280A3;
 
 }
 
 .review{
-  margin:auto;
+  margin-right:6em;
 }
 
 
