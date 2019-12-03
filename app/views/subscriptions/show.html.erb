@@ -98,7 +98,7 @@
                   <% end %>
                   <br>
                   <i><%= cotisation.user.first_name %>
-                    <%= link_to cotisation_path(cotisation), method: :delete do %>
+                    <%= link_to cotisation_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
                     <i class="far fa-trash-alt"></i>
                     <% end %>
                    </i>
@@ -107,7 +107,7 @@
               <% end %>
             </div>
             <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
-          <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, class: 'btn btn-destroy' %> <br> <br>
+          <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette abonnement ?" }, class: 'btn btn-destroy' %> <br> <br>
       </div>
           </div>
 
