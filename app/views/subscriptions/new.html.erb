@@ -41,7 +41,7 @@
             <h2 id="max" style="font-weight: bold;"><%= @service.number_of_places %></h2>
           </div>
 
-          <div class="form d-flex">
+          <div class="form d-flex" id="places-form">
             <span class="less_place"><i class="fas fa-angle-left"></i></span>
             <span class="add_place"> <i class="fas fa-angle-right"></i> </span>
             <%= simple_form_for [@service, @subscription] do |f| %>
@@ -50,10 +50,10 @@
         </div>
       </div>
 
-      <div class="sub-footer">
+      <div class="sub-footer" id="id-mdp-form">
         <div class="bottom_subscription" style="background-color: white">
-          <%= f.input :identifiant, required: true %>
-          <%= f.input :password, required: true, label: 'Mot de passe' %>
+          <%= f.input :identifiant, required: true, :label => "Votre identifiant #{@service.name}" %>
+          <%= f.input :password, required: true, :label => "Votre mot de passe #{@service.name}" %>
           <%= f.submit :class => 'button-submit-card-subscription btn-hp py-1 px-3 mt-3', value: 'Terminé !'%>
           <% end %>
         </div>

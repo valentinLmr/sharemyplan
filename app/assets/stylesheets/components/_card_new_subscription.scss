@@ -5,8 +5,6 @@
   margin: 20px auto;
   border-radius: 10px;
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
-
-
 }
 
 .top {
@@ -123,7 +121,7 @@
     font-size: 31px;
     padding: 0px;
     height: auto;
-    width: 133px;
+    max-width: 133px;
     }
   }
   .form i {
@@ -152,12 +150,20 @@
     margin: 10px;
     color: white;
   }
-
 }
 .form-group input {
   border-radius: 50px;
-
+  width: 300px;
 }
 
+#places-form .form-control {
+  width: 100px;
+  margin: 0 auto;
+}
+
+#id-mdp-form .form-control {
+  width: 400px;
+  margin: 0 auto;
+}
 
 
