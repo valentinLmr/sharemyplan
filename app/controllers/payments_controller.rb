@@ -6,5 +6,6 @@ class PaymentsController < ApplicationController
 
   def create
     cotisation.update(state: 'paid')
+    raise
   end
 end

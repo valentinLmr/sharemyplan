@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
     @cotisations = policy_scope(Cotisation)
     @user = current_user
 
-
     # Cotisation.where(user: user)
     # .where({ id: user_id = current_user })
     authorize(@cotisations)

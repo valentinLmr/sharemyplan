@@ -8,6 +8,7 @@ class SubscriptionsController < ApplicationController
     # Refacto by Alex
 
     @subscriptions      = Subscription.where(service: @service).sort_by(&:average_rating).reverse
+
     @full_subscriptions = Subscription.where(service: @service).where(available_places: 0)
   end
 
@@ -25,7 +26,6 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription             = Subscription.new(subscription_params)
-
     @service                  = Service.find(params[:service_id])
     @subscription.user        = current_user
     @subscription.service     = @service
