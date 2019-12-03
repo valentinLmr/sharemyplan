@@ -2,38 +2,40 @@
 
   <div class="cotisation-card">
 
-    <div class="cotisation-card-header pt-3 d-flex justify-content-center align-items-center mt-3">
-      <div class="back ml-2" style="width: 5%; text-align: center;">
-        <a href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i></a>
-      </div>
-      <div class="cotisation-title" style="width: 95%; text-align: center;">
+    <div class="cotisation-card-header pt-2 d-flex justify-content-center align-items-center">
+      <div class="cotisation-title py-2" style="width: 95%; text-align: center;">
         <h3>Détail de ton abonnement <%= @subscription.name %></h3>
+      </div>
+      <div class="back ml-2 py-2" style="width: 5%; text-align: center;">
+        <a href="/dashboard"><i class="far fa-times-circle" style="color: white; font-size: 1.4em;"></i></a>
       </div>
     </div>
 
-    <div class="cotisation-card-body d-flex mt-3">
+    <div class="cotisation-card-body d-flex mt-3 justify-content-center align-items-center">
       <div class="cotisation-logo d-flex align-items-center justify-content-center" style="text-align: center; height: 180px;">
         <%= image_tag(@subscription.service.photo, height: '100', width: '200')%>
       </div>
       <div class="cotisation-infos">
-          <p><i class="fas fa-tv"></i> <b>Abo :</b><%= @subscription.service.name %></p>
-          <div class="password-subscription">
-            <p><i class="fas fa-at"></i> <b> Identifiant : </b></p>
-             <p>
-                <%= simple_form_for @subscription do |f|%>
-                  <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
-                <% end %>
-              </p>
+
+          <div class="password-subscription" style="justify-content: flex-start;">
+            <p style="text-align: left"><i class="fas fa-fingerprint d-flex mr-1"></i><b> Identifiant :</b></p>
+            <p><%= simple_form_for @subscription do |f|%>
+                <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
+              <% end %>
+            </p>
           </div>
+
+
           <div class="password-subscription">
-            <p><i class="fas fa-fingerprint d-flex"></i><b> Mot de passe :</b></p>
+            <p><i class="fas fa-fingerprint d-flex mr-1"></i><b> Mot de passe :</b></p>
             <p><%= simple_form_for @subscription do |f|%>
                 <%= f.input :password, label: false, input_html: {value: @subscription.password, type: "text", class: "input_password"} %>
               <% end %>
             </p>
           </div>
+
           <div class="password-subscription">
-            <p><i class="fas fa-at"></i> <b> Nombre de place dispo :</b></p>
+            <p><i class="fas fa-at mr-1"></i> <b> Nombre de place dispo :</b></p>
              <p><%= simple_form_for @subscription do |f|%>
                 <%= f.input :available_places, label: false, input_html: {value: @subscription.available_places, type: "text", class: "input_password"} %>
               <% end %>
@@ -80,40 +82,40 @@
            </div>
           </div>
 
-    <div class="cotisation-card-footer mt-4 ">
-        <div class="abonne_reviews d-flex">
-          <div class="card-co-abo align-items-center justify-content-around mx-4" style="width: 50%; text-align:center;">
-            <h4 class="mb-4">Tes co-abonnés</h4>
-            <% if @subscription.cotisations.count < 1 %>
-              <p><i>Tu n'as pas de co-abonné(e) pour le moment</i></p>
-            <% else %>
 
+  <div class="cotisation-card-footer mt-4 d-flex ">
+    <div class="card-co-abo align-items-center justify-content-around mx-4" style="min-height: 10px; width: 60%; text-align:center;">
+      <h4 class="mb-4">Tes co-abonnés</h4>
+        <% if @subscription.cotisations.count < 1 %>
+          <p><i>Tu n'as pas de co-abonné(e) pour le moment</i></p>
+        <% else %>
+
+          <div class="card-co-abo d-flex align-items-center justify-content-around mx-4">
             <% @subscription.cotisations.each do |cotisation| %>
-
-                <div class="co-abos-card mb-3 d-flex" style="text-align: center;">
+              <div class="d-flex">
+                <div>
                   <% if cotisation.user.photo?  %>
                     <img class="avatar" src="<%= cotisation.user.photo %>" alt="">
                   <% else %>
                     <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                   <% end %>
                   <br>
-                  <i><%= cotisation.user.first_name %>
-                    <%= link_to cotisation_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
-                    <i class="far fa-trash-alt"></i>
-                    <% end %>
-                   </i>
+                  <%= cotisation.user.first_name %>
+                  <%= link_to cotisation_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
+                  <i class="far fa-trash-alt"></i>
                 </div>
-              <% end %>
-              <% end %>
+            <% end %>
+
             </div>
-            <div class="cotisation-buttons py-3 pl-3 d-flex justify-content-center">
-          <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette abonnement ?" }, class: 'btn btn-destroy' %> <br> <br>
+          <% end %>
+        <% end %>
       </div>
-          </div>
-
-        </div>
-
     </div>
+
+      <div class="card-delete-abo align-items-center justify-content-around mx-4" style="margin: auto;">
+        <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette abonnement ?" }, class: 'btn btn-destroy' %> <br> <br>
+      </div>
+
     </div>
   </div>
 </div>
