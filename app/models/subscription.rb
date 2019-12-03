@@ -15,4 +15,9 @@ class Subscription < ApplicationRecord
   def price
     self.service.total_price.fdiv(self.service.number_of_places).round(2)
   end
+
+  def average_rating
+    return 0 if @review.rating.blank?
+
+  end
 end
