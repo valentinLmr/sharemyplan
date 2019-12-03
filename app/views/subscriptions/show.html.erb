@@ -11,14 +11,14 @@
       </div>
     </div>
 
-    <div class="cotisation-card-body d-flex mt-3 justify-content-center align-items-center">
+    <div class="cotisation-card-body d-flex mt-3 justify-content-center align-items-center" style="border-bottom: 1px solid #e3e4e5">
       <div class="cotisation-logo d-flex align-items-center justify-content-center" style="text-align: center; height: 180px;">
         <%= image_tag(@subscription.service.photo, height: '100', width: '200')%>
       </div>
       <div class="cotisation-infos">
 
           <div class="password-subscription" style="justify-content: flex-start;">
-            <p style="text-align: left"><i class="fas fa-fingerprint d-flex mr-1"></i><b> Identifiant :</b></p>
+            <p style="text-align: left"><i class="fas fa-info-circle d-flex mr-1"></i><b> Identifiant :</b></p>
             <p><%= simple_form_for @subscription do |f|%>
                 <%= f.input :identifiant, label: false, input_html: {value: @subscription.identifiant, type: "text", class: "input_password"} %>
               <% end %>
@@ -42,17 +42,17 @@
             </p>
           </div>
       </div>
-      <div class="review" style="text-align:center">
+      <div class="review" style="text-align:center; width: 25%;">
             <% if @subscription.reviews.any? %>
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
                 <div class="carousel-inner">
-                  <% subscription.reviews.each_with_index do |review, index| %>
+                  <% @subscription.reviews.each_with_index do |review, index| %>
                     <div class="carousel-item <%= 'active' if index == 0 %>">
                       <% if review.cotisation.user.photo?  %>
                         <div class="review_display">
                           <div class="content_review">
                            <img class="avatar" src="<%= review.cotisation.user.photo %>"/>
-                            <%= render "shared/stars", note: average(subscription)%>
+                            <%= render "shared/stars", note: average(@subscription)%>
                             <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>                    </div>
                         </div>
                       <% else %>
@@ -83,39 +83,41 @@
           </div>
 
 
-  <div class="cotisation-card-footer mt-4 d-flex ">
-    <div class="card-co-abo align-items-center justify-content-around mx-4" style="min-height: 10px; width: 60%; text-align:center;">
+<div class="cotisation-card-footer mt-4 d-flex ">
+    <div class="card-co-abo align-items-center justify-content-around mx-4" style="max-width: 65%; min-width: 65%; text-align:center;">
       <h4 class="mb-4">Tes co-abonnés</h4>
         <% if @subscription.cotisations.count < 1 %>
           <p><i>Tu n'as pas de co-abonné(e) pour le moment</i></p>
         <% else %>
 
-          <div class="card-co-abo d-flex align-items-center justify-content-around mx-4">
+          <div class="card-co-abo d-flex align-items-center justify-content-around mx-3">
             <% @subscription.cotisations.each do |cotisation| %>
-              <div class="d-flex">
-                <div>
+                <div class="d-flex" style="flex-direction: column;">
                   <% if cotisation.user.photo?  %>
-                    <img class="avatar" src="<%= cotisation.user.photo %>" alt="">
+                    <img class="avatar" src="<%= cotisation.user.photo %>" style="margin: auto;" >
                   <% else %>
                     <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                   <% end %>
-                  <br>
                   <%= cotisation.user.first_name %>
                   <%= link_to cotisation_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
-                  <i class="far fa-trash-alt"></i>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                  <br>
                 </div>
+
             <% end %>
+          </div>
 
-            </div>
-          <% end %>
         <% end %>
-      </div>
-    </div>
 
-      <div class="card-delete-abo align-items-center justify-content-around mx-4" style="margin: auto;">
+      </div>
+
+      <div class="card-delete-abo align-items-center justify-content-around mx-4" style="margin: auto; text-align: center; max-width: 30%; min-width: 30%;">
         <%= link_to "Supprimer l'abonnement", subscription_path(@subscription), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette abonnement ?" }, class: 'btn btn-destroy' %> <br> <br>
       </div>
 
-    </div>
+</div>
+
+
   </div>
 </div>
