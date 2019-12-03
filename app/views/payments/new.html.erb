@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row py-4 d-flex">
-    <div class="col-md-3"><%= image_tag(@cotisation.subscription.service.photo, width: '500', height: '100%') %></div>
+
+      <div class="cotisation-logo d-flex align-items-center justify-content-center" style="text-align: center; height: 180px;">
+        <%= image_tag(@cotisation.subscription.service.photo, height: '100', width: '200')%>
+      </div>
 
     <div class="col" style=" margin-left: 269px;">
       <h1>Détails de votre abonnement</h1>

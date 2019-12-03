@@ -15,11 +15,10 @@ class CotisationsController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        # name: "Netflix",
         name: @cotisation.subscription.name,
-        # images: [@cotisation.service.photo_url],
-        # images: [@cotisation.service.photo_url],
-        # amount: 50,
+        images: [@cotisation.subscription.service.photo],
+        # images: [image_url(@cotisation.subscription.service.photo)],
+        # images: [cl_image_tag(@cotisation.subscription.service.photo)],
         amount: @cotisation.price_cents,
         currency: 'eur',
         quantity: 1
@@ -70,10 +69,6 @@ class CotisationsController < ApplicationController
   def cotisation_price_per_month(service)
     (service.total_price * 100 / service.number_of_places) + 30
   end
-
-  # def cotisation_price_per_month(cotisation)
-  #   (cotisation.subscription.service.total_price * 100 / cotisation.subscription.service.number_of_places) + 30
-  # end
 
   private
 

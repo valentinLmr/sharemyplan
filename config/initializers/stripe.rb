@@ -6,8 +6,6 @@ Rails.configuration.stripe = {
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-# ...
-# StripeEvent.signing_secret = Rails.configuration.stripe[:signing_secret]
 
 StripeEvent.signing_secret = Rails.configuration.stripe[:signing_secret]
 
