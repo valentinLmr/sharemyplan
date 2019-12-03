@@ -34,7 +34,7 @@ User.destroy_all
 
 puts "creating new users"
 
-remi = User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942')
+remi = User.create!(email: 'remi.cordo@gmail.com', password: 'azerty', first_name: 'Rémi', last_name: 'Cordonnier', phone_number: '0688977942', cagnotte: 0)
 remi.remote_photo_url = "https://avatars3.githubusercontent.com/u/51714799?v=4"
 remi.save!
 
