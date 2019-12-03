@@ -2,6 +2,7 @@
 const createNotification = () => {
   const notification = document.querySelector(".notifications")
   const circle = document.querySelector('.add')
+
   console.log (circle)
 
   if (notification.innerHTML) {
@@ -11,4 +12,16 @@ const createNotification = () => {
     circle.classList.remove("circle-notif");
   };
 };
+
+
+var click = 0
+
+const menuNotification = document.getElementById("notif")
+menuNotification.addEventListener("click", (event) => {
+  click ++
+  if (click > 1) {
+    notification.unviewed = false;
+  };
+})
+
  export { createNotification }
