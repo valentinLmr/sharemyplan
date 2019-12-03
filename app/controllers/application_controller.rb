@@ -28,13 +28,11 @@ class ApplicationController < ActionController::Base
   end
 
   def notification
-    if user_signed_in? && current_user.notifications.size.positive?
-      current_user.notifications.each do |notification|
-        if notification.unviewed == true
-          flash[:notice] = "Hey #{current_user.first_name}, tu as un nouveau co-abonné !"
-          notification.unviewed = false
-          notification.save
-        end
+    if user_signed_in? && current_user.notifications.unviewed.size.positive?
+      flash[:notifications] = "Hey #{current_user.first_name}, tu as #{current_user.notifications.unviewed.count} nouveau co-abonné(s) !"
+      current_user.notifications.unviewed.each do |notification|
+        notification.unviewed = false
+        notification.save
       end
     end
   end
