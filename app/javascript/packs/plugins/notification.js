@@ -16,6 +16,7 @@ const createNotification = () => {
 
 
 
+
 let click = 0
 const menuNotification = document.getElementById("notif")
 menuNotification.addEventListener("click", (event) => {
@@ -25,6 +26,8 @@ menuNotification.addEventListener("click", (event) => {
   if (click == 1) {
     Notification.unviewed = false;
     Notification.save
+
+
   };
 })
 
