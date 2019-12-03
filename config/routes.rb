@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get 'cotisations/destroy'
   devise_for :users
   root to: 'pages#home'
+  delete 'toto', to: 'pages#toto'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/dashboard', to: 'profiles#dashboard'
