@@ -27,14 +27,14 @@
                   <div class="review_display">
                     <div class="content_review">
                      <img class="avatar" src="<%= review.cotisation.user.photo %>"/>
-                      <%= render "shared/stars", note: average(subscription)%>
+                      <%= render "shared/stars", note: review.rating %>
                       <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>                    </div>
                   </div>
                 <% else %>
                   <div class="review_display">
                     <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
                     <div class="content_review">
-                      <%= render "shared/stars", note: average(subscription)%>
+                        <%= render "shared/stars", note: review.rating %>
                        <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>
                     </div>
                   </div>
