@@ -41,7 +41,7 @@
       <div class="group-card-sub">
         <% current_user.cotisations.each do |cotisation| %>
 
-        <% if cotisation.state == 'paid' %>
+        <% if cotisation.state != 'canceled' %>
           <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
         <% end %>
 
