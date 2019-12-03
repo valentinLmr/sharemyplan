@@ -17,7 +17,8 @@ class Subscription < ApplicationRecord
   end
 
   def average_rating
-    return 0 if @review.rating.blank?
+    return 0 if self.reviews.blank?
+    self.reviews.average(:rating)
 
   end
 end
