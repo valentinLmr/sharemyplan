@@ -20,7 +20,10 @@
 
         <button id="pay" class="btn btn-hp mr-2">Payer</button>
 
-        <%= link_to cotisation_path(@cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment abandonner votre achat ?" , class: "btn btn-hp mr-2" do %>Annuler<% end %>
+        <%= link_to cotisation_path(@cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment abandonner votre achat ?"}, class: "btn btn-hp mr-2" do %>
+        Annuler
+        <% end %>
+
 
         <script src="https://js.stripe.com/v3/"></script>
         <script>
