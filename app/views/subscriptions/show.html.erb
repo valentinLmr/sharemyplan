@@ -99,7 +99,8 @@
                     <img class="avatar" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
                   <% end %>
                   <%= cotisation.user.first_name %>
-                  <%= link_to cotisation_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
+
+                  <%= link_to cotisation_delete_by_owners_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
                     <i class="far fa-trash-alt"></i>
                   <% end %>
                   <br>
