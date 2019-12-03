@@ -16,7 +16,8 @@ class CotisationsController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: @cotisation.subscription.name,
-        images: [@cotisation.subscription.service.photo],
+        images: ['/assets/#{@cotisation.subscription.service.photo}'],
+        # images: ['#{@cotisation.subscription.service.photo}'],
         # images: [image_url(@cotisation.subscription.service.photo)],
         # images: [cl_image_tag(@cotisation.subscription.service.photo)],
         amount: @cotisation.price_cents,

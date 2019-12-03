@@ -28,5 +28,11 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: :destroy
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
+
+  # decommenter ci dessous pour activer la route pour le webhook
+  # mount StripeEvent::Engine, at: '/stripe-webhooks'
+  # le reste a modifier est dans le fichier
+  # config/initializer/stripe.rb
+
 end
