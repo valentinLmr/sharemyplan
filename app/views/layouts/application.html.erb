@@ -10,17 +10,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,800,800i|Open+Sans:400,600,700i,800&display=swap" rel="stylesheet">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-    <body>
-
+  <body>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <div class="full-screen">
       <div class="header__bg"></div>
       <%= yield %>
     </div>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-
   </body>
-<%= render 'shared/footer' %>
 </html>
