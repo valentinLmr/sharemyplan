@@ -81,6 +81,7 @@ class CotisationsController < ApplicationController
     @subscription.available_places = @subscription.available_places - 1
     @subscription.save
     @subscription.user.save
+    raise
   end
 
   def destroy
