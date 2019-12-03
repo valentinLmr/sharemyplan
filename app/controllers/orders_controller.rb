@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
     cotisation = Cotisation.find(params[:subsription_id])
     order = Order.create!(cotisation: cotisation, amount: cotisation.price_cents, state: 'pending', user: current_user)
 
+    raise
+
     # session = Stripe::Checkout::Session.create(
     #     payment_method_types: ['card'],
     #     line_items: [{
