@@ -41,8 +41,35 @@ class CotisationsController < ApplicationController
     authorize @cotisation
 
     if @cotisation.save
+
       init_payment
       # cagnotte_update
+
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          # name: "Netflix",
+          name: @cotisation.subscription.name,
+          # images: [@cotisation.service.photo_url],
+          # images: [@cotisation.service.photo_url],
+          # amount: 50,
+          amount: @cotisation.price_cents,
+          currency: 'eur',
+          quantity: 1
+        }],
+        success_url: cotisation_url(@cotisation),
+        cancel_url: cotisation_url(@cotisation)
+      )
+      @cotisation.update(checkout_session_id: session.id)
+
+      @subscription.user.cagnotte += @subscription.price
+      @subscription.available_places = @subscription.available_places - 1
+      @subscription.save
+      @subscription.user.save
+
+      @notification = Notification.create!(user: @subscription.user)
+      notification
+
       redirect_to new_cotisation_payment_path(@cotisation)
     else
       render :new

@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :cotisations
   has_many :orders
   has_many :reviews
+  has_many :notifications
+
 end
