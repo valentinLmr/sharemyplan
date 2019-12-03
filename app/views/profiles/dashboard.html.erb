@@ -40,7 +40,11 @@
     <% if current_user.cotisations.count > 0 %>
       <div class="group-card-sub">
         <% current_user.cotisations.each do |cotisation| %>
+
+        <% if cotisation.state == 'paid' %>
           <%= render 'shared/card_dashb_cot',  cotisation: cotisation %>
+        <% end %>
+
         <% end %>
         <div class="add-card m-auto">
           <%= link_to "", services_path(user_choice: "cotisations"), class: "fas fa-plus-circle add-card-plus" %>

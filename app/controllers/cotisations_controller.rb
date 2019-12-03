@@ -11,6 +11,24 @@ class CotisationsController < ApplicationController
     authorize @cotisation
   end
 
+  def init_payment
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @cotisation.subscription.name,
+        images: [@cotisation.subscription.service.photo],
+        # images: [image_url(@cotisation.subscription.service.photo)],
+        # images: [cl_image_tag(@cotisation.subscription.service.photo)],
+        amount: @cotisation.price_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: cotisation_url(@cotisation),
+      cancel_url: cotisation_url(@cotisation)
+    )
+    @cotisation.update(checkout_session_id: session.id)
+  end
+
   def create
     @subscription            = Subscription.find(params[:subscription_id])
     @cotisation              = Cotisation.new
@@ -23,6 +41,10 @@ class CotisationsController < ApplicationController
     authorize @cotisation
 
     if @cotisation.save
+
+      init_payment
+      # cagnotte_update
+
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -54,6 +76,13 @@ class CotisationsController < ApplicationController
     end
   end
 
+  def cagnotte_update
+    @subscription.user.cagnotte += @subscription.price
+    @subscription.available_places = @subscription.available_places - 1
+    @subscription.save
+    @subscription.user.save
+  end
+
   def destroy
     @cotisation = Cotisation.find(params[:id])
     authorize @cotisation
@@ -67,10 +96,6 @@ class CotisationsController < ApplicationController
   def cotisation_price_per_month(service)
     (service.total_price * 100 / service.number_of_places) + 30
   end
-
-  # def cotisation_price_per_month(cotisation)
-  #   (cotisation.subscription.service.total_price * 100 / cotisation.subscription.service.number_of_places) + 30
-  # end
 
   private
 

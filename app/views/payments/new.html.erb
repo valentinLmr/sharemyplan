@@ -1,3 +1,4 @@
+
 <div class="container payment-container mt-4">
 <h4 class="py-3" style="text-align: center;">Récapitulatif de ta souscription</h4>
   <div class=" d-flex pb-3 justify-content-around">
@@ -27,6 +28,7 @@
             stripe.redirectToCheckout({
               sessionId: '<%= @cotisation.checkout_session_id %>'
             });
+
           });
         </script>
       </div>
