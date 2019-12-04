@@ -2,9 +2,9 @@
 
   <div class="d-flex justify-content-center align-items-center mt-4" style="flex-direction: column;">
     <% if current_user.photo? %>
-      <img style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid white;" src="<%= current_user.photo %>">
+      <img style="width: 75px; height: 75px; border-radius: 50%; border: 1px solid white;" src="<%= current_user.photo %>">
     <% else %>
-      <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+      <img style="width: 75px; height: 75px; border-radius: 50%; border: 1px solid white;" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
     <% end %>
     <h3 class="ml-4 mt-2" style="text-align: center; color: white;">Ravi de vous revoir <%= current_user.first_name %> !</h3>
   </div>
