@@ -14,10 +14,10 @@
       <% if user_signed_in? && current_user.photo.present? %>
 
         <li id="notif" class="nav-item dropdown">
-          <div class="add "></div>
+          <div class="add"></div>
           <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i id="notif"class="fas fa-bell"></i> </div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <span class="dropdown-item notifications"><%= flash[:notifications] %></span>
+            <a href="/dashboard#abonnements"> <span class="dropdown-item notifications"><%= flash[:notifications] %></span></a>
           </div>
         </li>
 
