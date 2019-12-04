@@ -4,7 +4,7 @@ const createNotification = () => {
   const circle = document.querySelector('.add')
 
   console.log (circle)
-  console.log(notification)
+  console.log(notification.innerHTML)
 
   if (notification.innerHTML) {
    circle.classList.add("circle-notif");
