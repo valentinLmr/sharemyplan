@@ -23,7 +23,7 @@
 
 
         <li class="nav-item dropdown mr-2">
-          <span class="nav-link navbar-wagon-link pr-1" style="color:#5f6060;"><b> <a href="#anchor" style="text-decoration: none;" > Ma cagnotte</a> <span style="font-size: 1.2em;"></span> <i class="fas fa-euro-sign pr-1"></i><%= current_user.cagnotte.to_f.round(2) %></b></span>
+          <span class="nav-link navbar-wagon-link pr-1" style="color:#5f6060;"><b> Ma cagnotte</a> <span style="font-size: 1.2em;"></span> <i class="fas fa-euro-sign pr-1"></i><%= current_user.cagnotte.to_f.round(2) %></b></span>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
