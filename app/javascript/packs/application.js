@@ -6,6 +6,7 @@ import { someChange } from "./plugins/subscriptionIndex";
 import { createNotification } from "./plugins/notification";
 
 import { ecritureHome } from "./plugins/bannerHome";
+import { dashboard } from "./plugins/subscriptionShow";
 
 
 
@@ -15,3 +16,4 @@ someChange();
 // stickyNavigation();
 createNotification();
 ecritureHome();
+dashboard();
