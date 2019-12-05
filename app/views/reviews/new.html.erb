@@ -25,7 +25,13 @@
         <h4>Votre avis sur l'abonnement de <%= @cotisation.subscription.user.first_name %></h4><br>
         <%= simple_form_for [@cotisation, @review] do |f| %>
           <%= f.input :content, label: 'Votre avis détaillé :'%>
-          <%= f.input :rating, label: 'Votre note sur 5 :'%> <br>
+          <%= f.input :rating, as: :hidden %> <br>
+          Note pour <%= @cotisation.subscription.user.first_name %> :
+           <div class="stars-rating-new">
+            <% 5.times do |index| %>
+              <i id="<%= index + 1 %>"  class="review-rating far fa-star"></i>
+            <% end %>
+          </div>
           <%= f.submit "Soumettre", class: "text-center btn btn-hp"  %>
         <% end %>
       </div>
