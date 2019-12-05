@@ -6,7 +6,7 @@ import { someChange } from "./plugins/subscriptionIndex";
 import { createNotification } from "./plugins/notification";
 
 import { ecritureHome } from "./plugins/bannerHome";
-
+import { openModal } from './plugins/openModal';
 
 
 
@@ -16,4 +16,4 @@ someChange();
 // stickyNavigation();
 createNotification();
 ecritureHome();
-
+openModal();
