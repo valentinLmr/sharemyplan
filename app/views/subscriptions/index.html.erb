@@ -6,7 +6,11 @@
           <a href="/services?user_choice=cotisations"><i class="fas fa-long-arrow-alt-left ml-4" style="color: white;"></i></a>
         </div>
         <div class="title-sub d-flex justify-content-center" style="width: 93%; text-align: center; font-family: 'Pacifico'; color: white; font-size: 2.1em; margin-right: 40px;">
-          <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.size - @full_subscriptions.size %> partages <%= @service.name %> disponibles
+          <% if @subscriptions.size - @full_subscriptions.size > 1 %>
+            <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.size - @full_subscriptions.size %> partages <%= @service.name %> disponibles
+          <% else %>
+            <%= current_user.first_name.capitalize %>, il y a un partage <%= @service.name %> disponible
+          <% end %>
         </div>
       </div>
   <% else %>
