@@ -26,7 +26,7 @@
       </div>
     <% else %>
       <div class="d-flex justify-content-between mt-3">
-        <p>Vous ne proposez actuellement aucun abonnement à la location</p>
+        <p>Vous ne proposez actuellement aucun abonnement à la location <%= current_user.first_name %> !</p>
         <%= link_to 'Partager', services_path(user_choice: "subscriptions"), class: 'btn btn-dashboard' %>
       </div>
     <% end %>
@@ -51,7 +51,7 @@
       </div>
     <% else %>
       <div class="d-flex justify-content-between mt-3">
-        <p>Vous ne louez actuellement aucun abonnement !</p>
+        <p>Vous ne louez actuellement aucun abonnement <%= current_user.first_name %> !</p>
           <%= link_to 'Souscrire', services_path(user_choice: "cotisations"), class: 'btn btn-dashboard' %>
       </div>
     <% end %>
