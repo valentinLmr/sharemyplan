@@ -3,7 +3,7 @@
   <% if @subscriptions.size > 0 && @subscriptions.size - @full_subscriptions.size > 0 %>
       <div class="d-flex align-items-center mt-4">
         <div class="back d-flex align-items-center" style="width: 7%; height: 40px; color: white;">
-          <a href="javascript:history.back()"><i class="fas fa-long-arrow-alt-left ml-4" style="color: white;"></i></a>
+          <a href="/services?user_choice=cotisations"><i class="fas fa-long-arrow-alt-left ml-4" style="color: white;"></i></a>
         </div>
         <div class="title-sub d-flex justify-content-center" style="width: 93%; text-align: center; font-family: 'Pacifico'; color: white; font-size: 2.1em; margin-right: 40px;">
           <%= current_user.first_name.capitalize %>, voici les <%= @subscriptions.size - @full_subscriptions.size %> partages <%= @service.name %> disponibles
