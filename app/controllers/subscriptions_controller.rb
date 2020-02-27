@@ -57,7 +57,7 @@ class SubscriptionsController < ApplicationController
 
     authorize(@subscription)
 
-    if @subscription.update(subscription_params)
+    if @subscription.update(restaurant_params)
       redirect_to subscription_path
     else
       render :edit
@@ -75,6 +75,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:available_places, :identifiant, :password)
+    params.require(:subscription).permit(:available_places, :identifiant, :password, :email, :description)
   end
 end

@@ -23,7 +23,7 @@
           <div class="password-subscription" style="justify-content: flex-start;">
             <p style="text-align: left"><i class="fas fa-info-circle d-flex mr-1"></i><b> Identifiant :</b></p>
             <p><%= simple_form_for subscription do |f|%>
-                <%= f.input :identifiant, label: false, input_html: {value: subscription.identifiant, type: "text", class: "input_password"} %>
+                <%= f.input :identifiant, label: false, input_html: {value: subscription.identifiant, type: "text", class= "input_password"} %>
               <% end %>
             </p>
           </div>
