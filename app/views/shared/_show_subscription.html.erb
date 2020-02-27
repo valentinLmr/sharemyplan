@@ -22,8 +22,9 @@
 
           <div class="password-subscription" style="justify-content: flex-start;">
             <p style="text-align: left"><i class="fas fa-info-circle d-flex mr-1"></i><b> Identifiant :</b></p>
-            <p><%= simple_form_for subscription do |f|%>
-                <%= f.input :identifiant, label: false, input_html: {value: subscription.identifiant, type: "text", class= "input_password"} %>
+            <p>
+              <%= simple_form_for subscription do |f|%>
+                <%= f.input :identifiant, label: false, input_html: {value: subscription.identifiant, type: "text", class: "input_password"} %>
               <% end %>
             </p>
           </div>
@@ -32,7 +33,7 @@
           <div class="password-subscription">
             <p><i class="fas fa-fingerprint d-flex mr-1"></i><b> Mot de passe :</b></p>
             <p><%= simple_form_for subscription do |f|%>
-                <%= f.input :password, label: false, input_html: {value: subscription.password, type: "text", class: "input_password"} %>
+                <%= f.input :password, label: false, input_html: { value: subscription.password, type: "text", class: "input_password" } %>
               <% end %>
             </p>
           </div>
@@ -56,7 +57,8 @@
                           <div class="content_review">
                            <img class="avatar-show" src="<%= review.cotisation.user.photo %>"/>
                             <%= render "shared/stars", note: average(subscription)%>
-                            <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>                    </div>
+                            <i> <strong>"</strong> <%=  review.content %> <strong>"</strong> </i>
+                          </div>
                         </div>
                       <% else %>
                         <div class="review_display">
@@ -86,45 +88,38 @@
           </div>
 
 
-<div class="cotisation-card-footer mt-4 d-flex ">
-    <div class="card-co-abo align-items-center justify-content-around mx-4" style="max-width: 65%; min-width: 65%; text-align:center;">
-      <h4 class="mb-4">Tes co-abonnés</h4>
-        <% if subscription.cotisations.count < 1 %>
-          <p><i>Tu n'as pas de co-abonné(e) pour le moment <%= current_user.first_name %></i></p>
-        <% else %>
+      <div class="cotisation-card-footer mt-4 d-flex ">
+        <div class="card-co-abo align-items-center justify-content-around mx-4" style="max-width: 65%; min-width: 65%; text-align:center;">
+          <h4 class="mb-4">Tes co-abonnés</h4>
+            <% if subscription.cotisations.count < 1 %>
+              <p><i>Tu n'as pas de co-abonné(e) pour le moment <%= current_user.first_name %></i></p>
+            <% else %>
 
-          <div class="card-co-abo d-flex align-items-center justify-content-around mx-3">
-            <% subscription.cotisations.each do |cotisation| %>
-                <div class="d-flex" style="flex-direction: column;">
-                  <% if cotisation.user.photo?  %>
-                    <img class="avatar-show" src="<%= cotisation.user.photo %>" style="margin: auto;" >
-                  <% else %>
-                    <img class="avatar-show" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
-                  <% end %>
-                  <%= cotisation.user.first_name %>
+              <div class="card-co-abo d-flex align-items-center justify-content-around mx-3">
+                <% subscription.cotisations.each do |cotisation| %>
+                    <div class="d-flex" style="flex-direction: column;">
+                      <% if cotisation.user.photo?  %>
+                        <img class="avatar-show" src="<%= cotisation.user.photo %>" style="margin: auto;" >
+                      <% else %>
+                        <img class="avatar-show" src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
+                      <% end %>
+                      <%= cotisation.user.first_name %>
 
-                  <%= link_to cotisation_delete_by_owners_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
-                    <i class="far fa-trash-alt"></i>
-                  <% end %>
-                  <br>
-                </div>
+                      <%= link_to cotisation_delete_by_owners_path(cotisation), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette utilisateur de votre abonnement?" } do %>
+                        <i class="far fa-trash-alt"></i>
+                      <% end %>
+                      <br>
+                    </div>
 
+                <% end %>
+              </div>
             <% end %>
+            </div>
+          <div class="card-delete-abo align-items-center justify-content-around mx-4" style="margin: auto; text-align: center; max-width: 30%; min-width: 30%;">
+            <%= link_to "Supprimer l'abonnement", subscription_path(subscription), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette abonnement ?" }, class: 'btn btn-destroy' %> <br> <br>
           </div>
-
-        <% end %>
-
+        </div>
       </div>
-
-      <div class="card-delete-abo align-items-center justify-content-around mx-4" style="margin: auto; text-align: center; max-width: 30%; min-width: 30%;">
-        <%= link_to "Supprimer l'abonnement", subscription_path(subscription), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer cette abonnement ?" }, class: 'btn btn-destroy' %> <br> <br>
-      </div>
-    </div>
-  </div>
-
-
-
-
     </div>
   </div>
 </div>
